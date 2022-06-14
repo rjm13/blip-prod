@@ -16,7 +16,7 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 
 const Item = ({ pseudonym, imageUri, id, bio, following, authored, isPublisher } : any) => {
 
-    //const navigation = useNavigation();
+    const navigation = useNavigation();
 
     const [ShowModalThing, setShowModalThing] = useState(false);
 
