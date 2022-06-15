@@ -1,0 +1,14 @@
+{
+  "resourceName": "s325c708cf",
+  "policyUUID": "25c708cf",
+  "bucketName": "blipprodf1b90cfea49c4ec19b21367a9791a94e",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

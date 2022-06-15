@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "blipprod",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authblipprodcc14f13d",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
