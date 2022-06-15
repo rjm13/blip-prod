@@ -205,8 +205,8 @@ const Welcome = ({navigation} : any) => {
 
 {/* FOOTER */}
             <View style={{height: '10%'}}>
-                <TouchableOpacity onPress={() => isSet === true ? Next() : null}>
-                    <Text style={{overflow: 'hidden', alignSelf: 'center', backgroundColor: isSet === false ? 'gray' : 'cyan', paddingVertical: 6, paddingHorizontal: 20, borderRadius: 13, textAlign: 'center'}}>
+                <TouchableOpacity onPress={() => navigation.navigate('SplashCarousel')}>
+                    <Text style={{overflow: 'hidden', alignSelf: 'center', backgroundColor: 'cyan', paddingVertical: 6, paddingHorizontal: 20, borderRadius: 13, textAlign: 'center'}}>
                         Next
                     </Text>
                 </TouchableOpacity>

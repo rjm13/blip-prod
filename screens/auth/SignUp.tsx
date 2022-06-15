@@ -31,9 +31,12 @@ const SignUp = ({navigation} : any) => {
         const todaysdate = new Date();
 
     const onChange = (event, selectedDate) => {
+        console.log('date is')
+        console.log(selectedDate)
         const currentDate = selectedDate || date;
         setShow(Platform.OS === 'ios');
-        setDate(currentDate);
+        setDate(selectedDate);
+        setData({...data, birthdate: format(selectedDate, "MM/dd/yyyy")})
     };
 
     const showMode = (currentMode : any) => {
@@ -81,6 +84,8 @@ const SignUp = ({navigation} : any) => {
 const CreateUser = async () => {
 
     const { password, confirm_password, Name, email, birthdate, membership } = data;
+
+    console.log(birthdate)
 
     let username = email.replace(/ /g, '');
 

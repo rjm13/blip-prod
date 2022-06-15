@@ -121,23 +121,26 @@ useEffect(() => {
             ))
             setUser(UserData.data.getUser)
 
-            for (let i = 0; i < UserData.data.getUser.Rated.items.length; i++) {
-                // console.log(UserData.data.getUser.Rated.items[i].storyID)
-                // console.log(storyID)
-                if (UserData.data.getUser.Rated.items[i].storyID === storyID) {
-                    setIsRated(true);
-                }
+            if (UserData.data.getUser.Rated) {
+               for (let i = 0; i < UserData.data.getUser.Rated?.items.length; i++) {
+                    // console.log(UserData.data.getUser.Rated.items[i].storyID)
+                    // console.log(storyID)
+                    if (UserData.data.getUser.Rated?.items[i].storyID === storyID) {
+                        setIsRated(true);
+                    }
+                } 
             }
+            
 
-            for (let i = 0; i < UserData.data.getUser.Finished.items.length; i++) {
-                if (UserData.data.getUser.Finished.items[i].storyID === storyID) {
+            for (let i = 0; i < UserData.data.getUser.Finished?.items.length; i++) {
+                if (UserData.data.getUser.Finished?.items[i].storyID === storyID) {
                     setIsFinished(true);
                 }
             }
-            for (let i = 0; i < UserData.data.getUser.inProgressStories.items.length; i++) {
-                if (UserData.data.getUser.inProgressStories.items[i].storyID === storyID) {
-                    setInProgressID(UserData.data.getUser.inProgressStories.items[i].id);
-                    setPosition(UserData.data.getUser.inProgressStories.items[i].time)
+            for (let i = 0; i < UserData.data.getUser.inProgressStories?.items.length; i++) {
+                if (UserData.data.getUser.inProgressStories?.items[i].storyID === storyID) {
+                    setInProgressID(UserData.data.getUser.inProgressStories?.items[i].id);
+                    setPosition(UserData.data.getUser.inProgressStories?.items[i].time)
                 }
             }
         }

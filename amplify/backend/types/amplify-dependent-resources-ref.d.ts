@@ -18,7 +18,6 @@ export type AmplifyDependentResourcesAttributes = {
     },
     "api": {
         "blipprod": {
-            "GraphQLAPIKeyOutput": "string",
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
         },

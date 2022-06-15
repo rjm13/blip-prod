@@ -13,7 +13,8 @@
     },
     "categories": {
       "auth": {
-        "blipprodcc14f13d": {}
+        "blipprodcc14f13d": {},
+        "userPoolGroups": {}
       },
       "function": {
         "AdminQueriesda6bc0db": {

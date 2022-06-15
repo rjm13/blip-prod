@@ -39,6 +39,8 @@ const ConfirmEmail = ({navigation, route} : {navigation: any, route : any}) => {
 
             let result = await Auth.confirmSignUp(username, code);
 
+            console.log(data)
+
             if (result) {
                 let signin = await Auth.signIn (username, password)
 

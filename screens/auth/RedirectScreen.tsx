@@ -41,7 +41,8 @@ const Redirect = ({route, navigation} : any) => {
             try {
                 const userInfo = await Auth.currentAuthenticatedUser({ bypassCache: true }).catch(err=>err)
 
-            
+                console.log(userInfo)
+
                 if (userInfo === 'The user is not authenticated') {
                     navigation.navigate('SignIn')
                 }
@@ -73,7 +74,7 @@ const Redirect = ({route, navigation} : any) => {
                         getUser,{ id: userInfo.attributes.sub}))
 
     
-                    
+                    console.log(userData.data.getUser)
         
                     if (userData.data.getUser) {
                         setUserID(userData.data.getUser);
