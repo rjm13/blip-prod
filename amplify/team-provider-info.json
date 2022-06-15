@@ -14,7 +14,8 @@
     "categories": {
       "auth": {
         "blipprodcc14f13d": {},
-        "userPoolGroups": {}
+        "userPoolGroups": {},
+        "true": {}
       },
       "function": {
         "AdminQueriesda6bc0db": {

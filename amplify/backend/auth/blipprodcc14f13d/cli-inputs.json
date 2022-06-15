@@ -2,7 +2,7 @@
   "version": "1",
   "cognitoConfig": {
     "identityPoolName": "blipprodcc14f13d_identitypool_cc14f13d",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "blipprcc14f13d",
     "userPoolName": "blipprodcc14f13d_userpool_cc14f13d",
     "autoVerifiedAttributes": [
