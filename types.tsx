@@ -67,6 +67,7 @@ export type TabOneParamList = {
   SavedPrompts: undefined;
   InProgress: undefined;
   PendingPrompts: undefined;
+  AdminUpload: undefined;
 
 };
 

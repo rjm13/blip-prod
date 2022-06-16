@@ -147,6 +147,14 @@ const ModSection = ({navigation} : any) => {
                     </Text>
                 </View>
             </TouchableWithoutFeedback>
+
+            <TouchableWithoutFeedback onPress={() => navigation.navigate('AdminUpload', {promptID: null})}>
+                <View style={{paddingHorizontal: 20, paddingVertical: 20, justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
+                    <Text style={{color: '#fff'}}>
+                        Admin Upload
+                    </Text>
+                </View>
+            </TouchableWithoutFeedback>
         </View>
     )
 }

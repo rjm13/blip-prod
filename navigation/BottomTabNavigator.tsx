@@ -24,6 +24,7 @@ import PendingStories from '../screens/PendingStories';
 import FlaggedStories from '../screens/FlaggedStories';
 import NewComments from '../screens/NewComments';
 import PendingPrompts from '../screens/PendingPrompts';
+import AdminUpload from '../screens/AdminUploadAudio';
 
 import PublishingMainScreen from '../screens/PublishingMain';
 import NarratorMain from '../screens/NarratorMain';
@@ -236,6 +237,11 @@ function HomeNavigator() {
       <HomeStack.Screen 
         name="UploadAudio" 
         component={UploadAudio} 
+        options={{ headerShown: false }} 
+      />
+      <HomeStack.Screen 
+        name="AdminUpload" 
+        component={AdminUpload} 
         options={{ headerShown: false }} 
       />
       <HomeStack.Screen 
