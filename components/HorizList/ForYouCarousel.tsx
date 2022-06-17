@@ -31,7 +31,7 @@ const ForYouCarousel = () => {
     const { nsfwOn } = useContext(AppContext);
 
     //carousel tile
-    const Item = ({title, genreName, icon, summary, imageUri, author, narrator, time, id} : any) => {
+    const Item = ({title, genreName, icon, summary, imageUri, author, narrator, time, id, primary} : any) => {
 
         const [imageU, setImageU] = useState('');
         
@@ -123,7 +123,7 @@ const ForYouCarousel = () => {
                     >
                     <View 
                         style={{ 
-                            backgroundColor: '#000000a5',
+                            backgroundColor: '#000000BF',
                             borderBottomLeftRadius: 15,
                             borderBottomRightRadius: 15,
                             borderTopRightRadius: isVisible === true ? 15 : 0,
@@ -139,7 +139,7 @@ const ForYouCarousel = () => {
                                             <Text style={styles.title}>
                                                 {title}
                                             </Text> 
-                                            <Text style={[styles.category]}>
+                                            <Text style={{fontSize: 14, color: '#ffffffa5', textTransform: 'capitalize'}}>
                                                 {genreName}
                                             </Text>
                                         </View>

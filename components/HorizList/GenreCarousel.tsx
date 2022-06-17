@@ -182,7 +182,7 @@ const GenreCarousel = ({genreid} : any) => {
                     }}
                 >
                     <View style={{ 
-                        backgroundColor: '#000000a5',
+                        backgroundColor: '#000000B5',
                         borderBottomLeftRadius: 15,
                         borderBottomRightRadius: 15,
                         borderTopRightRadius: isVisible === true ? 15 : 0,

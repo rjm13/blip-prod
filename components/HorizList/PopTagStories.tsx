@@ -151,7 +151,7 @@ const PopTagStories = ({genreid, tag, tagID} : any) => {
                         style={{marginBottom: 12, backgroundColor: '#ffffffa5', width: 200, height: 180, justifyContent: 'flex-end', borderRadius: 15}}
                         imageStyle={{borderRadius: 15,}}
                     >
-                        <View style={{backgroundColor: '#000000a5', borderBottomLeftRadius: 15, borderBottomRightRadius: 15, paddingHorizontal: 10, paddingVertical: 10}}> 
+                        <View style={{backgroundColor: '#000000B5', borderBottomLeftRadius: 15, borderBottomRightRadius: 15, paddingHorizontal: 10, paddingVertical: 10}}> 
                             
                             <View style={{alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between'}}>
                                 <View>

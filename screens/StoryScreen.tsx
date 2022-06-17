@@ -810,8 +810,14 @@ const StoryScreen  = ({navigation} : any) => {
                                         showsVerticalScrollIndicator={false}
                                         ListHeaderComponent={() => {
                                             return (
-                                                <View style={{marginHorizontal: 20, height: '100%', alignItems: 'center', justifyContent: 'center'}}>
-                                                    <Text style={{fontSize: 15, textTransform: 'capitalize', textAlign: 'center', color: '#fff'}}>
+                                                <View style={{marginHorizontal: 20, height: '100%', alignItems: 'center', justifyContent: 'center', flexDirection: 'row'}}>
+                                                    <FontAwesome5 
+                                                        name={Story?.genre?.icon}
+                                                        size={13}
+                                                        color='#ffffffa5'
+                                                        style={{marginRight: 6}}
+                                                    />
+                                                    <Text style={{fontSize: 15, textTransform: 'capitalize', textAlign: 'center', color: Story?.genre?.PrimaryColor}}>
                                                         {Story?.genre?.genre}
                                                     </Text>
                                                 </View>
