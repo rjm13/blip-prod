@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import React, {useContext} from "react";
+import {Platform} from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -86,7 +87,7 @@ export default function BottomTabNavigator() {
           tabBarStyle: {
             //backgroundColor: '#000',
             height: 55,
-            paddingBottom: 4
+            paddingBottom: Platform.OS === 'ios' ? 14 : 4
         }
           }}>
       <BottomTab.Screen
