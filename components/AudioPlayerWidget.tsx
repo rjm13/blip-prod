@@ -89,6 +89,14 @@ useEffect(() => {
     const [imageU, setImageU] = useState('')
     const [user, setUser] = useState({})
 
+    useEffect(() => {
+        if (isPlaying === true) {
+            setPosition(0);
+            setIsPlaying(false);
+            ProgressCheck()
+        }
+    }, [storyID])
+
 //fetch the story attributes and audioUri from the s3 bucket
     useEffect(() => {
 
@@ -121,32 +129,39 @@ useEffect(() => {
             ))
             setUser(UserData.data.getUser)
 
-            if (UserData.data.getUser.Rated) {
-               for (let i = 0; i < UserData.data.getUser.Rated?.items.length; i++) {
-                    // console.log(UserData.data.getUser.Rated.items[i].storyID)
-                    // console.log(storyID)
-                    if (UserData.data.getUser.Rated?.items[i].storyID === storyID) {
-                        setIsRated(true);
-                    }
-                } 
+            for (let i = 0; i < UserData.data.getUser.Rated.items.length; i++) {
+                // console.log(UserData.data.getUser.Rated.items[i].storyID)
+                // console.log(storyID)
+                if (UserData.data.getUser.Rated.items[i].storyID === storyID) {
+                    setIsRated(true);
+                }
             }
-            
 
-            for (let i = 0; i < UserData.data.getUser.Finished?.items.length; i++) {
-                if (UserData.data.getUser.Finished?.items[i].storyID === storyID) {
+            for (let i = 0; i < UserData.data.getUser.Finished.items.length; i++) {
+                if (UserData.data.getUser.Finished.items[i].storyID === storyID) {
                     setIsFinished(true);
                 }
             }
-            for (let i = 0; i < UserData.data.getUser.inProgressStories?.items.length; i++) {
-                if (UserData.data.getUser.inProgressStories?.items[i].storyID === storyID) {
-                    setInProgressID(UserData.data.getUser.inProgressStories?.items[i].id);
-                    setPosition(UserData.data.getUser.inProgressStories?.items[i].time)
+            for (let i = 0; i < UserData.data.getUser.inProgressStories.items.length; i++) {
+                if (UserData.data.getUser.inProgressStories.items[i].storyID === storyID) {
+                    setInProgressID(UserData.data.getUser.inProgressStories.items[i].id);
+                    setPosition(UserData.data.getUser.inProgressStories.items[i].time)
                 }
             }
         }
 
-        fetchStory();
-        fetchUser();
+        if (isPlaying === true) {
+            setPosition(0);
+            setIsPlaying(false);
+            ProgressCheck()
+            fetchStory();
+            fetchUser();
+        } else {
+            fetchStory();
+            fetchUser();
+        }
+    
+        
 
     }, [storyID])
 
@@ -166,6 +181,7 @@ useEffect(() => {
         setStory(null);
         setPosition(0);
         setIsPlaying(false);
+        ProgressCheck();
     }
 
 //unpin a story

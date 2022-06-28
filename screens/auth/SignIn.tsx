@@ -27,6 +27,7 @@ import { CognitoHostedUIIdentityProvider } from "@aws-amplify/auth/lib/types";
 import { getUser } from '../../src/graphql/queries';
 import { createUser } from '../../src/graphql/mutations';
 
+import { styles } from "../../styles";
 
 
 const SignIn = ({navigation} : any) => {
@@ -289,10 +290,10 @@ const SignIn = ({navigation} : any) => {
                 </Modal>
             </Portal>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.container}>
+        <View style={istyles.container}>
             <LinearGradient
                 colors={['#00ffffa5','#000', '#000', '#000']}
-                style={styles.container}
+                style={istyles.container}
                 start={{ x: 1, y: 0 }}
                 end={{ x: 0, y: 1 }}
             >
@@ -305,14 +306,14 @@ const SignIn = ({navigation} : any) => {
                     </View>
                     ) : null}
                     <View>
-                        <Text style={styles.header}>
+                        <Text style={istyles.header}>
                             Email
                         </Text>
-                        <View style={styles.inputfield}>
+                        <View style={istyles.inputfield}>
                             <TextInput 
                                 placeholder='....'
                                 placeholderTextColor='#ffffffa5'
-                                style={styles.textInputTitle}
+                                style={istyles.textInputTitle}
                                 maxLength={40}
                                 onChangeText={handleUsername}
                                 autoCapitalize='none'
@@ -321,14 +322,14 @@ const SignIn = ({navigation} : any) => {
                     </View>
 
                     <View>
-                        <Text style={styles.header}>
+                        <Text style={istyles.header}>
                             Password
                         </Text>
-                        <View style={[styles.inputfield, {flexDirection: 'row', justifyContent: 'space-between'}]}>
+                        <View style={[istyles.inputfield, {flexDirection: 'row', justifyContent: 'space-between'}]}>
                             <TextInput 
                                 placeholder='....'
                                 placeholderTextColor='#ffffffa5'
-                                style={[styles.textInputTitle, {width: '80%'}]}
+                                style={[istyles.textInputTitle, {width: '80%'}]}
                                 maxLength={30}
                                 secureTextEntry={seePass === true ? false : true}
                                 onChangeText={handlePassword}
@@ -369,17 +370,17 @@ const SignIn = ({navigation} : any) => {
 
                 </View>
 
-                <TouchableOpacity onPress={signIn}>
-                    <View style={styles.button}>
-                        {signingIn === true ? (
-                            <ActivityIndicator size="small" color="cyan"/>
-                        ) : (
-                            <Text style={styles.buttontext}>
+            {signingIn === true ? (
+                <ActivityIndicator size="small" color="cyan"/>
+                ) : (
+                    <TouchableOpacity onPress={signIn}>
+                        <View style={[styles.button, {alignSelf: 'center'}]}>
+                            <Text style={{textAlign: 'center'}}>
                                 Sign In
                             </Text>
-                        )}
-                    </View>
-                </TouchableOpacity>
+                        </View>
+                    </TouchableOpacity>
+                )}
 
                 {/* <View>
                     <Text style={{color: '#fff', alignSelf: 'center', marginBottom: 10}}>
@@ -437,7 +438,7 @@ const SignIn = ({navigation} : any) => {
     );
 }
 
-const styles = StyleSheet.create ({
+const istyles = StyleSheet.create ({
     container: {
         justifyContent: 'center',
         //alignItems: 'center',
