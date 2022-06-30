@@ -87,7 +87,7 @@ const AudioStoryHome = ({navigation} : any) => {
                 end={{ x: 1, y: 0 }}
                 style={[styles.genrebox]}
               >
-                <View style={{justifyContent: 'center', backgroundColor: locked === true ? '#363636a5' : 'transparent', width: '100%', height: '100%'}}>
+                <View style={{justifyContent: 'center', borderRadius: 15, backgroundColor: locked === true ? '#363636a5' : 'transparent', width: '100%', height: '100%'}}>
                   <Text style={styles.genre}>
                     {genre}
                   </Text>
