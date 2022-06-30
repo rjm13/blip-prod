@@ -122,6 +122,9 @@ const UploadAudio = ({navigation} : any) => {
 //determine where the image is coming from, locally or otherwise
     const [isLocalImage, setIsLocalImage] = useState(false);
 
+    //determine where the image is coming from, locally or otherwise
+    const [isLocalProfileImage, setIsLocalProfileImage] = useState(false);
+
 //determine where the audio is coming from, locally or otherwise
     const [isLocalAudio, setIsLocalAudio] = useState(false);
 
@@ -701,6 +704,7 @@ const UploadAudio = ({navigation} : any) => {
         setLocalImageUri(im);
         //setData({...data, artistID: user.id, artistName: user.artistPseudo})
         setIsLocalImage(true);
+        setIsLocalProfileImage(true);
         }
     };
   
@@ -1192,7 +1196,7 @@ const UploadAudio = ({navigation} : any) => {
 
         try {
 
-            if (isLocalImage === true) {
+            if (isLocalProfileImage === true) {
                  const responseImage = await fetch(localImageUri);
                 const blobImage = await responseImage.blob();
                 const filenameImage = uuid.v4().toString();
@@ -1233,7 +1237,9 @@ const UploadAudio = ({navigation} : any) => {
                         plan: 'admincreated'
                     })
                     hideCreateUserModal();
-                    setIsPublishing(false)
+                    setIsPublishing(false);
+                    setIsLocalImage(false);
+                    setIsLocalProfileImage(false);
                 }
 
             } else {
@@ -1271,7 +1277,9 @@ const UploadAudio = ({navigation} : any) => {
                         plan: 'admincreated'
                     })
                     hideCreateUserModal();
-                    setIsPublishing(false)
+                    setIsPublishing(false);
+                    setIsLocalImage(false);
+                    setIsLocalProfileImage(false);
                 }
 
             }
