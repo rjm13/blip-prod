@@ -742,7 +742,6 @@ const UploadAudio = ({navigation} : any) => {
       
         termsAgree === true &&
         audioName !== '' &&
-        localImageUri !== '' &&
         data.author !== '' &&
         data.genre !== '' &&
         data.description !== '' &&
@@ -958,11 +957,13 @@ const UploadAudio = ({navigation} : any) => {
 
         const fetchNarrators = async (nextToken : any) => {
             let response = await API.graphql(graphqlOperation(
-                listUsers, {nextToken, filter: {
-                    plan: {
-                        eq: 'admincreated'
+                listUsers, {nextToken, 
+                    filter: {
+                    isNarrator: {
+                        eq: true
                     },
-                }}
+                }
+            }
             ))
 
             for (let i = 0; i < response.data.listUsers.items.length; i++) {
@@ -990,8 +991,8 @@ const UploadAudio = ({navigation} : any) => {
             const fetchAuthors = async (nextToken : any) => {
                 let response = await API.graphql(graphqlOperation(
                     listUsers, {nextToken, filter: {
-                        plan: {
-                            eq: 'admincreated'
+                        isPublisher: {
+                            eq: true
                         },
                     }}
                 ))
@@ -1024,8 +1025,8 @@ const UploadAudio = ({navigation} : any) => {
             const fetchIllustrators = async (nextToken : any) => {
                 let response = await API.graphql(graphqlOperation(
                     listUsers, {nextToken, filter: {
-                        plan: {
-                            eq: 'admincreated'
+                        isArtist: {
+                            eq: true
                         },
                     }}
                 ))
@@ -2089,7 +2090,6 @@ const UploadAudio = ({navigation} : any) => {
                                 backgroundColor: 
                                     termsAgree === true &&
                                     audioName !== '' &&
-                                    localImageUri !== '' &&
                                     data.author !== '' &&
                                     data.genre !== '' &&
                                     data.description !== '' &&
@@ -2098,7 +2098,6 @@ const UploadAudio = ({navigation} : any) => {
                                     borderColor: 
                                         termsAgree === true &&
                                         audioName !== '' &&
-                                        localImageUri !== '' &&
                                         data.author !== '' &&
                                         data.genre !== '' &&
                                         data.description !== '' &&
@@ -2108,7 +2107,6 @@ const UploadAudio = ({navigation} : any) => {
                                 <Text style={{ fontSize: 16, color: 
                                     termsAgree === true && 
                                     audioName !== '' &&
-                                    localImageUri !== '' &&
                                     data.author !== '' &&
                                     data.genre !== '' &&
                                     data.description !== '' &&
