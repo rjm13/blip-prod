@@ -1192,48 +1192,90 @@ const UploadAudio = ({navigation} : any) => {
 
         try {
 
-            const responseImage = await fetch(localImageUri);
-            const blobImage = await responseImage.blob();
-            const filenameImage = uuid.v4().toString();
-            const s3ResponseImage = await Storage.put(filenameImage, blobImage);
+            if (isLocalImage === true) {
+                 const responseImage = await fetch(localImageUri);
+                const blobImage = await responseImage.blob();
+                const filenameImage = uuid.v4().toString();
+                const s3ResponseImage = await Storage.put(filenameImage, blobImage);
 
-            let response = await API.graphql(graphqlOperation(
-                createUser, {input: {
-                    name: newUserData.name,
-                    imageUri: s3ResponseImage.key,
-                    bio: newUserData.bio,
-                    numAuthored: 0,
-                    pseudonym: newUserData.pseudonym,
-                    narratorPseudo: newUserData.narratorPseudo,
-                    artistPseudo: newUserData.artistPseudo,
-                    isNarrator: newUserData.isNarrator,
-                    isArtist: newUserData.isArtist,
-                    isPublisher: newUserData.isPublisher,
-                    narratorText: newUserData.narratorText,
-                    artistText: newUserData.artistText,
-                    plan: 'admincreated'
-                }}
-            ))
-        
-            if (response) {
-                setNewUserData({
-                    name: '',
-                    imageUri: '',
-                    bio: '',
-                    numAuthored: 0,
-                    pseudonym: '',
-                    narratorPseudo: '',
-                    artistPseudo: '',
-                    isNarrator: false,
-                    isArtist: false,
-                    isPublisher: false,
-                    narratorText: '',
-                    artistText: '',
-                    plan: 'admincreated'
-                })
-                hideCreateUserModal();
-                setIsPublishing(false)
+                let response = await API.graphql(graphqlOperation(
+                    createUser, {input: {
+                        name: newUserData.name,
+                        imageUri: s3ResponseImage.key,
+                        bio: newUserData.bio,
+                        numAuthored: 0,
+                        pseudonym: newUserData.pseudonym,
+                        narratorPseudo: newUserData.narratorPseudo,
+                        artistPseudo: newUserData.artistPseudo,
+                        isNarrator: newUserData.isNarrator,
+                        isArtist: newUserData.isArtist,
+                        isPublisher: newUserData.isPublisher,
+                        narratorText: newUserData.narratorText,
+                        artistText: newUserData.artistText,
+                        plan: 'admincreated'
+                    }}
+                ))
+            
+                if (response) {
+                    setNewUserData({
+                        name: '',
+                        imageUri: '',
+                        bio: '',
+                        numAuthored: 0,
+                        pseudonym: '',
+                        narratorPseudo: '',
+                        artistPseudo: '',
+                        isNarrator: false,
+                        isArtist: false,
+                        isPublisher: false,
+                        narratorText: '',
+                        artistText: '',
+                        plan: 'admincreated'
+                    })
+                    hideCreateUserModal();
+                    setIsPublishing(false)
+                }
+
+            } else {
+                let response = await API.graphql(graphqlOperation(
+                    createUser, {input: {
+                        name: newUserData.name,
+                        bio: newUserData.bio,
+                        numAuthored: 0,
+                        pseudonym: newUserData.pseudonym,
+                        narratorPseudo: newUserData.narratorPseudo,
+                        artistPseudo: newUserData.artistPseudo,
+                        isNarrator: newUserData.isNarrator,
+                        isArtist: newUserData.isArtist,
+                        isPublisher: newUserData.isPublisher,
+                        narratorText: newUserData.narratorText,
+                        artistText: newUserData.artistText,
+                        plan: 'admincreated'
+                    }}
+                ))
+
+                if (response) {
+                    setNewUserData({
+                        name: '',
+                        imageUri: '',
+                        bio: '',
+                        numAuthored: 0,
+                        pseudonym: '',
+                        narratorPseudo: '',
+                        artistPseudo: '',
+                        isNarrator: false,
+                        isArtist: false,
+                        isPublisher: false,
+                        narratorText: '',
+                        artistText: '',
+                        plan: 'admincreated'
+                    })
+                    hideCreateUserModal();
+                    setIsPublishing(false)
+                }
+
             }
+
             
         } catch {
             alert('Error')
