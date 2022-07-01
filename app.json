@@ -2,7 +2,7 @@
   "expo": {
     "name": "Blip",
     "slug": "blip-prod",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./assets/images/blankprofile.png",
     "scheme": "blip",
@@ -21,11 +21,20 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.martianspidermedia.blipprod",
-      "buildNumber": "1.0.3",
+      "buildNumber": "1.0.4",
       "infoPlist": {
         "UIBackgroundModes": [
           "audio"
-        ]
+        ],
+        "NSCalendarsUsageDescription": "This permission is not needed by the app, but it is required by an underlying API. If you see this dialog, contact us.",
+        "NSCameraUsageDescription": "This permission is not needed by the app, but it is required by an underlying API. If you see this dialog, contact us.",
+        "NSContactsUsageDescription": "This permission is not needed by the app, but it is required by an underlying API. If you see this dialog, contact us.",
+        "NSLocationWhenInUseUsageDescription": "This permission is not needed by the app, but it is required by an underlying API. If you see this dialog, contact us.",
+        "NSMicrophoneUsageDescription": "Blip needs permission to access your microphone in order to record audio through the app.",
+        "NSMotionUsageDescription": "This permission is not needed by the app, but it is required by an underlying API. If you see this dialog, contact us.",
+        "NSPhotoLibraryAddUsageDescription": "In order to select an image to upload, Blip needs access to your photo library.",
+        "NSPhotoLibraryUsageDescription": "In order to select an image to upload, Blip needs access to your photo library.",
+        "NSRemindersUsageDescription": "This permission is not needed by the app, but it is required by an underlying API. If you see this dialog, contact us."
       }
     },
     "android": {
