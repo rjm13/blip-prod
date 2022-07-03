@@ -38,8 +38,8 @@
       }
     },
     "android": {
-      "package": "com.martianmedia.blipprod",
-      "versionCode": 4,
+      "package": "com.martianspidermedia.blipprod",
+      "versionCode": 6,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/blankprofile.png",
         "backgroundColor": "#000000"
