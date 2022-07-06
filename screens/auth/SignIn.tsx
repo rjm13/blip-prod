@@ -36,6 +36,8 @@ const SignIn = ({navigation} : any) => {
 
     const [isErr, setIsErr] = useState(false);
 
+    const [err, setErr] = useState('Error signing in.');
+
     const [signingIn, setSigningIn] = useState(false);
 
     const { userID, setUserID } = useContext(AppContext);
@@ -116,6 +118,7 @@ const SignIn = ({navigation} : any) => {
         } 
         catch (error) {
             console.log('error signing in', error)
+            setErr(error)
             setIsErr(true);
             setSigningIn(false);
         }
@@ -302,6 +305,9 @@ const SignIn = ({navigation} : any) => {
                     <View style={{ alignItems: 'center', justifyContent: 'center', margin: 10}}>
                         <Text style={{borderRadius: 15, backgroundColor: '#ffffff', paddingHorizontal: 20, paddingVertical: 10, color: 'red', fontSize: 13, }}>
                             Error signing in. Please try again.
+                        </Text>
+                        <Text style={{borderRadius: 15, backgroundColor: '#ffffff', paddingHorizontal: 20, paddingVertical: 10, color: 'red', fontSize: 13, }}>
+                            {err}
                         </Text>
                     </View>
                     ) : null}
