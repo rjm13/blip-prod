@@ -2,7 +2,7 @@
   "expo": {
     "name": "Blip",
     "slug": "blip-prod",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "orientation": "portrait",
     "icon": "./assets/images/blankprofile.png",
     "scheme": "blip",
@@ -21,7 +21,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.martianspidermedia.blipprod",
-      "buildNumber": "1.0.4",
+      "buildNumber": "1.0.5",
       "infoPlist": {
         "UIBackgroundModes": [
           "audio"
@@ -39,7 +39,7 @@
     },
     "android": {
       "package": "com.martianspidermedia.blipprod",
-      "versionCode": 6,
+      "versionCode": 7,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/blankprofile.png",
         "backgroundColor": "#000000"
