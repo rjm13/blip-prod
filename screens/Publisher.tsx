@@ -212,7 +212,8 @@ const Publisher = ({navigation} : any) => {
 
             return (
                 <View>
-                  {isMod?.attributes.email === 'martianspidermedia@gmail.com' ? (
+                  {/* {isMod?.attributes.email === 'martianspidermedia@gmail.com' ? ( */}
+                    {isMod.signInUserSession.idToken.payload["cognito:groups"].includes('Admin') === true ? (
                      <FontAwesome5 
                         name='toilet-paper'
                         color='#fff'

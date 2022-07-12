@@ -2,7 +2,7 @@
   "expo": {
     "name": "Blip",
     "slug": "blip-prod",
-    "version": "1.0.5",
+    "version": "1.0.7",
     "orientation": "portrait",
     "icon": "./assets/images/blankprofile.png",
     "scheme": "blip",
@@ -21,7 +21,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.martianspidermedia.blipprod",
-      "buildNumber": "1.0.5",
+      "buildNumber": "1.0.7",
       "infoPlist": {
         "UIBackgroundModes": [
           "audio"
@@ -39,7 +39,33 @@
     },
     "android": {
       "package": "com.martianspidermedia.blipprod",
-      "versionCode": 7,
+      "versionCode": 9,
+      "permissions": [
+        "RECROD_AUDIO",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "READ_INTERNAL_STORAGE",
+        "USE_FINGERPRINT",
+        "INSTALL_SHORTCUT",
+        "C2D_MESSAGE",
+        "INTERNET",
+        "MANAGE_DOCUMENTS",
+        "ACESS_NETWORK_STATE",
+        "SYSTEM_ALERT_WINDOW",
+        "ACCESS_WIFI_STATE",
+        "ACCOUNT_MANAGER",
+        "BIND_AUTIOFILL_SERVICE",
+        "BIND_NOTIFICATION_LISTENER_SERVICE",
+        "BLUETOOTH",
+        "BLUETOOTH_CONNECT",
+        "CAPTURE_AUDIO_OUTPUT",
+        "MANAGE_MEDIA",
+        "MODIFY_AUDIO_SETTINGS",
+        "READ_MEDIA_AUDIO",
+        "READ_MEDIA_IMAGES",
+        "STATUS_BAR",
+        "USE_BIOMETRIC"
+      ], 
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/blankprofile.png",
         "backgroundColor": "#000000"

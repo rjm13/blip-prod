@@ -20,7 +20,7 @@ const ModSection = ({navigation} : any) => {
     useEffect(() => {
         const getUser = async () => {
             let response = await Auth.currentAuthenticatedUser();
-            if (response.attributes.email === 'martianspidermedia@gmail.com') {
+            if (response.signInUserSession.idToken.payload["cognito:groups"].includes('Admin') === true) {
                 return
             } else {
                 navigation.goBack();

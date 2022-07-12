@@ -84,7 +84,7 @@ const AboutScreen = ({navigation} : any) => {
                         </View>
                     </TouchableWithoutFeedback>
 
-                    <TouchableWithoutFeedback onPress={() => Linking.openURL('mailto:martianspidermedia@gmail.com') }>
+                    <TouchableWithoutFeedback onPress={() => Linking.openURL('mailto:blipsupport@blipstories.com') }>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 40, marginVertical: 20}}>
                             <Text style={{ color: '#fff', fontSize: 16}}>
                                 Contact Us
