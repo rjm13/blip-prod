@@ -14,6 +14,7 @@ import {
 
 import { LinearGradient } from 'expo-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {Modal, Provider, Portal} from 'react-native-paper';
 
 import {Auth} from 'aws-amplify';
@@ -195,15 +196,41 @@ const CreateUser = async () => {
         }
         const hideModal = () => setVisible(false);
 
+    //info modal
+                const [visible2, setVisible2] = useState(false);
+                const showModal2 = () => {
+                    setVisible2(true);
+                }
+                const hideModal2 = () => setVisible2(false);
+
         const containerStyle = {
             backgroundColor: '#363636', 
             borderRadius: 15,
             paddingVertical: 40
         };
 
+        const [infoState, setInfoState] = useState('')
+
+        const nameInfo = 'This is used to display your name within the app.\n\nThis name may be public. For example, if you leave a comment on a story, this is the name that will display. \n\nIt does not have to be your real name.'
+
+        const emailInfo = 'In order to recover your password, you must have a verified email.'
+
+        const birthInfo = 'We strive to allow artistic freedom. As a result, some of our content may not be suitable for certian ages.'
+
     return (
         <Provider>
             <Portal>
+                <Modal visible={visible2} onDismiss={hideModal2} contentContainerStyle={containerStyle}>
+                <View style={{backgroundColor: 'transparent'}}>
+                    <Text style={{padding: 20, color: 'white', fontWeight: 'bold', fontSize: 16, textAlign: 'center'}}>
+                        Why do we need this?
+                    </Text>
+                    <View style={{width: '80%', height: 1, borderWidth: 0.5, borderColor: '#00ffffa5', alignSelf: 'center'}}/>
+                    <Text style={{padding: 20, color: 'white'}}>
+                        {infoState}
+                    </Text>
+                </View>
+                </Modal>
                 <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
                     <View>
                         {show && (
@@ -265,9 +292,26 @@ const CreateUser = async () => {
                         </View>
                     ) : null}
                     <View>
-                        <Text style={styles.header}>
-                            Name
-                        </Text>
+                        <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
+                            <Text style={styles.header}>
+                                Name
+                            </Text>
+                            <TouchableOpacity onPress={
+                                () => {
+                                    showModal2();
+                                    setInfoState(nameInfo);
+                                }
+                            }>
+                                <FontAwesome5 
+                                    name='info-circle'
+                                    size={16}
+                                    color='#00ffffa5'
+                                    style={{marginLeft: -10,  padding: 6}}
+                                />
+                            </TouchableOpacity>
+                            
+                        </View>
+                        
                         <View style={styles.inputfield}>
                             <TextInput 
                                 placeholder='...'
@@ -280,9 +324,25 @@ const CreateUser = async () => {
                     </View>
 
                     <View>
-                        <Text style={styles.header}>
-                            Email
-                        </Text>
+                    <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
+                            <Text style={styles.header}>
+                                Email
+                            </Text>
+                            <TouchableOpacity onPress={
+                                () => {
+                                    showModal2();
+                                    setInfoState(emailInfo);
+                                }
+                            }>
+                                <FontAwesome5 
+                                    name='info-circle'
+                                    size={16}
+                                    color='#00ffffa5'
+                                    style={{marginLeft: -10,  padding: 6}}
+                                />
+                            </TouchableOpacity>
+                            
+                        </View>
                         <View style={styles.inputfield}>
                             <TextInput 
                                 placeholder='....'
@@ -296,9 +356,25 @@ const CreateUser = async () => {
                     </View>
 
                     <View style={{marginTop: 0}}>
-                        <Text style={styles.header}>
-                            Birth Date
-                        </Text>
+                    <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
+                            <Text style={styles.header}>
+                                Birth Date
+                            </Text>
+                            <TouchableOpacity onPress={
+                                () => {
+                                    showModal2();
+                                    setInfoState(birthInfo);
+                                }
+                            }>
+                                <FontAwesome5 
+                                    name='info-circle'
+                                    size={16}
+                                    color='#00ffffa5'
+                                    style={{marginLeft: -10,  padding: 6}}
+                                />
+                            </TouchableOpacity>
+                            
+                        </View>
                         <TouchableWithoutFeedback onPress={showDatepicker}>
                             <View style={styles.inputfield}>
                                 <Text style={styles.textInputTitle}>
