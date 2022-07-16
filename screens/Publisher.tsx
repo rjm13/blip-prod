@@ -16,7 +16,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { LinearGradient } from 'expo-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Modal, Portal, Provider } from 'react-native-paper';
-import { format, parseISO } from "date-fns";
+import { format, isMonday, parseISO } from "date-fns";
 
 import { API, graphqlOperation, Auth } from "aws-amplify";
 import { getUser } from '../src/graphql/queries';
@@ -25,6 +25,8 @@ import { updateUser } from '../src/graphql/mutations';
 const Publisher = ({navigation} : any) => {
 
     const [user, setUser] = useState({})
+
+    const [isMod, setIsMod] = useState()
 
     const route = useRoute();
     const {update} = route.params
@@ -41,6 +43,10 @@ const Publisher = ({navigation} : any) => {
         const LoadKeys = async () => {
 
             const userInfo = await Auth.currentAuthenticatedUser();
+
+            setIsMod(userInfo);
+
+            console.log(userInfo)
 
             let saved = await AsyncStorage.getAllKeys();
     
@@ -198,22 +204,13 @@ const Publisher = ({navigation} : any) => {
         //paddingHorizontal: 20
     };
 
+
     const ModSection = () => {
-
-            const [isMod, setIsMod] = useState()
-
-            useEffect(() => {
-                const response = async () => {
-                    let user = await Auth.currentAuthenticatedUser();
-                    if (user) {setIsMod(user)}
-                }
-                response()
-            }, [])
 
             return (
                 <View>
                   {/* {isMod?.attributes.email === 'martianspidermedia@gmail.com' ? ( */}
-                    {isMod.signInUserSession.idToken.payload["cognito:groups"].includes('Admin') === true ? (
+                    {isMod?.signInUserSession.idToken.payload["cognito:groups"].includes('Admin') === true ? (
                      <FontAwesome5 
                         name='toilet-paper'
                         color='#fff'
