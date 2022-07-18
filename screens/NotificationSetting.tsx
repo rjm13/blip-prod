@@ -15,16 +15,32 @@ const Settings = ({navigation} : any) => {
     const { setADon } = useContext(AppContext);
     const { ADon } = useContext(AppContext);
 
+    const { setPremium } = useContext(AppContext);
+    const { premium } = useContext(AppContext);
+
 
 //explicit content switch
     const [isSwitchOn, setIsSwitchOn] = useState(nsfwOn);
 
-    const onToggleSwitch = () => {setIsSwitchOn(!isSwitchOn); setNSFWOn(!nsfwOn);}
+    const onToggleSwitch = () => {
+        if (premium === true) {
+            setIsSwitchOn(!isSwitchOn); setNSFWOn(!nsfwOn);
+        } else if (premium === false) {
+            return;
+        }
+    }
 
 //autoplay switch
     const [isAfterDarkOn, setIsAfterDarkOn] = React.useState(ADon);
 
-    const onAfterDarkSwitch = () => {setIsAfterDarkOn(!isAfterDarkOn); setADon(!ADon);}
+    const onAfterDarkSwitch = () => {
+        if (premium === true) {
+            setIsAfterDarkOn(!isAfterDarkOn); setADon(!ADon);
+        } else if (premium === false) {
+            return;
+        }
+        
+    }
 
     //subscription notifications on/off switch
     const [isSubsOn, setIsSubsOn] = React.useState(false);
@@ -41,7 +57,15 @@ const Settings = ({navigation} : any) => {
 
     const onNotesSwitch = () => {setIsNotesOn(!isNotesOn); setIsSubsOn(!isSubsOn); setIsRecsOn(!isRecsOn);}
 
+    const [switchColor, setSwitchColor] = useState('gray')
+    const [trackColor, setTrackColor] = useState('#363636')
 
+    useEffect(() => {
+        if (premium === true) {
+            setSwitchColor('#00ffff');
+            setTrackColor('#219a9ca5')
+        }
+    }, [premium])
 
     return (
         <View style={styles.container}>
@@ -71,17 +95,17 @@ const Settings = ({navigation} : any) => {
 
                 <View style={styles.optionsitem}>
                     <View style={styles.subblock}>
-                        <Text style={styles.paragraph}>
+                        <Text style={{fontSize: 16, color: premium === true ? '#ffffff' : 'gray'}}>
                             Block Explicit Content
                         </Text>
                         <Text style={styles.subparagraph}>
-                            Turn on to block adult or explicit content
+                            {premium === true ? "Turn on to block adult or explicit content" : 'You must have a premium account to use this feature.'}
                         </Text>
                     </View>
                     
                     <Switch
-                        trackColor={{ false: "#219a9ca5", true: "#219a9ca5" }}
-                        thumbColor={isSwitchOn ? "cyan" : "gray"}
+                        trackColor={{ false: trackColor, true: trackColor }}
+                        thumbColor={isSwitchOn ? switchColor : "gray"}
                         ios_backgroundColor="cyan"
                         onValueChange={onToggleSwitch}
                         value={isSwitchOn}
@@ -92,17 +116,17 @@ const Settings = ({navigation} : any) => {
 
                 <View style={styles.optionsitem}>
                     <View style={styles.subblock}>
-                        <Text style={styles.paragraph}>
+                        <Text style={{fontSize: 16, color: premium === true ? '#ffffff' : 'gray'}}>
                             Block Erotic Content
                         </Text>
                         <Text style={styles.subparagraph}>
-                            Turn on to lock content from the After Dark genre
+                            {premium === true ? 'Turn on to lock content from the After Dark genre' : 'You must have a premium account to use this feature.'}
                         </Text>
                     </View>
                     
                     <Switch
-                        trackColor={{ false: "#219a9ca5", true: "#219a9ca5" }}
-                        thumbColor={isAfterDarkOn ? "cyan" : "gray"}
+                        trackColor={{ false: trackColor, true: trackColor }}
+                        thumbColor={isAfterDarkOn ? switchColor : "gray"}
                         ios_backgroundColor="cyan"
                         onValueChange={onAfterDarkSwitch}
                         value={isAfterDarkOn}
