@@ -3,6 +3,14 @@
     "name": "Blip",
     "slug": "blip-prod",
     "version": "1.0.8",
+    "plugins": [
+      [
+        "expo-ads-admob",
+        {
+          "userTrackingPermission": "This identifier will be used to deliver personalized ads to you."
+        }
+      ]
+    ],
     "orientation": "portrait",
     "icon": "./assets/images/blankprofile.png",
     "scheme": "blip",
@@ -22,6 +30,9 @@
       "supportsTablet": false,
       "bundleIdentifier": "com.martianspidermedia.blipprod",
       "buildNumber": "1.0.8",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-8042132670790474~2216264256" 
+      },
       "infoPlist": {
         "UIBackgroundModes": [
           "audio"
@@ -40,6 +51,9 @@
     "android": {
       "package": "com.martianspidermedia.blipprod",
       "versionCode": 10,
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-8042132670790474~3720917615" 
+      },
       "permissions": [
         "RECROD_AUDIO",
         "READ_EXTERNAL_STORAGE",

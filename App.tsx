@@ -11,6 +11,8 @@ import Navigation from './navigation'
 import Constants from 'expo-constants';
 import * as Notifications from 'expo-notifications';
 
+import mobileAds from 'react-native-google-mobile-ads';
+
 import Amplify from '@aws-amplify/core';
 import config from './src/aws-exports';
 Amplify.configure(config);
@@ -54,6 +56,7 @@ export default function App() {
 
   //   return () => TrackPlayer.destroy();
   // }, []);
+
 
   const isLoadingComplete = useCachedResources();
 

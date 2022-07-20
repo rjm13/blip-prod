@@ -11,6 +11,8 @@ import {
     SafeAreaView
 } from 'react-native';
 
+import PreStoryAd from './PreStoryAd';
+
 import { Audio } from 'expo-av';
 import Slider from '@react-native-community/slider';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -51,9 +53,14 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 
 
 const AudioPlayer  = () => {
+    
 
 //get the global page state for the audio player
     const { isRootScreen } = useContext(AppContext);
+
+//get context for storyID
+    const { premium } = useContext(AppContext);
+    const { setPremium } = useContext(AppContext);
 
 //get context for storyID
     const { storyID } = useContext(AppContext);
@@ -69,10 +76,17 @@ const AudioPlayer  = () => {
 //minimize the player with animations
     const [isExpanded, setIsExpanded] = useState(false);
 
+
+useEffect(() => {
+    if (premium === false && storyID !== null) {
+       PreStoryAd(); 
+    }
+}, [storyID])
+
+
 //set the progress story ID
 useEffect(() => {
     setInProgressID(null);
-
 }, [storyID])
 
     const onChangeHandler = () => {
@@ -412,7 +426,8 @@ const ProgressCheck = () => {
 
 
     return (
-        <SafeAreaView>
+    
+    <SafeAreaView>
         <View style={{}}>
             <View style={{
                 flex: 1,
@@ -682,7 +697,7 @@ const ProgressCheck = () => {
                 </View>
             </LinearGradient>
         </View>
-    </View>
+        </View>
     </SafeAreaView>
     );
 }
