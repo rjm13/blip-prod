@@ -2,7 +2,7 @@
   "expo": {
     "name": "Blip",
     "slug": "blip-prod",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "plugins": [
       [
         "expo-ads-admob",
@@ -29,7 +29,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.martianspidermedia.blipprod",
-      "buildNumber": "1.0.10",
+      "buildNumber": "1.0.11",
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-8042132670790474~2216264256" 
       },
@@ -50,7 +50,7 @@
     },
     "android": {
       "package": "com.martianspidermedia.blipprod",
-      "versionCode": 12,
+      "versionCode": 13,
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-8042132670790474~3720917615" 
       },
@@ -63,7 +63,7 @@
         "INSTALL_SHORTCUT",
         "C2D_MESSAGE",
         "INTERNET",
-        "BILLING",
+        "com.android.vending.BILLING",
         "MANAGE_DOCUMENTS",
         "ACESS_NETWORK_STATE",
         "SYSTEM_ALERT_WINDOW",
