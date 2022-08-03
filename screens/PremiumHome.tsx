@@ -5,6 +5,8 @@ import {
     StyleSheet, 
     Dimensions, 
     TouchableOpacity, 
+    TouchableWithoutFeedback,
+    Platform
 } from 'react-native';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -15,7 +17,56 @@ import {updateUser} from '../src/graphql/mutations';
 
 import { AppContext } from '../AppContext';
 
+import Purchases, { PurchasesOffering } from 'react-native-purchases';
+
 const PremiumHome = ({navigation} : any) => {
+
+    const [packages, setPackages] = useState<PurchasesOffering | null>(null);
+
+    const [purchasePackage, setPurchasePackage] = useState()
+
+    const [selection, setSelection] = useState(0);
+
+    useEffect(() => {
+        if (selection === 0) {
+            return;
+        }
+        if (selection === 1) {
+            setPurchasePackage(packages?.availablePackages[2])
+        }
+        if (selection === 2) {
+            setPurchasePackage(packages?.availablePackages[1])
+        }
+        if (selection === 3) {
+            setPurchasePackage(packages?.availablePackages[0])
+        }
+    }, [selection])
+
+
+    useEffect(() => {
+        const getPackages = async () => {
+            try {
+                const userInfo = await Auth.currentAuthenticatedUser();
+                const offerings = await Purchases.getOfferings();
+                console.log(offerings.current)
+                if (offerings.current !== null) {
+                    setPackages(offerings?.current)
+                    console.log(offerings?.current)
+                }
+                Purchases.setDebugLogsEnabled(true);
+                if (Platform.OS == "android") {
+                Purchases.setup("goog_wSkOaqDFxXdkMqDferfIVDqSIuv", userInfo.attributes.sub);
+                } else {
+                Purchases.setup("appl_kWcWMJjdDmIvLdsnnGavdbkSevg", userInfo.attributes.sub);
+                }
+                }
+            catch (error) {
+                console.log(error)
+            }
+
+        }
+        getPackages();
+    }, [])
 
     const { premium } = useContext(AppContext);
     const { setPremium } = useContext(AppContext);
@@ -59,25 +110,26 @@ const PremiumHome = ({navigation} : any) => {
 
     const Subscribe = async () => {
 
-        //this function will need users to confrim subscription through
-        //Google Play Console and
-        //Apple Developer Account/itunes connect
-        //on confirmation of payment, a lambda function will trigger using
-        //AdminAddUserToGroup, that will add the user to the premium user pool
-        //for now, the user just has a field that updates in the DynamoDB table
-        //and sets the global context for 'premium'
+        console.log(purchasePackage)
+
+        if (selection === 0) {
+            return;
+        } else {
 
         let userInfo = await Auth.currentAuthenticatedUser();
 
-        let response = await API.graphql(graphqlOperation(
-            updateUser, {input: {
-                id: userInfo.attributes.sub,
-                plan: 'premium'
-            }}
-        ))
+        try {
+            const ENTITLEMENT_ID = userInfo.attributes.sub
 
-        if (response.data.updateUser.plan === 'premium') {
-            navigation.navigate('Redirect', {trigger: Math.random()})
+            const {purchaserInfo} = await Purchases.purchasePackage(purchasePackage)
+            
+            if (typeof purchaserInfo.entitlements.active[ENTITLEMENT_ID] !== 'undefined') {
+                //addToGroup().then(navigation.navigate('Redirect', {trigger: Math.random()}))
+                alert('success!')
+            }
+        } catch (error) {
+            alert(error)
+        }
         }
     }
 
@@ -98,10 +150,87 @@ const PremiumHome = ({navigation} : any) => {
                         </Text>
                     </View>
 
-                    <View style={{marginVertical: 40}}>
-                        <Text style={{ textAlign: 'center', color: '#fff', fontSize: 24, }}>
-                            Only $5/month
-                        </Text>
+                    <View style={{marginVertical: 40, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                        
+                        {/* <TouchableWithoutFeedback onPress={() => setSelection(1)}>
+                            <View style={{width: selection === 1 ? '35%' : '30%', margin: 1}}>
+                                <View style={{borderTopLeftRadius: 10, borderTopRightRadius: 10, alignItems: 'center', justifyContent: 'center', height: selection === 1 ? 75 : 70, backgroundColor: selection === 1 ? '#00ffff' : '#00ffffa5', }}>
+                                    <Text style={{fontWeight: 'bold', fontSize: 15, color: selection === 1 ? '#000' : '#363636a5'}}>
+                                        1
+                                    </Text>
+                                    <Text style={{fontWeight: 'bold', fontSize: 15, color: selection === 1 ? '#000' : '#363636a5'}}>
+                                        MONTH
+                                    </Text>
+                                </View>
+                                <View style={{borderBottomLeftRadius: 10, borderBottomRightRadius: 10, alignItems: 'center', justifyContent: 'center', height: selection === 1 ? 75 : 70, backgroundColor: selection === 1 ? '#00ffffcc' : '#00ffff73', }}>
+                                    <Text style={{fontSize: 20, fontWeight: 'bold', color: selection === 1 ? '#000' : '#363636a5'}}>
+                                        {packages?.availablePackages[2].product.price_string}
+                                    </Text>
+                                    <Text style={{fontSize: 12, fontWeight: 'bold', color: selection === 1 ? '#000000a5' : '#363636a5'}}>
+                                        {packages?.availablePackages[2].product.price_string}/mo
+                                    </Text>
+                                </View>
+                                <Text style={{color: '#fff', textAlign: 'center'}}>
+                                    Student
+                                </Text>
+                            </View>
+                        </TouchableWithoutFeedback> */}
+                        
+                        <TouchableWithoutFeedback onPress={() => setSelection(2)}>
+                            <View style={{width: selection === 2 ? '35%' : '30%', margin: 1}}>
+                                
+                                <View style={{borderTopLeftRadius: 10, borderTopRightRadius: 10, alignItems: 'center', justifyContent: 'center', height: selection === 2 ? 75 : 70, backgroundColor: selection === 2 ? '#00ffff' : '#00ffffa5', }}>
+                                    <Text style={{fontWeight: 'bold', fontSize: 15, color: selection === 2 ? '#000' : '#363636a5'}}>
+                                        1
+                                    </Text>
+                                    <Text style={{fontWeight: 'bold', fontSize: 15, color: selection === 2 ? '#000' : '#363636a5'}}>
+                                        YEAR
+                                    </Text>
+                                </View>
+                                <View style={{borderBottomLeftRadius: 10, borderBottomRightRadius: 10, alignItems: 'center', justifyContent: 'center', height: selection === 2 ? 75 : 70, backgroundColor: selection === 2 ? '#00ffffcc' : '#00ffff73', }}>
+                                    <Text style={{fontSize: 20, fontWeight: 'bold', color: selection === 2 ? '#000' : '#363636a5'}}>
+                                        ${packages?.availablePackages[1].product.price}
+                                    </Text>
+                                    <Text style={{fontSize: 12, fontWeight: 'bold', color: selection === 2 ? '#000000a5' : '#363636a5'}}>
+                                        $4.16/mo
+                                    </Text>
+                                </View>
+                                <View style={{position: 'absolute', borderRadius: 10, backgroundColor: selection === 2 ? '#8F7900' : '#8F7900', width: '74%', alignSelf: 'center', marginTop: -10}}>
+                                    <Text style={{textAlign: 'center', fontSize: 11, color: selection === 2 ? '#fff' : '#ffffffa5', fontWeight: "700", paddingVertical: 3}}>
+                                        SAVE 16.8%
+                                    </Text>
+                                </View>
+                                <Text style={{color: '#fff', textAlign: 'center'}}>
+                                    Annually
+                                </Text>
+                            </View>
+                        </TouchableWithoutFeedback>
+                        
+                        <TouchableWithoutFeedback onPress={() => setSelection(3)}>
+                            <View style={{width: selection === 3 ? '35%' : '30%', margin: 1}}>
+                                <View style={{borderTopLeftRadius: 10, borderTopRightRadius: 10, alignItems: 'center', justifyContent: 'center', height: selection === 3 ? 75 : 70, backgroundColor: selection === 3 ? '#00ffff' : '#00ffffa5', }}>
+                                    <Text style={{fontWeight: 'bold', fontSize: 15, color: selection === 3 ? '#000' : '#363636a5'}}>
+                                        1
+                                    </Text>
+                                    <Text style={{fontWeight: 'bold', fontSize: 15, color: selection === 3 ? '#000' : '#363636a5'}}>
+                                        MONTH
+                                    </Text>
+                                </View>
+                                <View style={{borderBottomLeftRadius: 10, borderBottomRightRadius: 10, alignItems: 'center', justifyContent: 'center', height: selection === 3 ? 75 : 70, backgroundColor: selection === 3 ? '#00ffffcc' : '#00ffff73', }}>
+                                    <Text style={{fontSize: 20, fontWeight: 'bold', color: selection === 3 ? '#000' : '#363636a5'}}>
+                                        ${packages?.availablePackages[0].product.price}
+                                    </Text>
+                                    <Text style={{fontSize: 12, fontWeight: 'bold', color: selection === 3 ? '#000000a5' : '#363636a5'}}>
+                                        {packages?.availablePackages[0].product.price_string}/mo
+                                    </Text>
+                                </View>
+                                <Text style={{color: '#fff', textAlign: 'center'}}>
+                                    Monthly
+                                </Text>
+                            </View>
+                        </TouchableWithoutFeedback>
+                        
+                        
                     </View>
                     
 
@@ -147,14 +276,18 @@ const PremiumHome = ({navigation} : any) => {
                     </View>
 
                     <TouchableOpacity 
-                        style={{ backgroundColor: '#00ffff', borderRadius: 18, width: '50%', alignSelf: 'center'}}
-                        onPress={addToGroup}
+                        style={{ backgroundColor: selection === 0 ? 'gray' : '#00ffff', borderRadius: 10, width: '80%', alignSelf: 'center'}}
+                        onPress={Subscribe}
                     >
-                        <Text style={{textAlign: 'center', fontSize: 18, fontWeight: 'bold', paddingVertical: 6,}}>
+                        <Text style={{textAlign: 'center', fontSize: 18, fontWeight: 'bold', paddingVertical: 10,}}>
                             Get Premium
                         </Text>
                     </TouchableOpacity>
+                    
                 </View>
+                <Text style={{color: '#ffffffa5', textAlign: 'center', fontSize: 12, marginTop: 60, marginBottom: -40, paddingHorizontal: 20}}>
+                        Subscriptions renew automatically unless cancelled. Please review out terms and conditions.
+                    </Text>
 
             </LinearGradient>
         </View>
