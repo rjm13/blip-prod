@@ -6,7 +6,8 @@ import {
     Dimensions, 
     TouchableOpacity, 
     TouchableWithoutFeedback,
-    Platform
+    Platform,
+    Linking
 } from 'react-native';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -88,25 +89,25 @@ const PremiumHome = ({navigation} : any) => {
         console.log(userInfo.signInUserSession.idToken.payload["cognito:groups"][0])
     }
 
-    async function addToGroup() { 
+    // async function addToGroup() { 
 
-        let userInfo = await Auth.currentAuthenticatedUser();
+    //     let userInfo = await Auth.currentAuthenticatedUser();
 
-        let apiName = 'AdminQueries';
-        let path = '/addUserToGroup';
-        let myInit = {
-            body: {
-              "username" : userInfo.attributes.email,
-              "groupname": "Premium"
-            }, 
-            headers: {
-              'Content-Type' : 'application/json',
-              Authorization: `${(await Auth.currentSession()).getAccessToken().getJwtToken()}`
-            } 
-        }
-        return await API.post(apiName, path, myInit).then(signOut)
+    //     let apiName = 'AdminQueries';
+    //     let path = '/addUserToGroup';
+    //     let myInit = {
+    //         body: {
+    //           "username" : userInfo.attributes.email,
+    //           "groupname": "Premium"
+    //         }, 
+    //         headers: {
+    //           'Content-Type' : 'application/json',
+    //           Authorization: `${(await Auth.currentSession()).getAccessToken().getJwtToken()}`
+    //         } 
+    //     }
+    //     return await API.post(apiName, path, myInit).then(signOut)
 
-      }
+    //   }
 
     const Subscribe = async () => {
 
@@ -123,9 +124,8 @@ const PremiumHome = ({navigation} : any) => {
 
             const {purchaserInfo} = await Purchases.purchasePackage(purchasePackage)
             
-            if (typeof purchaserInfo.entitlements.active[ENTITLEMENT_ID] !== 'undefined') {
-                //addToGroup().then(navigation.navigate('Redirect', {trigger: Math.random()}))
-                alert('success!')
+            if (typeof purchaserInfo.entitlements.active[0] !== 'undefined') {
+                navigation.navigate('Redirect', {trigger: Math.random()})
             }
         } catch (error) {
             alert(error)
@@ -189,7 +189,7 @@ const PremiumHome = ({navigation} : any) => {
                                 </View>
                                 <View style={{borderBottomLeftRadius: 10, borderBottomRightRadius: 10, alignItems: 'center', justifyContent: 'center', height: selection === 2 ? 75 : 70, backgroundColor: selection === 2 ? '#00ffffcc' : '#00ffff73', }}>
                                     <Text style={{fontSize: 20, fontWeight: 'bold', color: selection === 2 ? '#000' : '#363636a5'}}>
-                                        ${packages?.availablePackages[1].product.price}
+                                        ${Math.ceil(parseFloat(packages?.availablePackages[1].product.price))}
                                     </Text>
                                     <Text style={{fontSize: 12, fontWeight: 'bold', color: selection === 2 ? '#000000a5' : '#363636a5'}}>
                                         $4.16/mo
@@ -218,10 +218,10 @@ const PremiumHome = ({navigation} : any) => {
                                 </View>
                                 <View style={{borderBottomLeftRadius: 10, borderBottomRightRadius: 10, alignItems: 'center', justifyContent: 'center', height: selection === 3 ? 75 : 70, backgroundColor: selection === 3 ? '#00ffffcc' : '#00ffff73', }}>
                                     <Text style={{fontSize: 20, fontWeight: 'bold', color: selection === 3 ? '#000' : '#363636a5'}}>
-                                        ${packages?.availablePackages[0].product.price}
+                                        ${Math.ceil(parseFloat(packages?.availablePackages[0].product.price))}
                                     </Text>
                                     <Text style={{fontSize: 12, fontWeight: 'bold', color: selection === 3 ? '#000000a5' : '#363636a5'}}>
-                                        {packages?.availablePackages[0].product.price_string}/mo
+                                        {Math.ceil(parseFloat(packages?.availablePackages[0].product.price_string))}/mo
                                     </Text>
                                 </View>
                                 <Text style={{color: '#fff', textAlign: 'center'}}>
@@ -285,9 +285,15 @@ const PremiumHome = ({navigation} : any) => {
                     </TouchableOpacity>
                     
                 </View>
-                <Text style={{color: '#ffffffa5', textAlign: 'center', fontSize: 12, marginTop: 60, marginBottom: -40, paddingHorizontal: 20}}>
-                        Subscriptions renew automatically unless cancelled. Please review out terms and conditions.
+                    <Text style={{color: '#ffffffa5', textAlign: 'center', fontSize: 12, marginTop: 60, marginBottom: 0, paddingHorizontal: 20}}>
+                        Subscriptions renew automatically unless cancelled.
                     </Text>
+                    <TouchableWithoutFeedback onPress={() => Linking.openURL('http://www.blipstories.com/terms')}>
+                        <Text style={{textDecorationLine: 'underline', color: '#ffffffa5', textAlign: 'center', fontSize: 12, paddingHorizontal: 20, marginBottom: -20}}>
+                            Terms and conditions
+                        </Text>
+                    </TouchableWithoutFeedback>
+                    
 
             </LinearGradient>
         </View>

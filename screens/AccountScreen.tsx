@@ -7,10 +7,13 @@ import {
     TouchableWithoutFeedback, 
     TouchableOpacity,  
     TextInput,
-    ActivityIndicator
+    ActivityIndicator,
+    Dimensions
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import {StatusBar} from 'expo-status-bar';
+
+import {CognitoIdentityProvider} from '@aws-sdk/client-cognito-identity-provider';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
@@ -19,6 +22,7 @@ import { getUser } from '../src/graphql/queries';
 import { updateUser } from '../src/graphql/mutations';
 
 import { AppContext } from '../AppContext';
+import Purchases from 'react-native-purchases';
 
 import { Modal, Portal, Provider } from 'react-native-paper';
 
@@ -75,8 +79,9 @@ const handleUpdateName = async () => {
         
             const userInfo = await Auth.currentAuthenticatedUser();
 
-            console.log(userInfo.signInUserSession.idToken.payload["cognito:groups"])
+            //console.log(userInfo.signInUserSession.idToken.payload["cognito:groups"])
 
+            
 
             setAuthUser(userInfo);
 
@@ -115,6 +120,11 @@ const handleUpdateName = async () => {
     const [visible4, setVisible4] = useState(false);
     const showEmailModal = () => setVisible4(true);
     const hideEmailModal = () => setVisible4(false);
+
+//DeleteAccountModal
+    const [visible3, setVisible3] = useState(false);
+    const showDeleteAccountModal = () => setVisible3(true);
+    const hideDeleteAccountModal = () => setVisible3(false);
 
 //PassModal
     const [visible6, setVisible6] = useState(false);
@@ -185,6 +195,40 @@ const handleUpdateName = async () => {
         } catch (error) {
             console.log('error signing out: ', error);
             alert("error signing out")
+        }
+    }
+
+    const [confirmDelete, setConfirmDelete] = useState(false);
+
+    const DeleteAccount = () => {
+        if (confirmDelete === true) {
+            // We call currentAuthenticatedUser to get a current AccessToken
+            Auth.currentAuthenticatedUser({
+                bypassCache: true  // Optional, By default is false. 
+            }).then((user) => {
+                    
+                // Create a new CognitoIdentityProvider object for your Cognito User Pool Region
+                const cognitoIdentityProvider = new CognitoIdentityProvider({region: 'us-east-2'});
+                    
+                // Create the required request parameter
+                var params = {
+                AccessToken: user.signInUserSession.accessToken.jwtToken
+                };
+                    
+                // Call the deleteUser function using a callback function
+                cognitoIdentityProvider.deleteUser(params, function(err, data) {
+                if (err) {
+                    console.log(err);
+                }
+                        
+                // Your code to delete user data
+                    
+                // Sign the user out
+                Auth.signOut({ global: true }).then(
+                    () => navigation.replace('SignIn')
+                );
+    });
+  }).catch(err => console.log(err));
         }
     }
 
@@ -319,6 +363,49 @@ const handleUpdateName = async () => {
                     </View>
                 </Modal>
 
+{/* //delete account modal */}
+                <Modal visible={visible3} onDismiss={hideDeleteAccountModal} contentContainerStyle={containerStyle}>
+                    <View style={{ alignItems: 'center'}}>
+                        <Text style={{color: 'red', fontWeight: 'bold', fontSize: 17, textAlign: 'center'}}>
+                            THIS ACTION CANNOT BE UNDONE
+                        </Text>
+                        <Text style={{
+                            fontSize: 17,
+                            paddingVertical: 16,
+                            color: '#fff',
+                            textAlign: 'center',
+                            fontWeight: 'bold'
+                        }}>
+                            Are you sure you want to delete your account?
+                        </Text>
+
+                        <Text style={{color: '#fff', textAlign: 'center', fontSize: 13}}>
+                            Once confirmed, your account cannot be recovered. All stories and images will remain on the app. All subscriptions cannot be recovered. For additional information, please contact support.
+                        </Text>
+                        
+                        <View style={styles.button}>
+                            <TouchableOpacity onLongPress={DeleteAccount} onPress={() => setConfirmDelete(true)}>
+                                <View style={styles.savebutton} >
+                                    {isUploading ? (
+                                        <ActivityIndicator size="small" color="#00ffff"/>
+                                    ) : 
+                                        (<View>
+                                        <Text style={{overflow: 'hidden', borderRadius: 13, backgroundColor: confirmDelete === true ? 'cyan' : 'gray', color: '#000', paddingVertical: 5, paddingHorizontal: 20}}>{confirmDelete === true ? 'Delete Account' : 'Confirm Delete'}</Text> 
+                                        {
+                                            confirmDelete === true ? (
+                                                <Text style={{fontSize: 12, color: '#fff', marginTop: 10}}>
+                                                    (press and hold to delete)
+                                                </Text>
+                                            ) : null
+                                        }
+                                        </View>)
+                                    } 
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </Modal>
+
 {/* //Reset password modal */}
                 <Modal visible={visible6} onDismiss={hidePassModal} contentContainerStyle={containerStyle}>
                     <View style={{ alignItems: 'center'}}>
@@ -413,53 +500,69 @@ const handleUpdateName = async () => {
                         </Text>
                     </View>
                     
-                    <ScrollView style={{ height: '86%'}}>
+                    <View style={{height: Dimensions.get('window').height, justifyContent: 'space-between'}}>
 
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 20, marginVertical: 20}}>
-                            <View style={styles.subblock}>
-                                <Text style={[styles.paragraph, {textTransform: 'capitalize'}]}>
-                                   {authUser?.signInUserSession.idToken.payload["cognito:groups"][0]}
-                                </Text>
-                                <Text style={styles.subparagraph}>
-                                    Change your plan
-                                </Text>
-                            </View>
-                        </View>
-
-                        <TouchableWithoutFeedback onPress={showNameModal}>
-                            <View style={styles.emailcontainer }> 
-                                <Text style={ styles.words }>Name</Text>
-                                <Text style={ [styles.placeholdertext, {textTransform: 'capitalize'}] }>{user?.name}</Text>
-                            </View>
-                        </TouchableWithoutFeedback>
-
-                        <TouchableWithoutFeedback onPress={showEmailModal}>
-                            <View style={styles.emailcontainer }> 
-                                <Text style={ styles.words }>Email</Text>
-                                <Text style={ styles.placeholdertext }>{authUser?.attributes.email}</Text>
-                            </View>
-                        </TouchableWithoutFeedback>
-
-                        <TouchableWithoutFeedback onPress={showPassModal}>
-                            <View style={styles.smallcontainer }>
-                                <Text style={ styles.words }>Reset Password</Text>
-                            </View>
-                        </TouchableWithoutFeedback>
-
-                        <TouchableWithoutFeedback onPress={showSignOutModal}>
-                            <View style={styles.smallcontainer }>
-                                <Text style={ styles.words }>Log Out</Text>
-                            </View>
-                        </TouchableWithoutFeedback>
-
-                        <TouchableWithoutFeedback>
-                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 40, marginVertical: 20}}>
-                                
-                            </View>
-                        </TouchableWithoutFeedback>
-                    
                         
-                    </ScrollView>  
+
+                            <View>
+
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 20, marginVertical: 20}}>
+                                    <View style={styles.subblock}>
+                                        <Text style={[styles.paragraph, {textTransform: 'capitalize'}]}>
+                                        {/* {authUser?.signInUserSession.idToken.payload["cognito:groups"][0]} */}
+                                            {premium === true ? 'Premium' : 'Basic'}
+                                        </Text>
+                                        <Text style={styles.subparagraph}>
+                                            Plan
+                                        </Text>
+                                    </View>
+                                </View>
+
+                                <TouchableWithoutFeedback onPress={showNameModal}>
+                                    <View style={styles.emailcontainer }> 
+                                        <Text style={ styles.words }>Name</Text>
+                                        <Text style={ [styles.placeholdertext, {textTransform: 'capitalize'}] }>{user?.name}</Text>
+                                    </View>
+                                </TouchableWithoutFeedback>
+
+                                <TouchableWithoutFeedback onPress={showEmailModal}>
+                                    <View style={styles.emailcontainer }> 
+                                        <Text style={ styles.words }>Email</Text>
+                                        <Text style={ styles.placeholdertext }>{authUser?.attributes.email}</Text>
+                                    </View>
+                                </TouchableWithoutFeedback>
+
+                                <TouchableWithoutFeedback onPress={showPassModal}>
+                                    <View style={styles.smallcontainer }>
+                                        <Text style={ styles.words }>Reset Password</Text>
+                                    </View>
+                                </TouchableWithoutFeedback>
+
+                                <TouchableWithoutFeedback onPress={showSignOutModal}>
+                                    <View style={styles.smallcontainer }>
+                                        <Text style={ styles.words }>Log Out</Text>
+                                    </View>
+                                </TouchableWithoutFeedback>
+
+                            </View>
+
+                            <View style={{marginBottom: 100}}>
+                                <TouchableWithoutFeedback onPress={showDeleteAccountModal}>
+                                    <View style={styles.smallcontainer }>
+                                        <Text style={{ fontSize: 16, marginVertical: 20, color: '#ffffffa5', }}>Delete Account</Text>
+                                    </View>
+                                </TouchableWithoutFeedback>
+
+                                <TouchableWithoutFeedback>
+                                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 40, marginVertical: 20}}>
+                                        
+                                    </View>
+                                </TouchableWithoutFeedback> 
+                            </View>
+
+                       
+                        
+                    </View>  
                 </LinearGradient>
                 <StatusBar style="light" />
             </View>

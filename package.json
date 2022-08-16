@@ -9,6 +9,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest --watchAll",
+    "aws-export": "echo 'Update Expo AWS_EXPORTS secret with value: \n\n' && cat aws-exports.js |base64",
     "eas-build-pre-install": "echo $AWS_EXPORTS | base64 -d > ./src/aws-exports.js"
   },
   "jest": {
@@ -16,6 +17,7 @@
   },
   "dependencies": {
     "@aws-amplify/core": "^4.5.6",
+    "@aws-sdk/client-cognito-identity-provider": "^3.150.0",
     "@expo/vector-icons": "^12.0.0",
     "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-native-community/datetimepicker": "4.0.0",

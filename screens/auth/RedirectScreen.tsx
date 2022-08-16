@@ -4,6 +4,7 @@ import { AppContext } from '../../AppContext';
 import { Auth, API, graphqlOperation } from 'aws-amplify';
 import { getUser } from '../../src/graphql/queries';
 import { StatusBar } from 'expo-status-bar';
+import Purchases from "react-native-purchases";
 
 
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -30,6 +31,28 @@ const Redirect = ({route, navigation} : any) => {
     const { premium } = useContext(AppContext);
     const { setPremium } = useContext(AppContext);
 
+    useEffect(() => {
+        //TODO check to see if the user has a premium subscription
+        //if they do, do nothing, it will be taken care of on redirect screen
+        //if they not subscribed and in the premium group, remove them
+    
+        const performMagic = async () => {
+    
+          const userInfo = await Auth.currentAuthenticatedUser();
+    
+          const ENTITLEMENT_ID = userInfo.attributes.sub
+    
+          const purchaserInfo = await Purchases.getPurchaserInfo();
+    
+          if (typeof purchaserInfo.entitlements.active[0] !== "undefined") {
+            setPremium(true);
+          } 
+        }
+
+        performMagic();
+    
+      }, [])
+
 
 
     useEffect(() => {
@@ -49,10 +72,18 @@ const Redirect = ({route, navigation} : any) => {
 
                 else {
 
-                    if (userInfo.signInUserSession.idToken.payload["cognito:groups"].includes('Premium') === true) {
-                        setPremium(true)
-                        console.log(userInfo.signInUserSession.idToken.payload["cognito:groups"])
-                    }
+                    // if (userInfo.signInUserSession.idToken.payload["cognito:groups"].includes('Premium') === true) {
+                    //     setPremium(true)
+                    //     console.log(userInfo.signInUserSession.idToken.payload["cognito:groups"])
+                    // }
+
+                    const purchaserInfo = await Purchases.getPurchaserInfo();
+
+                    if (typeof purchaserInfo.entitlements.active[0] !== "undefined") {
+                        setPremium(true);
+                      } else {
+                        setPremium(false)
+                      }
 
                     const date = new Date();
                     const year = date.getFullYear();
