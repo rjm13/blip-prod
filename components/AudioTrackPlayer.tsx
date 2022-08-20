@@ -13,7 +13,6 @@ import {
 
 import PreStoryAd from './PreStoryAd';
 
-import { Audio } from 'expo-av';
 import Slider from '@react-native-community/slider';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -55,42 +54,12 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 
 
 const AudioPlayer  = () => {
-    
-    const track1 = {
-        //url: AudioUri, // Load media from the network
-        title: 'Avaritia',
-        artist: 'deadmau5',
-        album: 'while(1<2)',
-        genre: 'Progressive House, Electro House',
-        date: '2014-05-20T07:00:00+00:00', // RFC 3339
-        artwork: 'http://example.com/cover.png', // Load artwork from the network
-        duration: 402 // Duration in seconds
-    };
-
-    const [AudioObj, setAudioObj] = useState({
-        url: '',
-        // title: 'Avaritia',
-        // artist: 'deadmau5',
-        // album: 'while(1<2)',
-        // genre: 'Progressive House, Electro House',
-        // date: '2014-05-20T07:00:00+00:00', // RFC 3339
-        // artwork: 'http://example.com/cover.png', // Load artwork from the network
-        // duration: 402 // Duration in seconds
-    })
-
-    // useEffect(() => {
-    //     const addTrack = async () => {
-    //        await TrackPlayer.add([track1, track2, track3]); 
-    //     }
-    //     addTrack();
-    // }, [])
 
     const setUpTrackPlayer = async () => {
         try {
             console.log('attempting...')
           await TrackPlayer.setupPlayer({});
-          await TrackPlayer.reset()
-          //console.log('Tracks added');
+          await TrackPlayer.reset();
         } catch (e) {
           console.log(e);
         }
@@ -102,8 +71,8 @@ const AudioPlayer  = () => {
           capabilities: [
             Capability.Play,
             Capability.Pause,
-            Capability.SkipToNext,
-            Capability.SkipToPrevious,
+            //Capability.SkipToNext,
+            //Capability.SkipToPrevious,
             Capability.Stop,
         ],
         compactCapabilities: [Capability.Play, Capability.Pause],
@@ -117,18 +86,6 @@ const AudioPlayer  = () => {
         setUpTrackPlayer();
         //return () => TrackPlayer.destroy();
       }, []);
-
-    // const state = await TrackPlayer.getState();
-    // if (state === State.Playing) {
-    //     console.log('The player is playing');
-    // };
-
-    //let trackIndex = await TrackPlayer.getCurrentTrack();
-    //let trackObject = await TrackPlayer.getTrack(trackIndex);
-    //console.log(`Title: ${trackObject.title}`);
-
-    //const positiontrack = await TrackPlayer.getPosition();
-    //const duration = await TrackPlayer.getDuration();
 
 //get the global page state for the audio player
     const { isRootScreen } = useContext(AppContext);
@@ -180,9 +137,13 @@ useEffect(() => {
 
     useEffect(() => {
         if (isPlaying === true) {
-            setPosition(0);
-            setIsPlaying(false);
-            ProgressCheck()
+            const DoStuff = async () => {
+                setPosition(0);
+                setIsPlaying(false);
+                ProgressCheck()
+                await TrackPlayer.reset()
+            }
+            DoStuff()
         }
     }, [storyID])
 
@@ -202,36 +163,20 @@ useEffect(() => {
                     const imageresponse = await Storage.get(storyData.data.getStory.imageUri)
                     setAudioUri(response);
                     setImageU(imageresponse);
-                    setPosition(0);
-                    setAudioObj({
-                        url: response,
-                        //title: storyData.data.getStory.title,
-                        //artist: storyData.data.getStory.author,
-                        //album: 'while(1<2)',
-                        //genre: storyData.data.getStory.genre.genre,
-                        //date: '2014-05-20T07:00:00+00:00', // RFC 3339
-                        //artwork: imageresponse, // Load artwork from the network
-                        //duration: 402 // Duration in seconds
-                    })
-
-                    
-                    const tracks = await TrackPlayer.getQueue();
-                    console.log(`First title: ${tracks.length}`);
+                    //setPosition(0);
                     
                     await TrackPlayer.add([{
                         url: response,
                         title: storyData.data.getStory.title,
                         artist: storyData.data.getStory.author,
-                        //album: 'while(1<2)',
-                        //genre: storyData.data.getStory.genre.genre,
-                        //date: '2014-05-20T07:00:00+00:00', // RFC 3339
-                        //artwork: storyData.data.getStory.imageUri, // Load artwork from the network
-                        duration: 158 // Duration in seconds
+                        artwork: imageresponse, // Load artwork from the network
+                        duration: storyData.data.getStory.time // Duration in seconds
                     }]);
-                    const positiontrack = await TrackPlayer.getDuration();
-                    console.log(positiontrack)
-                    setSlideLength(positiontrack*1000);
+                    let trackObject = await TrackPlayer.getQueue();
+                    console.log('slide length is')
+                    console.log(trackObject[0].duration)
                     
+                    setSlideLength(trackObject[0].duration);
                     
                 }
             } catch (e) {
@@ -249,8 +194,6 @@ useEffect(() => {
             setUser(UserData.data.getUser)
 
             for (let i = 0; i < UserData.data.getUser.Rated.items.length; i++) {
-                // console.log(UserData.data.getUser.Rated.items[i].storyID)
-                // console.log(storyID)
                 if (UserData.data.getUser.Rated.items[i].storyID === storyID) {
                     setIsRated(true);
                 }
@@ -264,14 +207,16 @@ useEffect(() => {
             for (let i = 0; i < UserData.data.getUser.inProgressStories.items.length; i++) {
                 if (UserData.data.getUser.inProgressStories.items[i].storyID === storyID) {
                     setInProgressID(UserData.data.getUser.inProgressStories.items[i].id);
-                    setPosition(UserData.data.getUser.inProgressStories.items[i].time)
+                    setPosition(UserData.data.getUser.inProgressStories.items[i].time);
+                    console.log('position is...')
+                    console.log(UserData.data.getUser.inProgressStories.items[i].time)
                 }
             }
         }
 
         if (isPlaying === true) {
-            setPosition(0);
-            setIsPlaying(false);
+            //setPosition(0);
+            //setIsPlaying(false);
             ProgressCheck()
             fetchStory();
             fetchUser();
@@ -279,15 +224,11 @@ useEffect(() => {
             fetchStory();
             fetchUser();
         }
-    
-        
-
     }, [storyID])
 
 
 
 //audio player
-    const [sound, setSound] = useState();
 
     const [isPlaying, setIsPlaying] = useState(false);
 
@@ -296,11 +237,11 @@ useEffect(() => {
     const [slideLength, setSlideLength] = useState(0); //slide length
 
     const onClose = async () => {
+        ProgressCheck();
         setStoryID(null);
         setStory(null);
         setPosition(0);
         setIsPlaying(false);
-        ProgressCheck();
         await TrackPlayer.reset()
     }
 
@@ -316,7 +257,6 @@ useEffect(() => {
             }
         }
     }
-  
 
 //rating state (if rated or not)
     const [isLiked, setIsLiked] = useState(false);
@@ -402,26 +342,30 @@ const AddToHistory = async () => {
 const AddProgress = async () => {
     let userInfo = await Auth.currentAuthenticatedUser();
 
-    let response = await API.graphql(graphqlOperation(
-        createInProgressStory, {input: {
-            userID: userInfo.attributes.sub,
-            storyID: storyID,
-            createdAt: new Date(),
-            updatedAt: new Date(),
-            time: position
-        }}
-    ))
-    setInProgressID(response.data.createInProgressStory.id)
+    if (storyID !== null) {
+        let response = await API.graphql(graphqlOperation(
+            createInProgressStory, {input: {
+                userID: userInfo.attributes.sub,
+                storyID: storyID,
+                createdAt: new Date(),
+                updatedAt: new Date(),
+                time: position
+            }}
+        ))
+        setInProgressID(response.data.createInProgressStory.id)
+    }    
 }
 
 //update the story that is in progress
 const UpdateProgress = async () => {
-    await API.graphql(graphqlOperation(
+    const response = await API.graphql(graphqlOperation(
         updateInProgressStory, {input: {
             id: inProgressID,
             time: position,
         }}
     ))
+    console.log('update progress to')
+    console.log(response.data.updateInProgressStory.time)
 }
 
 //check if a progress story for this user already exists
@@ -429,7 +373,6 @@ const ProgressCheck = () => {
     if (inProgressID === null) {
         AddProgress()
     } else {
-        return
         UpdateProgress()
     }
     setProgUpdate(!progUpdate)
@@ -439,7 +382,6 @@ const ProgressCheck = () => {
 //slider functions
     function SetPosition(value) {
         setPosition(value)
-        //TrackPlayer.seekTo(Math.round(value)/1000);
     }
 
     async function StoryPosition (value) { 
@@ -462,8 +404,7 @@ const ProgressCheck = () => {
     const playbackState = usePlaybackState();
 
     useEffect(() => {
-        console.log('state is...')
-        console.log(playbackState)
+        //console.log(playbackState)
     if (playbackState === 2) {
         setIsPlaying(true)
     } else if (playbackState === 3) {
@@ -476,18 +417,19 @@ const ProgressCheck = () => {
 //audio play and pause control
     async function PlayPause() {
 
-        if (isPlaying === false) {
-            TrackPlayer.play();
+        console.log('stats are...')
+        console.log(position)
+        console.log(slideLength)
 
-            //setIsPlaying(true);
-            const positiontrack = await TrackPlayer.getDuration();
-            //console.log(positiontrack)
-            setSlideLength(positiontrack*1000);
+        if (isPlaying === false) {
+            TrackPlayer.seekTo(position/1000);
+            TrackPlayer.play();
+            //const positiontrack = await TrackPlayer.getDuration();
+            //setSlideLength(positiontrack*1000);
             ProgressCheck();
         }
         if (isPlaying === true) {
-            TrackPlayer.pause();
-            //setIsPlaying (false);     
+            TrackPlayer.pause();   
             ProgressCheck();
         }    
     }
@@ -503,12 +445,9 @@ const ProgressCheck = () => {
         }
       }, 1000);
     
-
-
     if (!Story) {
         return null;
     }
-
 
 
     return (

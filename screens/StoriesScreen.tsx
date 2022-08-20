@@ -188,18 +188,22 @@ const AudioStoryHome = ({navigation} : any) => {
 
   useEffect(() => {
 
-    console.log(progUpdate)
+    //console.log(progUpdate)
     const fetchProgressStory = async () => {
+      let index = 0;
       let userInfo = await Auth.currentAuthenticatedUser();
       let response = await API.graphql(graphqlOperation(
         getUser, {id: userInfo.attributes.sub}
       ))
+      if (response.data.getUser.inProgressStories.items[index].storyID === null) {
+        index = index + 1
+      }
       if (response.data.getUser.inProgressStories.items.length > 0) {
-        setProgressStory(response.data.getUser.inProgressStories.items[0].story)
-        let imageUri = await Storage.get(response.data.getUser.inProgressStories.items[0].story.imageUri)
+        setProgressStory(response.data.getUser.inProgressStories.items[index].story)
+        let imageUri = await Storage.get(response.data.getUser.inProgressStories.items[index].story.imageUri)
         setImageU(imageUri)
-        setPercent((Math.ceil(((response.data.getUser.inProgressStories.items[0].time)/(response.data.getUser.inProgressStories.items[0].story.time))*100) + 10).toString())
-        setTimeLeft(Math.ceil(((response.data.getUser.inProgressStories.items[0].story.time)-(response.data.getUser.inProgressStories.items[0].time))/60000))
+        setPercent((Math.ceil(((response.data.getUser.inProgressStories.items[index].time)/(response.data.getUser.inProgressStories.items[index].story.time))*100) + 10).toString())
+        setTimeLeft(Math.ceil(((response.data.getUser.inProgressStories.items[index].story.time)-(response.data.getUser.inProgressStories.items[index].time))/60000))
         setProgressExists(true);
       }
       if (response.data.getUser.inProgressStories.items.length === 0) {

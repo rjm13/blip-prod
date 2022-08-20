@@ -11,21 +11,21 @@ module.exports = async function () {
     TrackPlayer.pause();
   });
 
-  TrackPlayer.addEventListener('remote-next', () => {
-    TrackPlayer.skipToNext();
-  });
+//   TrackPlayer.addEventListener('remote-next', () => {
+//     TrackPlayer.skipToNext();
+//   });
 
-  TrackPlayer.addEventListener('remote-previous', () => {
-    TrackPlayer.skipToPrevious();
-  });
+//   TrackPlayer.addEventListener('remote-previous', () => {
+//     TrackPlayer.skipToPrevious();
+//   });
 
   TrackPlayer.addEventListener('remote-stop', () => {
     TrackPlayer.destroy();
   });
 
-  TrackPlayer.addEventListener('remote-seek', ({ position }) => {
-    // TrackPlayer.destroy();
-    console.log('remote seek:', position);
-    TrackPlayer.seekTo(position);
-  });
+//   TrackPlayer.addEventListener('remote-seek', ({ position }) => {
+//     // TrackPlayer.destroy();
+//     console.log('remote seek:', position);
+//     TrackPlayer.seekTo(position);
+//   });
 };
