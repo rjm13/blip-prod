@@ -11,8 +11,9 @@ import Navigation from './navigation'
 import Constants from 'expo-constants';
 import * as Notifications from 'expo-notifications';
 
-import mobileAds from 'react-native-google-mobile-ads';
+//import mobileAds from 'react-native-google-mobile-ads';
 import Purchases from 'react-native-purchases';
+//import TrackPlayer, {Capability} from 'react-native-track-player';
 
 import Amplify from '@aws-amplify/core';
 import config from './src/aws-exports';
@@ -21,6 +22,7 @@ Amplify.configure(config);
 import { AppContext } from './AppContext';
 
 import AudioPlayerWidget from './components/AudioPlayerWidget';
+import AudioTrackPlayer from './components/AudioTrackPlayer';
 
 
 
@@ -32,23 +34,6 @@ Notifications.setNotificationHandler({
   }),
 });
 
-
-// async function setup() {
-//   await TrackPlayer.setupPlayer({});
-//   await TrackPlayer.updateOptions({
-//     stopWithApp: false,
-//     capabilities: [
-//       TrackPlayer.CAPABILITY_PLAY,
-//       TrackPlayer.CAPABILITY_PAUSE,
-//       TrackPlayer.CAPABILITY_STOP,
-//       TrackPlayer.CAPABILITY_SEEK_TO,
-//     ],
-//     compactCapabilities: [
-//       TrackPlayer.CAPABILITY_PLAY,
-//       TrackPlayer.CAPABILITY_PAUSE,
-//     ],
-//   });
-// }
 
 export default function App() {
 
@@ -69,9 +54,25 @@ export default function App() {
   }, [])
 
 
+  // const setUpTrackPlayer = async () => {
+  //   try {
+  //     await TrackPlayer.setupPlayer();
+  //     await TrackPlayer.add(tracks);
+  //     console.log('Tracks added');
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
   // useEffect(() => {
-  //   setup();
-
+  //   TrackPlayer.updateOptions({
+  //     stopWithApp: false,
+  //     capabilities: [TrackPlayer.CAPABILITY_PLAY, TrackPlayer.CAPABILITY_PAUSE],
+  //     compactCapabilities: [
+  //       TrackPlayer.CAPABILITY_PLAY,
+  //       TrackPlayer.CAPABILITY_PAUSE,
+  //     ],
+  //   });
+  //   setUpTrackPlayer();
   //   return () => TrackPlayer.destroy();
   // }, []);
 
@@ -188,7 +189,8 @@ export default function App() {
         }}>
             <Navigation colorScheme='dark'/>
             <StatusBar style='light' backgroundColor='#0000004D'/>
-            <AudioPlayerWidget />
+            <AudioTrackPlayer />
+            {/* <AudioPlayerWidget /> */}
           </AppContext.Provider>
       </SafeAreaProvider>
 

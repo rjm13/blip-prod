@@ -3,6 +3,7 @@
     "name": "Blip",
     "slug": "blip-prod",
     "version": "1.0.19",
+    "entryPoint": "./index.js",
     "plugins": [
       [
         "expo-ads-admob",
