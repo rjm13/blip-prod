@@ -13,7 +13,7 @@ import * as Notifications from 'expo-notifications';
 
 //import mobileAds from 'react-native-google-mobile-ads';
 import Purchases from 'react-native-purchases';
-//import TrackPlayer, {Capability} from 'react-native-track-player';
+import TrackPlayer, {Capability} from 'react-native-track-player';
 
 import Amplify from '@aws-amplify/core';
 import config from './src/aws-exports';
@@ -54,27 +54,37 @@ export default function App() {
   }, [])
 
 
-  // const setUpTrackPlayer = async () => {
-  //   try {
-  //     await TrackPlayer.setupPlayer();
-  //     await TrackPlayer.add(tracks);
-  //     console.log('Tracks added');
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
-  // useEffect(() => {
-  //   TrackPlayer.updateOptions({
-  //     stopWithApp: false,
-  //     capabilities: [TrackPlayer.CAPABILITY_PLAY, TrackPlayer.CAPABILITY_PAUSE],
-  //     compactCapabilities: [
-  //       TrackPlayer.CAPABILITY_PLAY,
-  //       TrackPlayer.CAPABILITY_PAUSE,
-  //     ],
-  //   });
-  //   setUpTrackPlayer();
-  //   return () => TrackPlayer.destroy();
-  // }, []);
+  const setUpTrackPlayer = async () => {
+    try {
+        console.log('attempting...')
+      await TrackPlayer.setupPlayer({});
+      await TrackPlayer.reset();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    TrackPlayer.updateOptions({
+      //stopWithApp: false,
+      capabilities: [
+        Capability.Play,
+        Capability.Pause,
+        //Capability.SkipToNext,
+        //Capability.SkipToPrevious,
+        Capability.Stop,
+    ],
+    compactCapabilities: [Capability.Play, Capability.Pause],
+    notificationCapabilities: [
+        Capability.Play,
+        Capability.Pause,
+        //Capability.SkipToNext,
+        //Capability.SkipToPrevious,
+      ],
+    });
+    setUpTrackPlayer();
+    //return () => TrackPlayer.destroy();
+  }, []);
 
 
   const isLoadingComplete = useCachedResources();

@@ -30,6 +30,7 @@ import * as RootNavigation from '../navigation/RootNavigation';
 import ShareStory from './functions/ShareStory';
 
 import TrackPlayer, {State, useProgress, Capability, usePlaybackState} from 'react-native-track-player';
+import { ConsoleLogger } from '@aws-amplify/core';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -55,37 +56,37 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const AudioPlayer  = () => {
 
-    const setUpTrackPlayer = async () => {
-        try {
-            console.log('attempting...')
-          await TrackPlayer.setupPlayer({});
-          await TrackPlayer.reset();
-        } catch (e) {
-          console.log(e);
-        }
-      };
+    // const setUpTrackPlayer = async () => {
+    //     try {
+    //         console.log('attempting...')
+    //       await TrackPlayer.setupPlayer({});
+    //       await TrackPlayer.reset();
+    //     } catch (e) {
+    //       console.log(e);
+    //     }
+    //   };
 
-      useEffect(() => {
-        TrackPlayer.updateOptions({
-          //stopWithApp: false,
-          capabilities: [
-            Capability.Play,
-            Capability.Pause,
-            //Capability.SkipToNext,
-            //Capability.SkipToPrevious,
-            Capability.Stop,
-        ],
-        compactCapabilities: [Capability.Play, Capability.Pause],
-        notificationCapabilities: [
-            Capability.Play,
-            Capability.Pause,
-            //Capability.SkipToNext,
-            //Capability.SkipToPrevious,
-          ],
-        });
-        setUpTrackPlayer();
-        //return () => TrackPlayer.destroy();
-      }, []);
+    //   useEffect(() => {
+    //     TrackPlayer.updateOptions({
+    //       //stopWithApp: false,
+    //       capabilities: [
+    //         Capability.Play,
+    //         Capability.Pause,
+    //         //Capability.SkipToNext,
+    //         //Capability.SkipToPrevious,
+    //         Capability.Stop,
+    //     ],
+    //     compactCapabilities: [Capability.Play, Capability.Pause],
+    //     notificationCapabilities: [
+    //         Capability.Play,
+    //         Capability.Pause,
+    //         //Capability.SkipToNext,
+    //         //Capability.SkipToPrevious,
+    //       ],
+    //     });
+    //     setUpTrackPlayer();
+    //     //return () => TrackPlayer.destroy();
+    //   }, []);
 
 //get the global page state for the audio player
     const { isRootScreen } = useContext(AppContext);
@@ -139,6 +140,7 @@ useEffect(() => {
         if (isPlaying === true) {
             const DoStuff = async () => {
                 setPosition(0);
+                setInitialPosition(0);
                 setIsPlaying(false);
                 ProgressCheck()
                 await TrackPlayer.reset()
@@ -208,15 +210,20 @@ useEffect(() => {
                 if (UserData.data.getUser.inProgressStories.items[i].storyID === storyID) {
                     setInProgressID(UserData.data.getUser.inProgressStories.items[i].id);
                     setPosition(UserData.data.getUser.inProgressStories.items[i].time);
-                    console.log('position is...')
+                    setInitialPosition(UserData.data.getUser.inProgressStories.items[i].time);
+                    console.log('position is set as...')
                     console.log(UserData.data.getUser.inProgressStories.items[i].time)
+                    return;
                 }
+                 console.log('position is...')
+                console.log(position)
             }
+           
         }
 
         if (isPlaying === true) {
-            //setPosition(0);
-            //setIsPlaying(false);
+            setPosition(0);
+            setIsPlaying(false);
             ProgressCheck()
             fetchStory();
             fetchUser();
@@ -234,6 +241,8 @@ useEffect(() => {
 
     const [position, setPosition] = useState(0); //position in milliseconds
 
+    const [initialposition, setInitialPosition] = useState(0); //position in milliseconds
+
     const [slideLength, setSlideLength] = useState(0); //slide length
 
     const onClose = async () => {
@@ -241,6 +250,7 @@ useEffect(() => {
         setStoryID(null);
         setStory(null);
         setPosition(0);
+        setInitialPosition(0)
         setIsPlaying(false);
         await TrackPlayer.reset()
     }
@@ -358,14 +368,18 @@ const AddProgress = async () => {
 
 //update the story that is in progress
 const UpdateProgress = async () => {
-    const response = await API.graphql(graphqlOperation(
-        updateInProgressStory, {input: {
-            id: inProgressID,
-            time: position,
-        }}
-    ))
-    console.log('update progress to')
-    console.log(response.data.updateInProgressStory.time)
+    if (position !== 0) {
+        const response = await API.graphql(graphqlOperation(
+            updateInProgressStory, {input: {
+                id: inProgressID,
+                time: position,
+            }}
+        ))
+        console.log('update progress to')
+        console.log(response.data.updateInProgressStory.time)
+    }
+    
+    
 }
 
 //check if a progress story for this user already exists
@@ -422,8 +436,9 @@ const ProgressCheck = () => {
         console.log(slideLength)
 
         if (isPlaying === false) {
-            TrackPlayer.seekTo(position/1000);
+            
             TrackPlayer.play();
+            TrackPlayer.seekTo(position/1000);
             //const positiontrack = await TrackPlayer.getDuration();
             //setSlideLength(positiontrack*1000);
             ProgressCheck();
@@ -442,6 +457,7 @@ const ProgressCheck = () => {
             setPosition(0);
             setIsPlaying(false);
             AddToHistory();
+            console.log('added to history')
         }
       }, 1000);
     
@@ -707,7 +723,7 @@ const ProgressCheck = () => {
                                             maximumTrackTintColor="#ffffffa5"
                                             thumbTintColor='#fff'
                                             //tapToSeek={true}
-                                            value={position}
+                                            value={initialposition}
                                             step={1000}
 
                                             minimumValue={0}
