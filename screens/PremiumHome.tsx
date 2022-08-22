@@ -56,7 +56,8 @@ const PremiumHome = ({navigation} : any) => {
                 }
                 Purchases.setDebugLogsEnabled(true);
                 if (Platform.OS == "android") {
-                Purchases.setup("goog_wSkOaqDFxXdkMqDferfIVDqSIuv", userInfo.attributes.sub);
+                    return;
+                //Purchases.setup("goog_wSkOaqDFxXdkMqDferfIVDqSIuv", userInfo.attributes.sub);
                 } else {
                 Purchases.setup("appl_kWcWMJjdDmIvLdsnnGavdbkSevg", userInfo.attributes.sub);
                 }
@@ -221,7 +222,7 @@ const PremiumHome = ({navigation} : any) => {
                                         ${Math.ceil(parseFloat(packages?.availablePackages[0].product.price))}
                                     </Text>
                                     <Text style={{fontSize: 12, fontWeight: 'bold', color: selection === 3 ? '#000000a5' : '#363636a5'}}>
-                                        {Math.ceil(parseFloat(packages?.availablePackages[0].product.price_string))}/mo
+                                        ${Math.ceil(parseFloat(packages?.availablePackages[0].product.price))}/mo
                                     </Text>
                                 </View>
                                 <Text style={{color: '#fff', textAlign: 'center'}}>
