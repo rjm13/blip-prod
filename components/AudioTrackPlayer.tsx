@@ -109,10 +109,10 @@ const AudioPlayer  = () => {
 //minimize the player with animations
     const [isExpanded, setIsExpanded] = useState(false);
 
-
+//load the ad
 useEffect(() => {
     if (premium === false && storyID !== null) {
-       PreStoryAd(); 
+       PreStoryAd();
     }
 }, [storyID])
 
