@@ -12,6 +12,9 @@ import {
 } from 'react-native';
 
 import PreStoryAd from './PreStoryAd';
+import * as Device from 'expo-device';
+
+import {AdMobRewarded,setTestDeviceIDAsync} from 'expo-ads-admob';
 
 import Slider from '@react-native-community/slider';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -110,11 +113,62 @@ const AudioPlayer  = () => {
     const [isExpanded, setIsExpanded] = useState(false);
 
 //load the ad
-useEffect(() => {
-    if (premium === false && storyID !== null) {
-       PreStoryAd();
-    }
-}, [storyID])
+
+    const [complete, setComplete] = useState(false);
+
+    useEffect(() => {
+        //if (premium === false && storyID !== null) {
+        //PreStoryAd();
+
+        const PreStoryAdv = async () => {
+
+            const testID = Platform.select({
+                // https://developers.google.com/admob/ios/test-ads
+                ios: 'ca-app-pub-3940256099942544/1712485313',
+                // https://developers.google.com/admob/android/test-ads
+                android: 'ca-app-pub-3940256099942544/5224354917',
+            });
+        
+            const productionID = Platform.select({
+                // https://developers.google.com/admob/ios/test-ads
+                ios: 'ca-app-pub-8042132670790474/5004534539',
+                // https://developers.google.com/admob/android/test-ads
+                //android: 'ca-app-pub-8042132670790474/6243811623',
+                android: 'ca-app-pub-8042132670790474/9512053895'
+            });
+            // Is a real device and running in production.
+            const adUnitID = Device.isDevice && !__DEV__ ? productionID : testID;
+
+            AdMobRewarded.addEventListener('rewardedVideoDidFailToLoad', () => {
+                console.log('FailedToLoad');
+                setComplete(true);
+              }
+              );
+              
+              AdMobRewarded.addEventListener('rewardedVideoDidFailToPresent', () => {
+                console.log('FailedToLoad');
+                setComplete(true);
+              }
+              );
+              
+              AdMobRewarded.addEventListener('rewardedVideoDidDismiss', () => {
+                console.log('Closed');
+                setComplete(true);
+                });
+
+            // Display a rewarded ad
+            await AdMobRewarded.setAdUnitID(adUnitID); // Test ID, Replace with your-admob-unit-id
+            await AdMobRewarded.requestAdAsync();
+            await AdMobRewarded.showAdAsync();
+
+
+        }
+
+        if (premium === false && storyID !== null) {
+            PreStoryAdv();
+        }
+       
+    }, [storyID])
 
 
 //set the progress story ID
@@ -252,6 +306,7 @@ useEffect(() => {
         setPosition(0);
         setInitialPosition(0)
         setIsPlaying(false);
+        setComplete(false);
         await TrackPlayer.reset()
     }
 
@@ -434,6 +489,10 @@ const ProgressCheck = () => {
         console.log('stats are...')
         console.log(position)
         console.log(slideLength)
+
+        if (complete === false) {
+            return;
+        }
 
         if (isPlaying === false) {
             

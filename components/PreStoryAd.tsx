@@ -24,7 +24,27 @@ import {
     // Is a real device and running in production.
     const adUnitID = Device.isDevice && !__DEV__ ? productionID : testID;
 
+
 const PreStoryAd = async () => {
+
+  //const [complete, setComplete] = useState(false);
+
+    AdMobRewarded.addEventListener('rewardedVideoDidFailToLoad', () => {
+      console.log('FailedToLoad');
+      //setComplete(true);
+    }
+    );
+    
+    AdMobRewarded.addEventListener('rewardedVideoDidFailToPresent', () => {
+      console.log('FailedToLoad');
+      //setComplete(true);
+    }
+    );
+    
+    AdMobRewarded.addEventListener('rewardedVideoDidDismiss', () => {
+      console.log('Closed');
+      //setComplete(true);
+      });
 
 // Display a rewarded ad
 await AdMobRewarded.setAdUnitID(adUnitID); // Test ID, Replace with your-admob-unit-id
