@@ -166,6 +166,8 @@ const AudioPlayer  = () => {
 
         if (premium === false && storyID !== null) {
             PreStoryAdv();
+        } else {
+            setComplete(true);
         }
        
     }, [storyID])
