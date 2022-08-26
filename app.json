@@ -2,7 +2,7 @@
   "expo": {
     "name": "Blip",
     "slug": "blip-prod",
-    "version": "1.0.24",
+    "version": "1.0.25",
     "entryPoint": "./index.js",
     "plugins": [
       [
@@ -30,7 +30,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.martianspidermedia.blipprod",
-      "buildNumber": "1.0.24",
+      "buildNumber": "1.0.25",
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-8042132670790474~2216264256" 
       },
@@ -51,7 +51,7 @@
     },
     "android": {
       "package": "com.msm.blipprod",
-      "versionCode": 24,
+      "versionCode": 25,
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-8042132670790474~2382990023" 
       },
