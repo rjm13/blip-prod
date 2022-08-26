@@ -166,8 +166,6 @@ const AudioPlayer  = () => {
 
         if (premium === false && storyID !== null) {
             PreStoryAdv();
-        } else {
-            setComplete(true);
         }
        
     }, [storyID])
@@ -176,6 +174,12 @@ const AudioPlayer  = () => {
 //set the progress story ID
 useEffect(() => {
     setInProgressID(null);
+}, [storyID])
+
+useEffect(() => {
+    if (premium === true) {
+        setComplete(true)
+    }
 }, [storyID])
 
     const onChangeHandler = () => {
@@ -473,13 +477,18 @@ const ProgressCheck = () => {
     }  
 
     const playbackState = usePlaybackState();
+    //const ifPlaying = playbackState === State.Playing;
 
     useEffect(() => {
-        //console.log(playbackState)
+        console.log('playback state is...')
+        console.log(playbackState)
+        console.log('complete is' + complete)
     if (playbackState === 2) {
         setIsPlaying(true)
     } else if (playbackState === 3) {
         setIsPlaying(false)
+    } else if (playbackState === State.Playing) {
+        setIsPlaying(true)
     } else {
         setIsPlaying(false)
     }
@@ -496,16 +505,15 @@ const ProgressCheck = () => {
             return;
         }
 
-        if (isPlaying === false) {
-            
+        if (isPlaying === false && complete === true) {
             TrackPlayer.play();
             TrackPlayer.seekTo(position/1000);
             //const positiontrack = await TrackPlayer.getDuration();
             //setSlideLength(positiontrack*1000);
             ProgressCheck();
         }
-        if (isPlaying === true) {
-            TrackPlayer.pause();   
+        if (isPlaying === true && complete === true) {
+            TrackPlayer.pause();  
             ProgressCheck();
         }    
     }

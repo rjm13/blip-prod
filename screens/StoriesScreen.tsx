@@ -77,7 +77,7 @@ const AudioStoryHome = ({navigation} : any) => {
           flexDirection: 'row', height: 60, borderRadius: 15, alignItems: 'center', marginVertical: 10, width: '100%'}}>
             <Image
               source={{ uri: imageUri}}
-              style={{width: '40%', height: '100%', borderRadius: 15, position: 'absolute', backgroundColor: 'gray', left: Platform.OS === 'ios' ? 210 : 192}}
+              style={{width: '40%', height: '100%', borderRadius: 15, position: 'absolute', backgroundColor: 'gray', left: Platform.OS === 'ios' ? 224 : 192}}
             />
               <LinearGradient 
                 //colors={[PrimaryColor, PrimaryColor, PrimaryColor, PrimaryColor + '80']}
