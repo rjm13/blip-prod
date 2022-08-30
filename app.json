@@ -2,7 +2,7 @@
   "expo": {
     "name": "Blip",
     "slug": "blip-prod",
-    "version": "1.0.25",
+    "version": "1.0.28",
     "entryPoint": "./index.js",
     "plugins": [
       [
@@ -30,7 +30,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.martianspidermedia.blipprod",
-      "buildNumber": "1.0.25",
+      "buildNumber": "1.0.28",
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-8042132670790474~2216264256" 
       },
@@ -46,12 +46,13 @@
         "NSMotionUsageDescription": "This permission is not needed by the app, but it is required by an underlying API. If you see this dialog, contact us.",
         "NSPhotoLibraryAddUsageDescription": "In order to select an image to upload, Blip needs access to your photo library.",
         "NSPhotoLibraryUsageDescription": "In order to select an image to upload, Blip needs access to your photo library.",
-        "NSRemindersUsageDescription": "This permission is not needed by the app, but it is required by an underlying API. If you see this dialog, contact us."
+        "NSRemindersUsageDescription": "This permission is not needed by the app, but it is required by an underlying API. If you see this dialog, contact us.",
+        "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you."
       }
     },
     "android": {
       "package": "com.msm.blipprod",
-      "versionCode": 25,
+      "versionCode": 28,
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-8042132670790474~2382990023" 
       },

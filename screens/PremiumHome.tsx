@@ -286,9 +286,17 @@ const PremiumHome = ({navigation} : any) => {
                     </TouchableOpacity>
                     
                 </View>
-                    <Text style={{color: '#ffffffa5', textAlign: 'center', fontSize: 12, marginTop: 60, marginBottom: 0, paddingHorizontal: 20}}>
-                        Subscriptions renew automatically unless cancelled.
-                    </Text>
+                    <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 60, alignSelf: 'center'}}>
+                        <Text style={{color: '#ffffffa5', textAlign: 'center', fontSize: 12, marginBottom: 0,}}>
+                            Subscriptions renew automatically. See
+                        </Text> 
+                        <TouchableWithoutFeedback onPress={() => Linking.openURL('http://www.blipstories.com/premium-terms')}>
+                        <Text style={{textDecorationLine: 'underline', color: '#ffffffa5', textAlign: 'center', fontSize: 12, marginLeft: 4}}>
+                            conditions
+                        </Text>
+                    </TouchableWithoutFeedback>
+                    </View>
+                    
                     <TouchableWithoutFeedback onPress={() => Linking.openURL('http://www.blipstories.com/terms')}>
                         <Text style={{textDecorationLine: 'underline', color: '#ffffffa5', textAlign: 'center', fontSize: 12, paddingHorizontal: 20, marginBottom: -20}}>
                             Terms and conditions

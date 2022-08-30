@@ -71,6 +71,19 @@ const AboutScreen = ({navigation} : any) => {
                         </View>
                     </TouchableWithoutFeedback>
 
+                    <TouchableWithoutFeedback onPress={() => Linking.openURL('http://www.blipstories.com/privacy-policy')}>
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 40, marginVertical: 20}}>
+                            <Text style={{ color: '#fff', fontSize: 16}}>
+                                Privacy Policy
+                            </Text>
+                            <FontAwesome5 
+                                name='chevron-right'
+                                color='#fff'
+                                size={15}
+                            />
+                        </View>
+                    </TouchableWithoutFeedback>
+
                     <TouchableWithoutFeedback onPress={() => Linking.openURL('http://www.blipstories.com/faq')}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 40, marginVertical: 20}}>
                             <Text style={{ color: '#fff', fontSize: 16}}>

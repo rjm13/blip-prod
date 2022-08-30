@@ -74,7 +74,8 @@ const SignUp = ({navigation} : any) => {
         email: '',
         password: '',
         Name: '',
-        birthdate: format(date, "MM/dd/yyyy"),
+        //birthdate: format(date, "MM/dd/yyyy"),
+        birthdate: "07/26/1987",
         confirm_password: '',
         check_textInputChange: false,
         secureTextEntry: true,
@@ -356,7 +357,7 @@ const CreateUser = async () => {
                     </View>
 
                     <View style={{marginTop: 0}}>
-                    <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
+                    {/* <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
                             <Text style={styles.header}>
                                 Birth Date
                             </Text>
@@ -374,15 +375,15 @@ const CreateUser = async () => {
                                 />
                             </TouchableOpacity>
                             
-                        </View>
-                        <TouchableWithoutFeedback onPress={showDatepicker}>
+                        </View> */}
+                        {/* <TouchableWithoutFeedback onPress={showDatepicker}>
                             <View style={styles.inputfield}>
                                 <Text style={styles.textInputTitle}>
                                     {date === todaysdate ? '...' : format(date, "MMMM do, yyyy")}
                                 </Text>
                             </View>
-                        </TouchableWithoutFeedback>
-                        {Platform.OS === 'android' && show && (
+                        </TouchableWithoutFeedback> */}
+                        {/* {Platform.OS === 'android' && show && (
                                 <DateTimePicker
                                     testID="dateTimePicker"
                                     value={date}
@@ -391,7 +392,7 @@ const CreateUser = async () => {
                                     display="default"
                                     onChange={onChange}
                                 />
-                        )}
+                        )} */}
                        
                     </View>
 

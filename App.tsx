@@ -20,6 +20,7 @@ import config from './src/aws-exports';
 Amplify.configure(config);
 
 import { AppContext } from './AppContext';
+import { requestTrackingPermissionsAsync } from 'expo-tracking-transparency';
 
 import AudioPlayerWidget from './components/AudioPlayerWidget';
 import AudioTrackPlayer from './components/AudioTrackPlayer';
@@ -28,7 +29,7 @@ import AudioTrackPlayer from './components/AudioTrackPlayer';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
-    shouldShowAlert: true,
+    shouldShowAlert: false,
     shouldPlaySound: false,
     shouldSetBadge: false,
   }),
@@ -36,6 +37,23 @@ Notifications.setNotificationHandler({
 
 
 export default function App() {
+
+  useEffect(() => {
+    (async () => {
+      //const { status } = await requestTrackingPermissionsAsync();
+
+      setTimeout(async () => {
+        const { status } = await requestTrackingPermissionsAsync();
+        if (status === 'granted') {
+          console.log('Yay! I have user permission to track data');
+        }
+      }, 500);
+
+      
+    })();
+  }, []);
+
+  
 
 
   useEffect(() => {
