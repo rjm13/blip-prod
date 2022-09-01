@@ -5,7 +5,8 @@ import {
     StyleSheet,
     ScrollView, 
     TouchableWithoutFeedback,  
-    Image 
+    Image, 
+    Dimensions
 } from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
@@ -111,6 +112,7 @@ const ProfileScreen = ({navigation} : any) => {
                 colors={['#363636a5', '#363636a5', 'black']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
+                style={{height: Dimensions.get('window').height}}
             >
                 
                 <View style={{ flexDirection: 'row', marginTop: 30, marginLeft: 20, alignItems: 'center'}}>
@@ -128,7 +130,7 @@ const ProfileScreen = ({navigation} : any) => {
                     </Text>
                 </View>
                 
-                <ScrollView style={{ height: '86%'}}>
+                <ScrollView style={{ height: '86%'}} showsVerticalScrollIndicator={false}>
                     <View style={{ alignItems: 'center'}}>
                         <Image 
                             source={ user?.imageUri ? { uri: imageU} : require('../assets/images/blankprofile.png')}

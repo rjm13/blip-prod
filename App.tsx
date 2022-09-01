@@ -29,7 +29,7 @@ import AudioTrackPlayer from './components/AudioTrackPlayer';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
-    shouldShowAlert: false,
+    shouldShowAlert: true,
     shouldPlaySound: false,
     shouldSetBadge: false,
   }),

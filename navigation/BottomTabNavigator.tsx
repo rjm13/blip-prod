@@ -86,8 +86,8 @@ export default function BottomTabNavigator() {
           tabBarActiveTintColor: Colors[colorScheme].tint,
           tabBarStyle: {
             //backgroundColor: '#000',
-            height: 55,
-            paddingBottom: Platform.OS === 'ios' ? 14 : 4
+            height: Platform.OS === 'ios' ? 60 : 55,
+            paddingBottom: Platform.OS === 'ios' ? 18 : 4
         }
           }}>
       <BottomTab.Screen

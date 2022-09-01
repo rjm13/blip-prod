@@ -6,6 +6,7 @@ import {
     ScrollView, 
     TouchableWithoutFeedback, 
     Linking,
+    Dimensions
 } from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
@@ -25,7 +26,7 @@ const AboutScreen = ({navigation} : any) => {
             
             <LinearGradient
                 colors={['#363636a5', '#363636a5', 'black']}
-                //style={styles.container}
+                style={{height: Dimensions.get('window').height}}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
             >

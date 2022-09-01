@@ -226,7 +226,7 @@ const AudioStoryHome = ({navigation} : any) => {
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 1 }}
         >
-          <ScrollView>
+          <ScrollView showsVerticalScrollIndicator={false}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 60, marginBottom: 20, marginHorizontal: 20}}>
               <Text style={{ color: 'white', marginHorizontal: 0, fontSize: 22, fontWeight: 'bold'}}>
                 Discover Stories
