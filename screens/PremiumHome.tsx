@@ -49,15 +49,14 @@ const PremiumHome = ({navigation} : any) => {
             try {
                 const userInfo = await Auth.currentAuthenticatedUser();
                 const offerings = await Purchases.getOfferings();
-                console.log(offerings.current)
+                console.log(offerings)
                 if (offerings.current !== null) {
                     setPackages(offerings?.current)
                     console.log(offerings?.current)
                 }
                 Purchases.setDebugLogsEnabled(true);
                 if (Platform.OS == "android") {
-                    return;
-                //Purchases.setup("goog_wSkOaqDFxXdkMqDferfIVDqSIuv", userInfo.attributes.sub);
+                Purchases.setup("goog_mGKuEGLFiyUirdavNLFmvvIMEPM", userInfo.attributes.sub);
                 } else {
                 Purchases.setup("appl_kWcWMJjdDmIvLdsnnGavdbkSevg", userInfo.attributes.sub);
                 }
