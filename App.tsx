@@ -61,7 +61,7 @@ export default function App() {
       Purchases.setDebugLogsEnabled(true)
       if (Platform.OS === 'android') {
         console.log('entrou 3')
-        Purchases.setup('goog_mGKuEGLFiyUirdavNLFmvvIMEPM')
+        Purchases.setup('goog_ZnvczOwEEgDMwVVNvfxMKwPmFgX')
       }
       if (Platform.OS === 'ios') {
         console.log('entrou 3')

@@ -119,7 +119,7 @@ const SignIn = ({navigation} : any) => {
         catch (error) {
             console.log('error signing in', error)
             setErr(error)
-            setIsErr(true);
+            //setIsErr(true);
             setSigningIn(false);
         }
         setSigningIn(false);

@@ -49,6 +49,7 @@ const PremiumHome = ({navigation} : any) => {
             try {
                 const userInfo = await Auth.currentAuthenticatedUser();
                 const offerings = await Purchases.getOfferings();
+                console.log('offerings are...')
                 console.log(offerings)
                 if (offerings.current !== null) {
                     setPackages(offerings?.current)
@@ -56,7 +57,7 @@ const PremiumHome = ({navigation} : any) => {
                 }
                 Purchases.setDebugLogsEnabled(true);
                 if (Platform.OS == "android") {
-                Purchases.setup("goog_mGKuEGLFiyUirdavNLFmvvIMEPM", userInfo.attributes.sub);
+                Purchases.setup("goog_ZnvczOwEEgDMwVVNvfxMKwPmFgX", userInfo.attributes.sub);
                 } else {
                 Purchases.setup("appl_kWcWMJjdDmIvLdsnnGavdbkSevg", userInfo.attributes.sub);
                 }

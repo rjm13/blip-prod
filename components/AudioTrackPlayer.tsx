@@ -134,7 +134,7 @@ const AudioPlayer  = () => {
                 ios: 'ca-app-pub-8042132670790474/5004534539',
                 // https://developers.google.com/admob/android/test-ads
                 //android: 'ca-app-pub-8042132670790474/6243811623',
-                android: 'ca-app-pub-8042132670790474/9512053895'
+                android: 'ca-app-pub-8042132670790474/6243811623'
             });
             // Is a real device and running in production.
             const adUnitID = Device.isDevice && !__DEV__ ? productionID : testID;

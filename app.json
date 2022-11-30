@@ -2,13 +2,26 @@
   "expo": {
     "name": "Blip",
     "slug": "blip-prod",
-    "version": "1.0.29",
+    "version": "1.0.33",
     "entryPoint": "./index.js",
     "plugins": [
       [
         "expo-ads-admob",
         {
           "userTrackingPermission": "This identifier will be used to deliver personalized ads to you."
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 33,
+            "targetSdkVersion": 33,
+            "buildToolsVersion": "33.0.0"
+          },
+          "ios": {
+            "deploymentTarget": "13.0"
+          }
         }
       ]
     ],
@@ -30,9 +43,9 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.martianspidermedia.blipprod",
-      "buildNumber": "1.0.29",
+      "buildNumber": "1.0.33",
       "config": {
-        "googleMobileAdsAppId": "ca-app-pub-8042132670790474~2216264256" 
+        "googleMobileAdsAppId": "ca-app-pub-8042132670790474~2216264256"
       },
       "infoPlist": {
         "UIBackgroundModes": [
@@ -47,14 +60,19 @@
         "NSPhotoLibraryAddUsageDescription": "In order to select an image to upload, Blip needs access to your photo library.",
         "NSPhotoLibraryUsageDescription": "In order to select an image to upload, Blip needs access to your photo library.",
         "NSRemindersUsageDescription": "This permission is not needed by the app, but it is required by an underlying API. If you see this dialog, contact us.",
-        "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you."
+        "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you.",
+        "SKAdNetworkItems": [
+          {
+            "SKAdNetworkIdentifier": "cstr6suwn9.skadnetwork"
+          }
+        ]
       }
     },
     "android": {
-      "package": "com.msm.blipprod",
-      "versionCode": 29,
+      "package": "com.martianspidermedia.blipprod",
+      "versionCode": 33,
       "config": {
-        "googleMobileAdsAppId": "ca-app-pub-8042132670790474~2382990023" 
+        "googleMobileAdsAppId": "ca-app-pub-8042132670790474~3720917615"
       },
       "permissions": [
         "RECROD_AUDIO",
@@ -79,8 +97,9 @@
         "READ_MEDIA_AUDIO",
         "READ_MEDIA_IMAGES",
         "STATUS_BAR",
-        "USE_BIOMETRIC"
-      ], 
+        "USE_BIOMETRIC",
+        "com.google.android.gms.permission.AD_ID"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/blankprofile.png",
         "backgroundColor": "#000000"
@@ -88,6 +107,11 @@
     },
     "web": {
       "favicon": "./assets/images/blankprofile.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c50cede7-c5ff-4907-9ecc-1f56d9957a8f"
+      }
     }
   }
 }
