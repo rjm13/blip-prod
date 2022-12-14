@@ -5,6 +5,7 @@ import { Auth, API, graphqlOperation } from 'aws-amplify';
 import { getUser } from '../../src/graphql/queries';
 import { StatusBar } from 'expo-status-bar';
 import Purchases from "react-native-purchases";
+import { userInfo } from "os";
 
 
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -31,27 +32,37 @@ const Redirect = ({route, navigation} : any) => {
     const { premium } = useContext(AppContext);
     const { setPremium } = useContext(AppContext);
 
-    useEffect(() => {
-        //TODO check to see if the user has a premium subscription
-        //if they do, do nothing, it will be taken care of on redirect screen
-        //if they not subscribed and in the premium group, remove them
     
-        const performMagic = async () => {
-    
-          const userInfo = await Auth.currentAuthenticatedUser();
-    
-          const ENTITLEMENT_ID = userInfo.attributes.sub
-    
-          const purchaserInfo = await Purchases.getPurchaserInfo();
-    
-          if (typeof purchaserInfo.entitlements.active[0] !== "undefined") {
-            setPremium(true);
-          } 
-        }
 
-        performMagic();
+
+    // useEffect(() => {
+    // //     //TODO check to see if the user has a premium subscription
+    // //     //if they do, do nothing, it will be taken care of on redirect screen
+    // //     //if they not subscribed and in the premium group, remove them
     
-      }, [])
+    //     const performMagic = async () => {
+    
+    //     try {
+
+    //         const purchaserInfo = await Purchases.getCustomerInfo();
+    //         console.log('purchase 1 is')
+    //         console.log(purchaserInfo)
+    //         alert(purchaserInfo.originalPurchaseDate)
+
+    //         if (typeof purchaserInfo.entitlements.active[0] !== "undefined") {
+    //             setPremium(true);
+    //             console.log('purchase 2 is')
+    //             console.log(purchaserInfo)
+    //           } 
+
+    //       } catch (e) {
+    //         console.log('purchase error is')
+    //        console.log(e)
+    //       }
+    //     }
+    //     performMagic();
+    
+    //   }, [])
 
 
 
@@ -77,13 +88,40 @@ const Redirect = ({route, navigation} : any) => {
                     //     console.log(userInfo.signInUserSession.idToken.payload["cognito:groups"])
                     // }
 
-                    const purchaserInfo = await Purchases.getPurchaserInfo();
+                    Purchases.setDebugLogsEnabled(true)
+                    if (Platform.OS === 'android') {
+                    Purchases.configure({apiKey: 'goog_ZnvczOwEEgDMwVVNvfxMKwPmFgX', appUserID: userInfo.attributes.sub})
+                    }
+                    if (Platform.OS === 'ios') {
+                    Purchases.configure({apiKey: 'appl_kWcWMJjdDmIvLdsnnGavdbkSevg', appUserID: userInfo.attributes.sub})
+                    }
 
-                    if (typeof purchaserInfo.entitlements.active[0] !== "undefined") {
+                    console.log('starts here')
+
+                    const { customerInfo, created } = await Purchases.logIn(userInfo.attributes.sub)
+
+                    console.log(customerInfo)
+                    if (customerInfo) {
+
+                    const purchaserInfo = await Purchases.getCustomerInfo();
+
+                    // console.log('purchase 5 is')
+                    // console.log(purchaserInfo)
+                    // alert(purchaserInfo.originalPurchaseDate)
+
+                    // if (typeof purchaserInfo.entitlements.active[0] !== "undefined") {
+                    //     setPremium(true);
+                    //   } else {
+                    //     setPremium(false)
+                    //   }
+                        console.log('middle here')
+                    console.log(purchaserInfo)
+
+                      if (purchaserInfo.entitlements.active.premium?.isActive === true) {
                         setPremium(true);
-                      } else {
-                        setPremium(false)
                       }
+
+                    }
 
                     const date = new Date();
                     const year = date.getFullYear();
@@ -122,8 +160,9 @@ const Redirect = ({route, navigation} : any) => {
                         });
                     }
                 }
-            } catch {
+            } catch (error) {
                 setIsLoading(false);
+                alert(error)
             }
         }
         fetchUser();

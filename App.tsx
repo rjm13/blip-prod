@@ -24,6 +24,7 @@ import { requestTrackingPermissionsAsync } from 'expo-tracking-transparency';
 
 import AudioPlayerWidget from './components/AudioPlayerWidget';
 import AudioTrackPlayer from './components/AudioTrackPlayer';
+import { userInfo } from 'os';
 
 
 
@@ -56,20 +57,21 @@ export default function App() {
   
 
 
-  useEffect(() => {
-    const connectRevenueCat = async () => {
-      Purchases.setDebugLogsEnabled(true)
-      if (Platform.OS === 'android') {
-        console.log('entrou 3')
-        Purchases.setup('goog_ZnvczOwEEgDMwVVNvfxMKwPmFgX')
-      }
-      if (Platform.OS === 'ios') {
-        console.log('entrou 3')
-        Purchases.setup('appl_kWcWMJjdDmIvLdsnnGavdbkSevg')
-      }
-    }
-    connectRevenueCat()
-  }, [])
+  // useEffect(() => {
+    
+  //   const connectRevenueCat = async () => {
+  //     Purchases.setDebugLogsEnabled(true)
+  //     if (Platform.OS === 'android') {
+  //       console.log('entrou 3')
+  //       Purchases.configure({apiKey: 'goog_ZnvczOwEEgDMwVVNvfxMKwPmFgX'})
+  //     }
+  //     if (Platform.OS === 'ios') {
+  //       console.log('entrou 3')
+  //       Purchases.configure({apiKey: 'appl_kWcWMJjdDmIvLdsnnGavdbkSevg'})
+  //     } 
+  //   }
+  //   connectRevenueCat()
+  // }, [])
 
 
   const setUpTrackPlayer = async () => {

@@ -48,6 +48,20 @@ const PremiumHome = ({navigation} : any) => {
         const getPackages = async () => {
             try {
                 const userInfo = await Auth.currentAuthenticatedUser();
+                Purchases.setDebugLogsEnabled(true);
+                if (Platform.OS == "android") {
+                Purchases.configure({apiKey: "goog_ZnvczOwEEgDMwVVNvfxMKwPmFgX", appUserID: userInfo.attributes.sub});
+                } else {
+                Purchases.configure({apiKey: "appl_kWcWMJjdDmIvLdsnnGavdbkSevg", appUserID: userInfo.attributes.sub});
+                }
+                //   Purchases.setDebugLogsEnabled(true);
+                // if (Platform.OS == "android") {
+                // Purchases.configure({apiKey: "goog_ZnvczOwEEgDMwVVNvfxMKwPmFgX"});
+                // } else {
+                // Purchases.configure({apiKey: "appl_kWcWMJjdDmIvLdsnnGavdbkSevg"});
+                // }
+                
+                
                 const offerings = await Purchases.getOfferings();
                 console.log('offerings are...')
                 console.log(offerings)
@@ -55,12 +69,7 @@ const PremiumHome = ({navigation} : any) => {
                     setPackages(offerings?.current)
                     console.log(offerings?.current)
                 }
-                Purchases.setDebugLogsEnabled(true);
-                if (Platform.OS == "android") {
-                Purchases.setup("goog_ZnvczOwEEgDMwVVNvfxMKwPmFgX", userInfo.attributes.sub);
-                } else {
-                Purchases.setup("appl_kWcWMJjdDmIvLdsnnGavdbkSevg", userInfo.attributes.sub);
-                }
+              
                 }
             catch (error) {
                 console.log(error)
@@ -118,16 +127,25 @@ const PremiumHome = ({navigation} : any) => {
             return;
         } else {
 
-        let userInfo = await Auth.currentAuthenticatedUser();
+        
 
         try {
-            const ENTITLEMENT_ID = userInfo.attributes.sub
 
-            const {purchaserInfo} = await Purchases.purchasePackage(purchasePackage)
+            let userInfo = await Auth.currentAuthenticatedUser();
+
+            const { customerInfo, created } = await Purchases.logIn(userInfo.attributes.sub)
+
+                    if (customerInfo) {
+
+                        const {customerInfo, productIdentifier} = await Purchases.purchasePackage(purchasePackage)
             
-            if (typeof purchaserInfo.entitlements.active[0] !== 'undefined') {
-                navigation.navigate('Redirect', {trigger: Math.random()})
-            }
+                    // if (typeof customerInfo.entitlements.active[0] !== 'undefined') {
+                    //     navigation.navigate('Redirect', {trigger: Math.random()})
+                    // }
+                    if (customerInfo.entitlements.active.premium.isActive === true) {
+                        navigation.navigate('Redirect', {trigger: Math.random()})
+                    }
+                }
         } catch (error) {
             alert(error)
         }
