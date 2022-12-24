@@ -131,12 +131,12 @@ const Redirect = ({route, navigation} : any) => {
                     const bd3 = new Date(userInfo.attributes.birthdate).toISOString()
                 
                     if (bd3 > c) {
-                        setNSFWOn(false);
-                        setADon(false);
+                        // setNSFWOn(false);
+                        // setADon(false);
                     } 
                     if (bd3 < c) {
-                        setNSFWOn(true);
-                        setADon(true)
+                        // setNSFWOn(true);
+                        // setADon(true)
                     } 
 
                     const userData = await API.graphql(graphqlOperation(

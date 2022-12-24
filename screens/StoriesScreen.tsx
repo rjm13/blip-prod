@@ -31,6 +31,7 @@ const AudioStoryHome = ({navigation} : any) => {
   //nsfw and after dark global app context
   const { nsfwOn } = useContext(AppContext);
   const { ADon } = useContext(AppContext);
+  const { premium } = useContext(AppContext);
   const { progUpdate } = useContext(AppContext);
 
   //genre array state
@@ -67,6 +68,9 @@ const AudioStoryHome = ({navigation} : any) => {
         setIsLocked(true)
       }
       if (nsfwOn === true && genre === 'after dark') {
+        setIsLocked(true)
+      }
+      if (premium === false && genre === 'after dark') {
         setIsLocked(true)
       }
     }, [nsfwOn, ADon])

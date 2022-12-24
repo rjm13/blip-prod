@@ -112,13 +112,13 @@ const Welcome = ({navigation} : any) => {
                 const bd3 = new Date(userInfo.attributes.birthdate).toISOString()
 
                 if (bd3 > c) {
-                    setNSFWOn(false);
-                    setADon(false);
+                    //setNSFWOn(false);
+                    //setADon(false);
                     navigation.navigate('SplashCarousel')
                 } 
                 if (bd3 < c) {
-                    setNSFWOn(true);
-                    setADon(true)
+                    //setNSFWOn(true);
+                    //setADon(true)
                     navigation.navigate('SplashCarousel')
                 } 
             }

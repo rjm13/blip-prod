@@ -123,7 +123,7 @@ const ForYouCarousel = () => {
                     >
                     <View 
                         style={{ 
-                            backgroundColor: '#000000BF',
+                            backgroundColor: isVisible === true ? '#000000D9' : '#000000BF',
                             borderBottomLeftRadius: 15,
                             borderBottomRightRadius: 15,
                             borderTopRightRadius: isVisible === true ? 15 : 0,
