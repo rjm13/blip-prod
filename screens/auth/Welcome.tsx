@@ -42,8 +42,8 @@ const Welcome = ({navigation} : any) => {
                     updatedAt: new Date(),
                     userID: userInfo.attributes.sub,
                     otherUserID: null,
-                    content: 'Welcome to Blip!\n\nYour home for audio short stories.\n\nBlip curates stories, but also allows authors to share their own. Sign up as an author, narrator, or illustrator\n\nWe hope you enjoy using Blip! Happy listening!',
-                    title: 'Welcome to Blip!',
+                    content: 'Welcome to Odyssey!\n\nYour home for audio short stories.\n\nOdyssey curates stories, but also allows authors to share their own. Sign up as an author, narrator, or illustrator\n\nWe hope you enjoy using Odyssey! Happy listening!',
+                    title: 'Welcome to Odyssey!',
                     subtitle: null,
                     isReadbyUser: false,
                     isReadByOtherUser: true,
@@ -153,14 +153,14 @@ const Welcome = ({navigation} : any) => {
             <View style={{marginTop: 100, alignItems: 'center'}}>
                 <View style={{alignItems: 'center'}}>
                     <Text style={{color: '#fff', fontSize: 22, fontWeight: 'bold'}}>
-                        Welcome to Blip!
+                        Welcome to Odyssey!
                     </Text>
                     <Text style={{color: '#fff', fontSize: 16, fontWeight: 'bold', marginTop: 20}}>
                         Your home for audio short stories
                     </Text>
 
                     <Text style={{color: '#fff', textAlign: 'center', marginTop: 40, marginHorizontal: 20}}>
-                        Blip curates stories, but also allows authors to share their own. Sign up as an:
+                        Odyssey curates stories, but also allows authors to share their own. Sign up as an:
                     </Text>
                     <View style={{flexDirection: 'row', marginTop: 20}}>
                         <Text style={{color: 'cyan', textAlign: 'center', marginHorizontal: 20}}>

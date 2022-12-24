@@ -165,7 +165,7 @@ const PremiumHome = ({navigation} : any) => {
 
                     <View style={{alignSelf: 'center', justifyContent: 'center', alignContent: 'center', marginHorizontal: 20}}>
                         <Text style={{ textAlign: 'center', color: '#fff', fontSize: 32, fontWeight: 'bold'}}>
-                           Blip Premium
+                           Odyssey Premium
                         </Text>
                     </View>
 

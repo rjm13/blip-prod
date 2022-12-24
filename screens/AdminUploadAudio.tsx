@@ -868,7 +868,7 @@ const UploadAudio = ({navigation} : any) => {
         PickLocalAudio();
     }, [])
     
-//flatlist item for selecting the blip audio file from async storage
+//flatlist item for selecting the audio file from async storage
     const Item = ({item} : any) => {
 
         let [itemState, setItemState] = useState({
@@ -2027,7 +2027,7 @@ const UploadAudio = ({navigation} : any) => {
                                 <TouchableWithoutFeedback onPress={showLocalAudioModal}>
                                     <View style={{ marginRight: 20, padding: 10, borderRadius: 8, backgroundColor: '#363636'}}>
                                         <Text style={{ textAlign: 'center', color: '#ffffffa5'}}>
-                                            {'Select Blip recording'}
+                                            {'Select local recording'}
                                         </Text>
                                     </View>
                                 </TouchableWithoutFeedback>

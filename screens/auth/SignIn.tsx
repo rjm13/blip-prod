@@ -118,8 +118,8 @@ const SignIn = ({navigation} : any) => {
         } 
         catch (error) {
             console.log('error signing in', error)
-            setErr(error)
-            //setIsErr(true);
+            setErr(error.toString());
+            setIsErr(true);
             setSigningIn(false);
         }
         setSigningIn(false);
@@ -303,10 +303,10 @@ const SignIn = ({navigation} : any) => {
                 <View style={{ margin: 20}}>
                     {isErr ? (
                     <View style={{ alignItems: 'center', justifyContent: 'center', margin: 10}}>
-                        <Text style={{borderRadius: 15, backgroundColor: '#ffffff', paddingHorizontal: 20, paddingVertical: 10, color: 'red', fontSize: 13, }}>
+                        <Text style={{borderRadius: 15, backgroundColor: 'transparent', paddingHorizontal: 20, paddingVertical: 10, color: 'red', fontSize: 13, }}>
                             Error signing in. Please try again.
                         </Text>
-                        <Text style={{borderRadius: 15, backgroundColor: '#ffffff', paddingHorizontal: 20, paddingVertical: 10, color: 'red', fontSize: 13, }}>
+                        <Text style={{borderRadius: 15, backgroundColor: 'transparent', paddingHorizontal: 20, paddingVertical: 10, color: 'red', fontSize: 13, }}>
                             {err}
                         </Text>
                     </View>

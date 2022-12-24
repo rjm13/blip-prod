@@ -907,7 +907,7 @@ const handleUpdateNarratorBio = async () => {
                     <View style={styles.photocontainer }>
                         <Text style={ styles.words }>Photo</Text>
                         <Image 
-                            source={user?.imageUri ? { uri: imageU} : require('../assets/images/blankprofile.png')} 
+                            source={user?.imageUri ? { uri: imageU} : require('../assets/images/OdysseyLogo.png')} 
                             style={styles.avatar} 
                         />
                     </View>

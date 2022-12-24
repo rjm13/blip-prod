@@ -99,7 +99,7 @@ const ModSection = ({navigation} : any) => {
                     onPress={() => navigation.goBack()}
                 />
                 <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 18, marginLeft: 40}}>
-                    Blip Moderator
+                    Odyssey Moderator
                 </Text>
             </View>
 

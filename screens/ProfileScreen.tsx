@@ -133,7 +133,7 @@ const ProfileScreen = ({navigation} : any) => {
                 <ScrollView style={{ height: '86%'}} showsVerticalScrollIndicator={false}>
                     <View style={{ alignItems: 'center'}}>
                         <Image 
-                            source={ user?.imageUri ? { uri: imageU} : require('../assets/images/blankprofile.png')}
+                            source={ user?.imageUri ? { uri: imageU} : require('../assets/images/OdysseyLogo.png')}
                             style={{
                                 width: 120,
                                 height: 120,

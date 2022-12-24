@@ -55,7 +55,7 @@ const PublishingMain = ({navigation} : any) => {
 
                     <View style={{alignSelf: 'center', justifyContent: 'center', alignContent: 'center', marginHorizontal: 20, marginVertical: 40}}>
                         <Text style={{ textAlign: 'center', color: '#fff', fontSize: 20, fontWeight: 'bold'}}>
-                            Publish your audio shorts on Blip!
+                            Publish your audio shorts on Odyssey!
                         </Text>
                     </View>
 

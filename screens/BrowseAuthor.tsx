@@ -159,7 +159,7 @@ const BrowseAuthor = ({navigation} : any) => {
                     <TouchableWithoutFeedback onPress={() => navigation.navigate('UserScreenStack', {userID: id, status: 'publisher'})}>
                         <View style={{ flexDirection: 'row'}}>
                             <Image 
-                                source={ imageUri ? { uri: imageU} : require('../assets/images/blankprofile.png')}
+                                source={ imageUri ? { uri: imageU} : require('../assets/images/OdysseyLogo.png')}
                                 style={{
                                     width: 50,
                                     height: 50,

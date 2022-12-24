@@ -541,7 +541,7 @@ const ViewMessage = ({navigation} : any) => {
                             )}
                             {message?.status === 'noreply' ? (
                                 <Text style={[styles.header, {marginLeft: 20}]}>
-                                    Blip Stories
+                                    Odyssey Short Stories
                                 </Text>
                             ) :
                             <TouchableWithoutFeedback onPress={() => navigation.navigate('UserScreen', {userID: message?.user?.id === user && message?.subtitle === 'artist' ? message?.otherUser?.id : message?.user?.id === user && message?.subtitle === 'narrator' ? message?.otherUser?.id : message?.user?.id})}>

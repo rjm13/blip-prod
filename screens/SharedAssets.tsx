@@ -795,7 +795,7 @@ const SharedAssets = ({navigation} : any) => {
                                     <TouchableWithoutFeedback onPress={showLocalAudioModal}>
                                         <View style={[styles.textinput, {justifyContent: 'center'}]}>
                                             <Text style={{color: '#fff'}}>
-                                                Select Blip Recording
+                                                Select local Recording
                                             </Text>
                                         </View>
                                     </TouchableWithoutFeedback>
