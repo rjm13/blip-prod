@@ -9,7 +9,7 @@ import {
     RefreshControl} 
 from 'react-native';
 
-import { Audio } from 'expo-av';
+//import { Audio } from 'expo-av';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -285,28 +285,28 @@ const convertToTime = () => {
     const PlayPause = async () => {
 
         console.log('Loading Sound');
-        const { sound } = await Audio.Sound.createAsync(
-            //{require(playItem.audioUri)},
-            {uri: playItem.audioUri},
-            {shouldPlay: true}
-        );
+        // const { sound } = await Audio.Sound.createAsync(
+        //     //{require(playItem.audioUri)},
+        //     {uri: playItem.audioUri},
+        //     {shouldPlay: true}
+        // );
         
-        setSound(sound);
+        // setSound(sound);
 
 
-        let time = await sound.getStatusAsync();
-        setSlideLength(time.durationMillis);
+        //let time = await sound.getStatusAsync();
+        //setSlideLength(time.durationMillis);
 
-        if (isPlaying === false) {
-            console.log('Playing Sound');
-            await sound.playAsync(); 
-            setIsPlaying(true);
-            await sound.setPositionAsync(position);
-        } 
-        if (isPlaying === true) {
-            await sound.pauseAsync();
-            setIsPlaying (false);     
-        }    
+        // if (isPlaying === false) {
+        //     console.log('Playing Sound');
+        //     await sound.playAsync(); 
+        //     setIsPlaying(true);
+        //     await sound.setPositionAsync(position);
+        // } 
+        // if (isPlaying === true) {
+        //     await sound.pauseAsync();
+        //     setIsPlaying (false);     
+        // }    
     }
 
     //set the position of the slider to change every second

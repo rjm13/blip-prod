@@ -2,7 +2,7 @@
   "expo": {
     "name": "Odyssey",
     "slug": "blip-prod",
-    "version": "1.0.41",
+    "version": "1.0.42",
     "entryPoint": "./index.js",
     "plugins": [
       [
@@ -27,7 +27,7 @@
     ],
     "orientation": "portrait",
     "icon": "./assets/images/OdysseyLogo.png",
-    "scheme": "blip",
+    "scheme": "odyssey",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/OdysseyLogo.png",
@@ -43,7 +43,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.martianspidermedia.blipprod",
-      "buildNumber": "1.0.41",
+      "buildNumber": "1.0.42",
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-8042132670790474~2216264256"
       },
@@ -70,7 +70,7 @@
     },
     "android": {
       "package": "com.martianspidermedia.blipprod",
-      "versionCode": 41,
+      "versionCode": 42,
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-8042132670790474~3720917615"
       },

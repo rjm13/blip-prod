@@ -1555,9 +1555,9 @@ const UploadAudio = ({navigation} : any) => {
 
                     {user?.isNarrator === true ? (
                         <View style={{width: '100%', justifyContent: 'space-between', marginTop: 20, flexDirection: 'row', alignItems: 'center'}}>
-                            <View style={{ width: '48%'}}>
+                            <View style={{ width: '100%'}}>
                                 <TouchableWithoutFeedback onPress={pickAudio}>
-                                    <View style={{ marginLeft: 20, padding: 10, borderRadius: 8, backgroundColor: '#363636'}}>
+                                    <View style={{ marginHorizontal: 20, padding: 10, borderRadius: 8, backgroundColor: '#363636'}}>
                                         <Text style={{ textAlign: 'center', color: '#ffffffa5'}}>
                                             {'Select local audio'}
                                         </Text>
@@ -1565,7 +1565,7 @@ const UploadAudio = ({navigation} : any) => {
                                 </TouchableWithoutFeedback>
                             </View>
 
-                            <View style={{ width: '48%'}}>
+                            {/* <View style={{ width: '48%'}}>
                                 <TouchableWithoutFeedback onPress={showLocalAudioModal}>
                                     <View style={{ marginRight: 20, padding: 10, borderRadius: 8, backgroundColor: '#363636'}}>
                                         <Text style={{ textAlign: 'center', color: '#ffffffa5'}}>
@@ -1573,7 +1573,7 @@ const UploadAudio = ({navigation} : any) => {
                                         </Text>
                                     </View>
                                 </TouchableWithoutFeedback>
-                            </View>
+                            </View> */}
                         </View>
                     ) : null}
                     

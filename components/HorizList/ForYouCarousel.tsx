@@ -25,6 +25,15 @@ import unPinStory from '../functions/UnPinStory';
 import TimeConversion from '../functions/TimeConversion';
 
 
+import AnimatedLinearGradient from 'react-native-animated-linear-gradient';
+
+const presetColors = [
+    '#363636',
+    '#686868',
+    '#a5a5a5'
+]
+
+
 const ForYouCarousel = () => {
 
     //global context for nsfw filter
@@ -230,6 +239,8 @@ const ForYouCarousel = () => {
     //data for the flatlist. 
     const [Storys, setStorys] = useState([]);
 
+    const Stories = []
+
     //get the data for the flatlist. Must have: image, not be hidden, be approved, not after dark
     useEffect( () => {
 
@@ -334,7 +345,16 @@ const ForYouCarousel = () => {
               enableSnap={true}
               enableMomentum={true}
               decelerationRate='fast'
-              //layoutCardOffset={0}
+            ListEmptyComponent={
+                <View style={{
+                        width: 300,
+                        height: 280,
+                        borderRadius: 15,
+                        marginVertical: 20
+                }}>
+                    <AnimatedLinearGradient customColors={presetColors} speed={2000} />
+                </View>
+            }
             />
         </SafeAreaView>
     );

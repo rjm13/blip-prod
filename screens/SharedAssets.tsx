@@ -736,12 +736,12 @@ const SharedAssets = ({navigation} : any) => {
         )
     }
 
-    const renderBlipRecording = ({ item } : any) => (
+    // const renderBlipRecording = ({ item } : any) => (
 
-        <RecordingItem 
-          item={item}
-        />
-    );
+    //     <RecordingItem 
+    //       item={item}
+    //     />
+    // );
 
     const [deleteId, setDeleteId] = useState('')
 
@@ -792,13 +792,13 @@ const SharedAssets = ({navigation} : any) => {
                                         </View>
                                     </TouchableWithoutFeedback>
 
-                                    <TouchableWithoutFeedback onPress={showLocalAudioModal}>
+                                    {/* <TouchableWithoutFeedback onPress={showLocalAudioModal}>
                                         <View style={[styles.textinput, {justifyContent: 'center'}]}>
                                             <Text style={{color: '#fff'}}>
                                                 Select local Recording
                                             </Text>
                                         </View>
-                                    </TouchableWithoutFeedback>
+                                    </TouchableWithoutFeedback> */}
                                     
                                     {audioName !== '' ? (
                                         <Text style={{marginTop: 10, textAlign: 'center', color: '#00ffffa5'}}>
@@ -864,13 +864,13 @@ const SharedAssets = ({navigation} : any) => {
                                         </View>
                                     </TouchableWithoutFeedback>
 
-                                    <TouchableWithoutFeedback onPress={showLocalAudioModal}>
+                                    {/* <TouchableWithoutFeedback onPress={showLocalAudioModal}>
                                         <View style={[styles.textinput, {justifyContent: 'center'}]}>
                                             <Text style={{color: '#fff'}}>
                                                 Select Blip Recording
                                             </Text>
                                         </View>
-                                    </TouchableWithoutFeedback>
+                                    </TouchableWithoutFeedback> */}
                                     
                                     {audioName !== '' ? (
                                         <Text style={{marginTop: 10, textAlign: 'center', color: '#00ffffa5'}}>
@@ -906,7 +906,7 @@ const SharedAssets = ({navigation} : any) => {
                 </Modal>
 
 {/* local audio list modal */}
-                <Modal visible={localAudioVisible} onDismiss={hideLocalAudioModal} contentContainerStyle={LocalAudioContainerStyle}>
+                {/* <Modal visible={localAudioVisible} onDismiss={hideLocalAudioModal} contentContainerStyle={LocalAudioContainerStyle}>
                     <ScrollView style={{ padding: 20, backgroundColor: '#363636', borderRadius: 15,}}>
                         <View>
                             <FlatList 
@@ -941,7 +941,7 @@ const SharedAssets = ({navigation} : any) => {
                             />
                         </View>
                     </ScrollView>
-                </Modal>
+                </Modal> */}
 
                 <Modal visible={visible3} onDismiss={() => {hideShareModal()}} contentContainerStyle={containerStyle}>
                     <View style={{paddingHorizontal: 20, paddingVertical: 40, alignItems: 'center' }}>

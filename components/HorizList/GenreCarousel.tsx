@@ -25,6 +25,13 @@ import TimeConversion from '../functions/TimeConversion';
 import { listStories, getUser } from '../../src/graphql/queries';
 import {graphqlOperation, API, Auth, Storage} from 'aws-amplify';
 
+import AnimatedLinearGradient from 'react-native-animated-linear-gradient';
+
+const presetColors = [
+    '#363636',
+    '#686868',
+    '#a5a5a5'
+]
 
 const GenreCarousel = ({genreid} : any) => {
 
@@ -341,6 +348,16 @@ const GenreCarousel = ({genreid} : any) => {
               enableMomentum={true}
               decelerationRate='fast'
               //layoutCardOffset={0}
+              ListEmptyComponent={
+                <View style={{
+                        width: 300,
+                        height: 280,
+                        borderRadius: 15,
+                        marginVertical: 20
+                }}>
+                    <AnimatedLinearGradient customColors={presetColors} speed={2000} />
+                </View>
+            }
             />
         </SafeAreaView>
 

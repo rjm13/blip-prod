@@ -383,7 +383,7 @@ const Publisher = ({navigation} : any) => {
                                 </View>
                             </TouchableWithoutFeedback>
 
-                            <TouchableWithoutFeedback onPress={ () => navigation.navigate('Recordings', {user: user})}>
+                            {/* <TouchableWithoutFeedback onPress={ () => navigation.navigate('Recordings', {user: user})}>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 40, marginVertical: 20}}>
                                     <Text style={{ color: '#fff', fontSize: 16}}>
                                         Recording Studio
@@ -392,7 +392,7 @@ const Publisher = ({navigation} : any) => {
                                         {SavedAudio.length}
                                     </Text>
                                 </View>
-                            </TouchableWithoutFeedback>
+                            </TouchableWithoutFeedback> */}
                         </View>
                     ) : null}   
                         
