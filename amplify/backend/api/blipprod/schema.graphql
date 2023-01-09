@@ -46,6 +46,8 @@ type User @model @auth(rules: [{ allow: private, operations: [create, delete, up
   prompts: [Prompt] @hasMany(indexName: "byUser", fields: "id")
   savedPrompts: [SavedPrompt] @hasMany(indexName: "byUser", fields: "id")
   inProgressStories: [InProgressStory] @hasMany(indexName: "byUser", fields: "id")
+  allowExplicit: Boolean
+  allowErotica: Boolean
 }
 
 type FollowingConn @model @auth(rules: [{ allow: private, operations: [create, delete, update, read]}])
@@ -124,6 +126,13 @@ type Story @model @auth(rules: [{ allow: private, operations: [create, delete, u
   flag: [Flag] @hasMany (indexName: "byFlag", fields: ["id"])
   promptID: ID @index(name: "byPrompt", sortKeyFields: ["id"])
   prompt: Prompt @hasOne (fields: ["promptID"])
+  isPremium: Boolean
+  isLocked: Boolean
+  award1: String
+  award2: String
+  award3: String
+  featuring: String
+  promoText: String
   }
 
 type Genre @model @auth(rules: [{ allow: private, operations: [create, delete, update, read]}])

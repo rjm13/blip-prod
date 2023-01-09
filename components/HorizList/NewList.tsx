@@ -12,13 +12,7 @@ import HorzStoryTile from '../HorzStoryTile';
 import { storiesByDate } from '../../src/graphql/queries';
 import {graphqlOperation, API} from 'aws-amplify';
 
-import AnimatedLinearGradient from 'react-native-animated-linear-gradient';
-
-const presetColors = [
-    '#363636',
-    '#686868',
-    '#a5a5a5'
-]
+import AnimatedGradient, {presetColors} from '../functions/AnimatedGradient';
 
 
 const NewList = () => {
@@ -115,7 +109,7 @@ const NewList = () => {
                         marginVertical: 20,
                         marginLeft: 20
                 }}>
-                    <AnimatedLinearGradient customColors={presetColors} speed={2000} />
+                    <AnimatedGradient customColors={presetColors.loading} speed={2000} />
                 </View>
                 }
             />

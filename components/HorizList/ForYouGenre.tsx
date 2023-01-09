@@ -16,13 +16,8 @@ import { AppContext } from '../../AppContext';
 import { getGenre, storiesByUpdated, listStories } from '../../src/graphql/queries';
 import {graphqlOperation, API} from 'aws-amplify';
 
-import AnimatedLinearGradient from 'react-native-animated-linear-gradient';
+import AnimatedGradient, {presetColors} from '../functions/AnimatedGradient';
 
-const presetColors = [
-    '#363636',
-    '#686868',
-    '#a5a5a5'
-]
 
 
 const ForYouGenre = ({genreid} : any) => {

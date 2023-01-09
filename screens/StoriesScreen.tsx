@@ -24,13 +24,7 @@ import { listGenres, tagsByUpdated, getUser } from '../src/graphql/queries';
 import {graphqlOperation, API, Auth, Storage} from 'aws-amplify';
 import { UserInterfaceIdiom } from 'expo-constants';
 
-import AnimatedLinearGradient from 'react-native-animated-linear-gradient';
-
-const presetColors = [
-    '#363636',
-    '#686868',
-    '#a5a5a5'
-]
+import AnimatedGradient, {presetColors} from '../components/functions/AnimatedGradient';
 
 const AudioStoryHome = ({navigation} : any) => {
 
@@ -337,13 +331,13 @@ const AudioStoryHome = ({navigation} : any) => {
                     ListEmptyComponent={
                       <View>
                         <View style={{width: '100%', height: 60, borderRadius: 15, marginTop: 20}}>
-                          <AnimatedLinearGradient customColors={presetColors} speed={2000} />
+                          <AnimatedGradient customColors={presetColors.loading} speed={2000} />
                         </View>
                         <View style={{width: '100%', height: 60, borderRadius: 15, marginTop: 20}}>
-                          <AnimatedLinearGradient customColors={presetColors} speed={2000} />
+                          <AnimatedGradient customColors={presetColors.loading} speed={2000} />
                         </View>
                         <View style={{width: '100%', height: 60, borderRadius: 15, marginTop: 20}}>
-                          <AnimatedLinearGradient customColors={presetColors} speed={2000} />
+                          <AnimatedGradient customColors={presetColors.loading} speed={2000} />
                         </View>
                       </View>
                     }
