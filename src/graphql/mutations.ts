@@ -41,6 +41,13 @@ export const createUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
+          isPremium
+          isLocked
+          award1
+          award2
+          award3
+          featuring
+          promoText
         }
         nextToken
       }
@@ -71,6 +78,13 @@ export const createUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
+          isPremium
+          isLocked
+          award1
+          award2
+          award3
+          featuring
+          promoText
         }
         nextToken
       }
@@ -159,6 +173,13 @@ export const createUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
+          isPremium
+          isLocked
+          award1
+          award2
+          award3
+          featuring
+          promoText
         }
         nextToken
       }
@@ -316,6 +337,8 @@ export const createUser = /* GraphQL */ `
         }
         nextToken
       }
+      allowExplicit
+      allowErotica
       createdAt
       updatedAt
     }
@@ -360,6 +383,13 @@ export const updateUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
+          isPremium
+          isLocked
+          award1
+          award2
+          award3
+          featuring
+          promoText
         }
         nextToken
       }
@@ -390,6 +420,13 @@ export const updateUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
+          isPremium
+          isLocked
+          award1
+          award2
+          award3
+          featuring
+          promoText
         }
         nextToken
       }
@@ -478,6 +515,13 @@ export const updateUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
+          isPremium
+          isLocked
+          award1
+          award2
+          award3
+          featuring
+          promoText
         }
         nextToken
       }
@@ -635,6 +679,8 @@ export const updateUser = /* GraphQL */ `
         }
         nextToken
       }
+      allowExplicit
+      allowErotica
       createdAt
       updatedAt
     }
@@ -679,6 +725,13 @@ export const deleteUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
+          isPremium
+          isLocked
+          award1
+          award2
+          award3
+          featuring
+          promoText
         }
         nextToken
       }
@@ -709,6 +762,13 @@ export const deleteUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
+          isPremium
+          isLocked
+          award1
+          award2
+          award3
+          featuring
+          promoText
         }
         nextToken
       }
@@ -797,6 +857,13 @@ export const deleteUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
+          isPremium
+          isLocked
+          award1
+          award2
+          award3
+          featuring
+          promoText
         }
         nextToken
       }
@@ -954,6 +1021,8 @@ export const deleteUser = /* GraphQL */ `
         }
         nextToken
       }
+      allowExplicit
+      allowErotica
       createdAt
       updatedAt
     }
@@ -1045,6 +1114,8 @@ export const createFollowingConn = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -1124,6 +1195,8 @@ export const createFollowingConn = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -1218,6 +1291,8 @@ export const updateFollowingConn = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -1297,6 +1372,8 @@ export const updateFollowingConn = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -1391,6 +1468,8 @@ export const deleteFollowingConn = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -1470,6 +1549,8 @@ export const deleteFollowingConn = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -1563,6 +1644,8 @@ export const createPinnedStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -1598,6 +1681,8 @@ export const createPinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -1630,6 +1715,8 @@ export const createPinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -1660,6 +1747,8 @@ export const createPinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -1711,6 +1800,13 @@ export const createPinnedStory = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       createdAt
       updatedAt
@@ -1802,6 +1898,8 @@ export const updatePinnedStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -1837,6 +1935,8 @@ export const updatePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -1869,6 +1969,8 @@ export const updatePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -1899,6 +2001,8 @@ export const updatePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -1950,6 +2054,13 @@ export const updatePinnedStory = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       createdAt
       updatedAt
@@ -2041,6 +2152,8 @@ export const deletePinnedStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -2076,6 +2189,8 @@ export const deletePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -2108,6 +2223,8 @@ export const deletePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -2138,6 +2255,8 @@ export const deletePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -2189,6 +2308,13 @@ export const deletePinnedStory = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       createdAt
       updatedAt
@@ -2280,6 +2406,8 @@ export const createFinishedStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -2315,6 +2443,8 @@ export const createFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -2347,6 +2477,8 @@ export const createFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -2377,6 +2509,8 @@ export const createFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -2428,6 +2562,13 @@ export const createFinishedStory = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       createdAt
       nsfw
@@ -2534,6 +2675,8 @@ export const updateFinishedStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -2569,6 +2712,8 @@ export const updateFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -2601,6 +2746,8 @@ export const updateFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -2631,6 +2778,8 @@ export const updateFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -2682,6 +2831,13 @@ export const updateFinishedStory = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       createdAt
       nsfw
@@ -2788,6 +2944,8 @@ export const deleteFinishedStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -2823,6 +2981,8 @@ export const deleteFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -2855,6 +3015,8 @@ export const deleteFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -2885,6 +3047,8 @@ export const deleteFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -2936,6 +3100,13 @@ export const deleteFinishedStory = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       createdAt
       nsfw
@@ -3044,6 +3215,8 @@ export const createStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -3127,6 +3300,8 @@ export const createStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -3208,6 +3383,8 @@ export const createStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -3320,6 +3497,8 @@ export const createStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -3331,6 +3510,13 @@ export const createStory = /* GraphQL */ `
         upvote
         approved
       }
+      isPremium
+      isLocked
+      award1
+      award2
+      award3
+      featuring
+      promoText
     }
   }
 `;
@@ -3421,6 +3607,8 @@ export const updateStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -3504,6 +3692,8 @@ export const updateStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -3585,6 +3775,8 @@ export const updateStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -3697,6 +3889,8 @@ export const updateStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -3708,6 +3902,13 @@ export const updateStory = /* GraphQL */ `
         upvote
         approved
       }
+      isPremium
+      isLocked
+      award1
+      award2
+      award3
+      featuring
+      promoText
     }
   }
 `;
@@ -3798,6 +3999,8 @@ export const deleteStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -3881,6 +4084,8 @@ export const deleteStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -3962,6 +4167,8 @@ export const deleteStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -4074,6 +4281,8 @@ export const deleteStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -4085,6 +4294,13 @@ export const deleteStory = /* GraphQL */ `
         upvote
         approved
       }
+      isPremium
+      isLocked
+      award1
+      award2
+      award3
+      featuring
+      promoText
     }
   }
 `;
@@ -4256,6 +4472,8 @@ export const createImageAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -4336,6 +4554,8 @@ export const createImageAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -4432,6 +4652,8 @@ export const updateImageAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -4512,6 +4734,8 @@ export const updateImageAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -4608,6 +4832,8 @@ export const deleteImageAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -4688,6 +4914,8 @@ export const deleteImageAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -4783,6 +5011,8 @@ export const createDocumentAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -4864,6 +5094,8 @@ export const createDocumentAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -4958,6 +5190,8 @@ export const updateDocumentAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -5039,6 +5273,8 @@ export const updateDocumentAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -5133,6 +5369,8 @@ export const deleteDocumentAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -5214,6 +5452,8 @@ export const deleteDocumentAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -5310,6 +5550,8 @@ export const createAudioAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -5391,6 +5633,8 @@ export const createAudioAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -5487,6 +5731,8 @@ export const updateAudioAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -5568,6 +5814,8 @@ export const updateAudioAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -5664,6 +5912,8 @@ export const deleteAudioAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -5745,6 +5995,8 @@ export const deleteAudioAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -5793,6 +6045,8 @@ export const createFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -5825,6 +6079,8 @@ export const createFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -5855,6 +6111,8 @@ export const createFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -5906,6 +6164,13 @@ export const createFlag = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       flagTypes
       user {
@@ -5984,6 +6249,8 @@ export const createFlag = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -6034,6 +6301,8 @@ export const updateFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -6066,6 +6335,8 @@ export const updateFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -6096,6 +6367,8 @@ export const updateFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -6147,6 +6420,13 @@ export const updateFlag = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       flagTypes
       user {
@@ -6225,6 +6505,8 @@ export const updateFlag = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -6275,6 +6557,8 @@ export const deleteFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -6307,6 +6591,8 @@ export const deleteFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -6337,6 +6623,8 @@ export const deleteFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -6388,6 +6676,13 @@ export const deleteFlag = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       flagTypes
       user {
@@ -6466,6 +6761,8 @@ export const deleteFlag = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -6516,6 +6813,8 @@ export const createComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -6548,6 +6847,8 @@ export const createComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -6578,6 +6879,8 @@ export const createComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -6629,6 +6932,13 @@ export const createComment = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       content
       user {
@@ -6707,6 +7017,8 @@ export const createComment = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -6757,6 +7069,8 @@ export const updateComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -6789,6 +7103,8 @@ export const updateComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -6819,6 +7135,8 @@ export const updateComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -6870,6 +7188,13 @@ export const updateComment = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       content
       user {
@@ -6948,6 +7273,8 @@ export const updateComment = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -6998,6 +7325,8 @@ export const deleteComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -7030,6 +7359,8 @@ export const deleteComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -7060,6 +7391,8 @@ export const deleteComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -7111,6 +7444,13 @@ export const deleteComment = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       content
       user {
@@ -7189,6 +7529,8 @@ export const deleteComment = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -7347,6 +7689,8 @@ export const createRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -7379,6 +7723,8 @@ export const createRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -7409,6 +7755,8 @@ export const createRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -7460,6 +7808,13 @@ export const createRating = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       userID
       user {
@@ -7538,6 +7893,8 @@ export const createRating = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -7602,6 +7959,8 @@ export const updateRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -7634,6 +7993,8 @@ export const updateRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -7664,6 +8025,8 @@ export const updateRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -7715,6 +8078,13 @@ export const updateRating = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       userID
       user {
@@ -7793,6 +8163,8 @@ export const updateRating = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -7857,6 +8229,8 @@ export const deleteRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -7889,6 +8263,8 @@ export const deleteRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -7919,6 +8295,8 @@ export const deleteRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -7970,6 +8348,13 @@ export const deleteRating = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       userID
       user {
@@ -8048,6 +8433,8 @@ export const deleteRating = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -8159,6 +8546,8 @@ export const createMessage = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -8240,6 +8629,8 @@ export const createMessage = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -8291,6 +8682,8 @@ export const createMessage = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -8321,6 +8714,8 @@ export const createMessage = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -8419,6 +8814,8 @@ export const updateMessage = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -8500,6 +8897,8 @@ export const updateMessage = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -8551,6 +8950,8 @@ export const updateMessage = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -8581,6 +8982,8 @@ export const updateMessage = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -8679,6 +9082,8 @@ export const deleteMessage = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -8760,6 +9165,8 @@ export const deleteMessage = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -8811,6 +9218,8 @@ export const deleteMessage = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -8841,6 +9250,8 @@ export const deleteMessage = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -8895,6 +9306,8 @@ export const createReply = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -8925,6 +9338,8 @@ export const createReply = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -9025,6 +9440,8 @@ export const createReply = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -9076,6 +9493,8 @@ export const updateReply = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -9106,6 +9525,8 @@ export const updateReply = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -9206,6 +9627,8 @@ export const updateReply = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -9257,6 +9680,8 @@ export const deleteReply = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -9287,6 +9712,8 @@ export const deleteReply = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -9387,6 +9814,8 @@ export const deleteReply = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -9430,6 +9859,13 @@ export const createPrompt = /* GraphQL */ `
           updatedAt
           numListens
           promptID
+          isPremium
+          isLocked
+          award1
+          award2
+          award3
+          featuring
+          promoText
         }
         nextToken
       }
@@ -9510,6 +9946,8 @@ export const createPrompt = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -9558,6 +9996,13 @@ export const updatePrompt = /* GraphQL */ `
           updatedAt
           numListens
           promptID
+          isPremium
+          isLocked
+          award1
+          award2
+          award3
+          featuring
+          promoText
         }
         nextToken
       }
@@ -9638,6 +10083,8 @@ export const updatePrompt = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -9686,6 +10133,13 @@ export const deletePrompt = /* GraphQL */ `
           updatedAt
           numListens
           promptID
+          isPremium
+          isLocked
+          award1
+          award2
+          award3
+          featuring
+          promoText
         }
         nextToken
       }
@@ -9766,6 +10220,8 @@ export const deletePrompt = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -9864,6 +10320,8 @@ export const createSavedPrompt = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -9900,6 +10358,8 @@ export const createSavedPrompt = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -10001,6 +10461,8 @@ export const updateSavedPrompt = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -10037,6 +10499,8 @@ export const updateSavedPrompt = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -10138,6 +10602,8 @@ export const deleteSavedPrompt = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -10174,6 +10640,8 @@ export const deleteSavedPrompt = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -10275,6 +10743,8 @@ export const createInProgressStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -10310,6 +10780,8 @@ export const createInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -10342,6 +10814,8 @@ export const createInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -10372,6 +10846,8 @@ export const createInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -10423,6 +10899,13 @@ export const createInProgressStory = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       createdAt
       updatedAt
@@ -10515,6 +10998,8 @@ export const updateInProgressStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -10550,6 +11035,8 @@ export const updateInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -10582,6 +11069,8 @@ export const updateInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -10612,6 +11101,8 @@ export const updateInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -10663,6 +11154,13 @@ export const updateInProgressStory = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       createdAt
       updatedAt
@@ -10755,6 +11253,8 @@ export const deleteInProgressStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
+        allowExplicit
+        allowErotica
         createdAt
         updatedAt
       }
@@ -10790,6 +11290,8 @@ export const deleteInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -10822,6 +11324,8 @@ export const deleteInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -10852,6 +11356,8 @@ export const deleteInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -10903,6 +11409,13 @@ export const deleteInProgressStory = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       createdAt
       updatedAt
@@ -10950,6 +11463,8 @@ export const createStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -10982,6 +11497,8 @@ export const createStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -11012,6 +11529,8 @@ export const createStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -11063,6 +11582,13 @@ export const createStoryTag = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       tag {
         id
@@ -11124,6 +11650,8 @@ export const updateStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -11156,6 +11684,8 @@ export const updateStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -11186,6 +11716,8 @@ export const updateStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -11237,6 +11769,13 @@ export const updateStoryTag = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       tag {
         id
@@ -11298,6 +11837,8 @@ export const deleteStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -11330,6 +11871,8 @@ export const deleteStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -11360,6 +11903,8 @@ export const deleteStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
+          allowExplicit
+          allowErotica
           createdAt
           updatedAt
         }
@@ -11411,6 +11956,13 @@ export const deleteStoryTag = /* GraphQL */ `
           upvote
           approved
         }
+        isPremium
+        isLocked
+        award1
+        award2
+        award3
+        featuring
+        promoText
       }
       tag {
         id

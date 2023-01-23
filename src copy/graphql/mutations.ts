@@ -2,9 +2,12 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser {
-    onCreateUser {
+export const createUser = /* GraphQL */ `
+  mutation CreateUser(
+    $input: CreateUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    createUser(input: $input, condition: $condition) {
       type
       id
       name
@@ -38,13 +41,6 @@ export const onCreateUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
-          isPremium
-          isLocked
-          award1
-          award2
-          award3
-          featuring
-          promoText
         }
         nextToken
       }
@@ -75,13 +71,6 @@ export const onCreateUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
-          isPremium
-          isLocked
-          award1
-          award2
-          award3
-          featuring
-          promoText
         }
         nextToken
       }
@@ -170,13 +159,6 @@ export const onCreateUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
-          isPremium
-          isLocked
-          award1
-          award2
-          award3
-          featuring
-          promoText
         }
         nextToken
       }
@@ -334,16 +316,17 @@ export const onCreateUser = /* GraphQL */ `
         }
         nextToken
       }
-      allowExplicit
-      allowErotica
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser {
-    onUpdateUser {
+export const updateUser = /* GraphQL */ `
+  mutation UpdateUser(
+    $input: UpdateUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    updateUser(input: $input, condition: $condition) {
       type
       id
       name
@@ -377,13 +360,6 @@ export const onUpdateUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
-          isPremium
-          isLocked
-          award1
-          award2
-          award3
-          featuring
-          promoText
         }
         nextToken
       }
@@ -414,13 +390,6 @@ export const onUpdateUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
-          isPremium
-          isLocked
-          award1
-          award2
-          award3
-          featuring
-          promoText
         }
         nextToken
       }
@@ -509,13 +478,6 @@ export const onUpdateUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
-          isPremium
-          isLocked
-          award1
-          award2
-          award3
-          featuring
-          promoText
         }
         nextToken
       }
@@ -673,16 +635,17 @@ export const onUpdateUser = /* GraphQL */ `
         }
         nextToken
       }
-      allowExplicit
-      allowErotica
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser {
-    onDeleteUser {
+export const deleteUser = /* GraphQL */ `
+  mutation DeleteUser(
+    $input: DeleteUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    deleteUser(input: $input, condition: $condition) {
       type
       id
       name
@@ -716,13 +679,6 @@ export const onDeleteUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
-          isPremium
-          isLocked
-          award1
-          award2
-          award3
-          featuring
-          promoText
         }
         nextToken
       }
@@ -753,13 +709,6 @@ export const onDeleteUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
-          isPremium
-          isLocked
-          award1
-          award2
-          award3
-          featuring
-          promoText
         }
         nextToken
       }
@@ -848,13 +797,6 @@ export const onDeleteUser = /* GraphQL */ `
           updatedAt
           numListens
           promptID
-          isPremium
-          isLocked
-          award1
-          award2
-          award3
-          featuring
-          promoText
         }
         nextToken
       }
@@ -1012,16 +954,17 @@ export const onDeleteUser = /* GraphQL */ `
         }
         nextToken
       }
-      allowExplicit
-      allowErotica
       createdAt
       updatedAt
     }
   }
 `;
-export const onCreateFollowingConn = /* GraphQL */ `
-  subscription OnCreateFollowingConn {
-    onCreateFollowingConn {
+export const createFollowingConn = /* GraphQL */ `
+  mutation CreateFollowingConn(
+    $input: CreateFollowingConnInput!
+    $condition: ModelFollowingConnConditionInput
+  ) {
+    createFollowingConn(input: $input, condition: $condition) {
       id
       type
       followerID
@@ -1102,8 +1045,6 @@ export const onCreateFollowingConn = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -1183,8 +1124,6 @@ export const onCreateFollowingConn = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -1193,9 +1132,12 @@ export const onCreateFollowingConn = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateFollowingConn = /* GraphQL */ `
-  subscription OnUpdateFollowingConn {
-    onUpdateFollowingConn {
+export const updateFollowingConn = /* GraphQL */ `
+  mutation UpdateFollowingConn(
+    $input: UpdateFollowingConnInput!
+    $condition: ModelFollowingConnConditionInput
+  ) {
+    updateFollowingConn(input: $input, condition: $condition) {
       id
       type
       followerID
@@ -1276,8 +1218,6 @@ export const onUpdateFollowingConn = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -1357,8 +1297,6 @@ export const onUpdateFollowingConn = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -1367,9 +1305,12 @@ export const onUpdateFollowingConn = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteFollowingConn = /* GraphQL */ `
-  subscription OnDeleteFollowingConn {
-    onDeleteFollowingConn {
+export const deleteFollowingConn = /* GraphQL */ `
+  mutation DeleteFollowingConn(
+    $input: DeleteFollowingConnInput!
+    $condition: ModelFollowingConnConditionInput
+  ) {
+    deleteFollowingConn(input: $input, condition: $condition) {
       id
       type
       followerID
@@ -1450,8 +1391,6 @@ export const onDeleteFollowingConn = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -1531,8 +1470,6 @@ export const onDeleteFollowingConn = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -1541,9 +1478,12 @@ export const onDeleteFollowingConn = /* GraphQL */ `
     }
   }
 `;
-export const onCreatePinnedStory = /* GraphQL */ `
-  subscription OnCreatePinnedStory {
-    onCreatePinnedStory {
+export const createPinnedStory = /* GraphQL */ `
+  mutation CreatePinnedStory(
+    $input: CreatePinnedStoryInput!
+    $condition: ModelPinnedStoryConditionInput
+  ) {
+    createPinnedStory(input: $input, condition: $condition) {
       id
       type
       userID
@@ -1623,8 +1563,6 @@ export const onCreatePinnedStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -1660,8 +1598,6 @@ export const onCreatePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -1694,8 +1630,6 @@ export const onCreatePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -1726,8 +1660,6 @@ export const onCreatePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -1779,22 +1711,18 @@ export const onCreatePinnedStory = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdatePinnedStory = /* GraphQL */ `
-  subscription OnUpdatePinnedStory {
-    onUpdatePinnedStory {
+export const updatePinnedStory = /* GraphQL */ `
+  mutation UpdatePinnedStory(
+    $input: UpdatePinnedStoryInput!
+    $condition: ModelPinnedStoryConditionInput
+  ) {
+    updatePinnedStory(input: $input, condition: $condition) {
       id
       type
       userID
@@ -1874,8 +1802,6 @@ export const onUpdatePinnedStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -1911,8 +1837,6 @@ export const onUpdatePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -1945,8 +1869,6 @@ export const onUpdatePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -1977,8 +1899,6 @@ export const onUpdatePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -2030,22 +1950,18 @@ export const onUpdatePinnedStory = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeletePinnedStory = /* GraphQL */ `
-  subscription OnDeletePinnedStory {
-    onDeletePinnedStory {
+export const deletePinnedStory = /* GraphQL */ `
+  mutation DeletePinnedStory(
+    $input: DeletePinnedStoryInput!
+    $condition: ModelPinnedStoryConditionInput
+  ) {
+    deletePinnedStory(input: $input, condition: $condition) {
       id
       type
       userID
@@ -2125,8 +2041,6 @@ export const onDeletePinnedStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -2162,8 +2076,6 @@ export const onDeletePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -2196,8 +2108,6 @@ export const onDeletePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -2228,8 +2138,6 @@ export const onDeletePinnedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -2281,22 +2189,18 @@ export const onDeletePinnedStory = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       createdAt
       updatedAt
     }
   }
 `;
-export const onCreateFinishedStory = /* GraphQL */ `
-  subscription OnCreateFinishedStory {
-    onCreateFinishedStory {
+export const createFinishedStory = /* GraphQL */ `
+  mutation CreateFinishedStory(
+    $input: CreateFinishedStoryInput!
+    $condition: ModelFinishedStoryConditionInput
+  ) {
+    createFinishedStory(input: $input, condition: $condition) {
       id
       type
       userID
@@ -2376,8 +2280,6 @@ export const onCreateFinishedStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -2413,8 +2315,6 @@ export const onCreateFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -2447,8 +2347,6 @@ export const onCreateFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -2479,8 +2377,6 @@ export const onCreateFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -2532,13 +2428,6 @@ export const onCreateFinishedStory = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       createdAt
       nsfw
@@ -2560,9 +2449,12 @@ export const onCreateFinishedStory = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateFinishedStory = /* GraphQL */ `
-  subscription OnUpdateFinishedStory {
-    onUpdateFinishedStory {
+export const updateFinishedStory = /* GraphQL */ `
+  mutation UpdateFinishedStory(
+    $input: UpdateFinishedStoryInput!
+    $condition: ModelFinishedStoryConditionInput
+  ) {
+    updateFinishedStory(input: $input, condition: $condition) {
       id
       type
       userID
@@ -2642,8 +2534,6 @@ export const onUpdateFinishedStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -2679,8 +2569,6 @@ export const onUpdateFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -2713,8 +2601,6 @@ export const onUpdateFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -2745,8 +2631,6 @@ export const onUpdateFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -2798,13 +2682,6 @@ export const onUpdateFinishedStory = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       createdAt
       nsfw
@@ -2826,9 +2703,12 @@ export const onUpdateFinishedStory = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteFinishedStory = /* GraphQL */ `
-  subscription OnDeleteFinishedStory {
-    onDeleteFinishedStory {
+export const deleteFinishedStory = /* GraphQL */ `
+  mutation DeleteFinishedStory(
+    $input: DeleteFinishedStoryInput!
+    $condition: ModelFinishedStoryConditionInput
+  ) {
+    deleteFinishedStory(input: $input, condition: $condition) {
       id
       type
       userID
@@ -2908,8 +2788,6 @@ export const onDeleteFinishedStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -2945,8 +2823,6 @@ export const onDeleteFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -2979,8 +2855,6 @@ export const onDeleteFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -3011,8 +2885,6 @@ export const onDeleteFinishedStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -3064,13 +2936,6 @@ export const onDeleteFinishedStory = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       createdAt
       nsfw
@@ -3092,9 +2957,12 @@ export const onDeleteFinishedStory = /* GraphQL */ `
     }
   }
 `;
-export const onCreateStory = /* GraphQL */ `
-  subscription OnCreateStory {
-    onCreateStory {
+export const createStory = /* GraphQL */ `
+  mutation CreateStory(
+    $input: CreateStoryInput!
+    $condition: ModelStoryConditionInput
+  ) {
+    createStory(input: $input, condition: $condition) {
       id
       type
       title
@@ -3176,8 +3044,6 @@ export const onCreateStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -3261,8 +3127,6 @@ export const onCreateStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -3344,8 +3208,6 @@ export const onCreateStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -3458,8 +3320,6 @@ export const onCreateStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -3471,19 +3331,15 @@ export const onCreateStory = /* GraphQL */ `
         upvote
         approved
       }
-      isPremium
-      isLocked
-      award1
-      award2
-      award3
-      featuring
-      promoText
     }
   }
 `;
-export const onUpdateStory = /* GraphQL */ `
-  subscription OnUpdateStory {
-    onUpdateStory {
+export const updateStory = /* GraphQL */ `
+  mutation UpdateStory(
+    $input: UpdateStoryInput!
+    $condition: ModelStoryConditionInput
+  ) {
+    updateStory(input: $input, condition: $condition) {
       id
       type
       title
@@ -3565,8 +3421,6 @@ export const onUpdateStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -3650,8 +3504,6 @@ export const onUpdateStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -3733,8 +3585,6 @@ export const onUpdateStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -3847,8 +3697,6 @@ export const onUpdateStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -3860,19 +3708,15 @@ export const onUpdateStory = /* GraphQL */ `
         upvote
         approved
       }
-      isPremium
-      isLocked
-      award1
-      award2
-      award3
-      featuring
-      promoText
     }
   }
 `;
-export const onDeleteStory = /* GraphQL */ `
-  subscription OnDeleteStory {
-    onDeleteStory {
+export const deleteStory = /* GraphQL */ `
+  mutation DeleteStory(
+    $input: DeleteStoryInput!
+    $condition: ModelStoryConditionInput
+  ) {
+    deleteStory(input: $input, condition: $condition) {
       id
       type
       title
@@ -3954,8 +3798,6 @@ export const onDeleteStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -4039,8 +3881,6 @@ export const onDeleteStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -4122,8 +3962,6 @@ export const onDeleteStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -4236,8 +4074,6 @@ export const onDeleteStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -4249,19 +4085,15 @@ export const onDeleteStory = /* GraphQL */ `
         upvote
         approved
       }
-      isPremium
-      isLocked
-      award1
-      award2
-      award3
-      featuring
-      promoText
     }
   }
 `;
-export const onCreateGenre = /* GraphQL */ `
-  subscription OnCreateGenre {
-    onCreateGenre {
+export const createGenre = /* GraphQL */ `
+  mutation CreateGenre(
+    $input: CreateGenreInput!
+    $condition: ModelGenreConditionInput
+  ) {
+    createGenre(input: $input, condition: $condition) {
       id
       genre
       icon
@@ -4283,9 +4115,12 @@ export const onCreateGenre = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateGenre = /* GraphQL */ `
-  subscription OnUpdateGenre {
-    onUpdateGenre {
+export const updateGenre = /* GraphQL */ `
+  mutation UpdateGenre(
+    $input: UpdateGenreInput!
+    $condition: ModelGenreConditionInput
+  ) {
+    updateGenre(input: $input, condition: $condition) {
       id
       genre
       icon
@@ -4307,9 +4142,12 @@ export const onUpdateGenre = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteGenre = /* GraphQL */ `
-  subscription OnDeleteGenre {
-    onDeleteGenre {
+export const deleteGenre = /* GraphQL */ `
+  mutation DeleteGenre(
+    $input: DeleteGenreInput!
+    $condition: ModelGenreConditionInput
+  ) {
+    deleteGenre(input: $input, condition: $condition) {
       id
       genre
       icon
@@ -4331,9 +4169,12 @@ export const onDeleteGenre = /* GraphQL */ `
     }
   }
 `;
-export const onCreateImageAsset = /* GraphQL */ `
-  subscription OnCreateImageAsset {
-    onCreateImageAsset {
+export const createImageAsset = /* GraphQL */ `
+  mutation CreateImageAsset(
+    $input: CreateImageAssetInput!
+    $condition: ModelImageAssetConditionInput
+  ) {
+    createImageAsset(input: $input, condition: $condition) {
       id
       type
       title
@@ -4415,8 +4256,6 @@ export const onCreateImageAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -4497,8 +4336,6 @@ export const onCreateImageAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -4508,9 +4345,12 @@ export const onCreateImageAsset = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateImageAsset = /* GraphQL */ `
-  subscription OnUpdateImageAsset {
-    onUpdateImageAsset {
+export const updateImageAsset = /* GraphQL */ `
+  mutation UpdateImageAsset(
+    $input: UpdateImageAssetInput!
+    $condition: ModelImageAssetConditionInput
+  ) {
+    updateImageAsset(input: $input, condition: $condition) {
       id
       type
       title
@@ -4592,8 +4432,6 @@ export const onUpdateImageAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -4674,8 +4512,6 @@ export const onUpdateImageAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -4685,9 +4521,12 @@ export const onUpdateImageAsset = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteImageAsset = /* GraphQL */ `
-  subscription OnDeleteImageAsset {
-    onDeleteImageAsset {
+export const deleteImageAsset = /* GraphQL */ `
+  mutation DeleteImageAsset(
+    $input: DeleteImageAssetInput!
+    $condition: ModelImageAssetConditionInput
+  ) {
+    deleteImageAsset(input: $input, condition: $condition) {
       id
       type
       title
@@ -4769,8 +4608,6 @@ export const onDeleteImageAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -4851,8 +4688,6 @@ export const onDeleteImageAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -4862,9 +4697,12 @@ export const onDeleteImageAsset = /* GraphQL */ `
     }
   }
 `;
-export const onCreateDocumentAsset = /* GraphQL */ `
-  subscription OnCreateDocumentAsset {
-    onCreateDocumentAsset {
+export const createDocumentAsset = /* GraphQL */ `
+  mutation CreateDocumentAsset(
+    $input: CreateDocumentAssetInput!
+    $condition: ModelDocumentAssetConditionInput
+  ) {
+    createDocumentAsset(input: $input, condition: $condition) {
       id
       type
       title
@@ -4945,8 +4783,6 @@ export const onCreateDocumentAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -5028,8 +4864,6 @@ export const onCreateDocumentAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -5038,9 +4872,12 @@ export const onCreateDocumentAsset = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateDocumentAsset = /* GraphQL */ `
-  subscription OnUpdateDocumentAsset {
-    onUpdateDocumentAsset {
+export const updateDocumentAsset = /* GraphQL */ `
+  mutation UpdateDocumentAsset(
+    $input: UpdateDocumentAssetInput!
+    $condition: ModelDocumentAssetConditionInput
+  ) {
+    updateDocumentAsset(input: $input, condition: $condition) {
       id
       type
       title
@@ -5121,8 +4958,6 @@ export const onUpdateDocumentAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -5204,8 +5039,6 @@ export const onUpdateDocumentAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -5214,9 +5047,12 @@ export const onUpdateDocumentAsset = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteDocumentAsset = /* GraphQL */ `
-  subscription OnDeleteDocumentAsset {
-    onDeleteDocumentAsset {
+export const deleteDocumentAsset = /* GraphQL */ `
+  mutation DeleteDocumentAsset(
+    $input: DeleteDocumentAssetInput!
+    $condition: ModelDocumentAssetConditionInput
+  ) {
+    deleteDocumentAsset(input: $input, condition: $condition) {
       id
       type
       title
@@ -5297,8 +5133,6 @@ export const onDeleteDocumentAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -5380,8 +5214,6 @@ export const onDeleteDocumentAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -5390,9 +5222,12 @@ export const onDeleteDocumentAsset = /* GraphQL */ `
     }
   }
 `;
-export const onCreateAudioAsset = /* GraphQL */ `
-  subscription OnCreateAudioAsset {
-    onCreateAudioAsset {
+export const createAudioAsset = /* GraphQL */ `
+  mutation CreateAudioAsset(
+    $input: CreateAudioAssetInput!
+    $condition: ModelAudioAssetConditionInput
+  ) {
+    createAudioAsset(input: $input, condition: $condition) {
       id
       type
       title
@@ -5475,8 +5310,6 @@ export const onCreateAudioAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -5558,8 +5391,6 @@ export const onCreateAudioAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -5568,9 +5399,12 @@ export const onCreateAudioAsset = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateAudioAsset = /* GraphQL */ `
-  subscription OnUpdateAudioAsset {
-    onUpdateAudioAsset {
+export const updateAudioAsset = /* GraphQL */ `
+  mutation UpdateAudioAsset(
+    $input: UpdateAudioAssetInput!
+    $condition: ModelAudioAssetConditionInput
+  ) {
+    updateAudioAsset(input: $input, condition: $condition) {
       id
       type
       title
@@ -5653,8 +5487,6 @@ export const onUpdateAudioAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -5736,8 +5568,6 @@ export const onUpdateAudioAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -5746,9 +5576,12 @@ export const onUpdateAudioAsset = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteAudioAsset = /* GraphQL */ `
-  subscription OnDeleteAudioAsset {
-    onDeleteAudioAsset {
+export const deleteAudioAsset = /* GraphQL */ `
+  mutation DeleteAudioAsset(
+    $input: DeleteAudioAssetInput!
+    $condition: ModelAudioAssetConditionInput
+  ) {
+    deleteAudioAsset(input: $input, condition: $condition) {
       id
       type
       title
@@ -5831,8 +5664,6 @@ export const onDeleteAudioAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -5914,8 +5745,6 @@ export const onDeleteAudioAsset = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -5924,9 +5753,12 @@ export const onDeleteAudioAsset = /* GraphQL */ `
     }
   }
 `;
-export const onCreateFlag = /* GraphQL */ `
-  subscription OnCreateFlag {
-    onCreateFlag {
+export const createFlag = /* GraphQL */ `
+  mutation CreateFlag(
+    $input: CreateFlagInput!
+    $condition: ModelFlagConditionInput
+  ) {
+    createFlag(input: $input, condition: $condition) {
       id
       type
       storyID
@@ -5961,8 +5793,6 @@ export const onCreateFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -5995,8 +5825,6 @@ export const onCreateFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -6027,8 +5855,6 @@ export const onCreateFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -6080,13 +5906,6 @@ export const onCreateFlag = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       flagTypes
       user {
@@ -6165,8 +5984,6 @@ export const onCreateFlag = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -6177,9 +5994,12 @@ export const onCreateFlag = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateFlag = /* GraphQL */ `
-  subscription OnUpdateFlag {
-    onUpdateFlag {
+export const updateFlag = /* GraphQL */ `
+  mutation UpdateFlag(
+    $input: UpdateFlagInput!
+    $condition: ModelFlagConditionInput
+  ) {
+    updateFlag(input: $input, condition: $condition) {
       id
       type
       storyID
@@ -6214,8 +6034,6 @@ export const onUpdateFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -6248,8 +6066,6 @@ export const onUpdateFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -6280,8 +6096,6 @@ export const onUpdateFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -6333,13 +6147,6 @@ export const onUpdateFlag = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       flagTypes
       user {
@@ -6418,8 +6225,6 @@ export const onUpdateFlag = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -6430,9 +6235,12 @@ export const onUpdateFlag = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteFlag = /* GraphQL */ `
-  subscription OnDeleteFlag {
-    onDeleteFlag {
+export const deleteFlag = /* GraphQL */ `
+  mutation DeleteFlag(
+    $input: DeleteFlagInput!
+    $condition: ModelFlagConditionInput
+  ) {
+    deleteFlag(input: $input, condition: $condition) {
       id
       type
       storyID
@@ -6467,8 +6275,6 @@ export const onDeleteFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -6501,8 +6307,6 @@ export const onDeleteFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -6533,8 +6337,6 @@ export const onDeleteFlag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -6586,13 +6388,6 @@ export const onDeleteFlag = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       flagTypes
       user {
@@ -6671,8 +6466,6 @@ export const onDeleteFlag = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -6683,9 +6476,12 @@ export const onDeleteFlag = /* GraphQL */ `
     }
   }
 `;
-export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment {
-    onCreateComment {
+export const createComment = /* GraphQL */ `
+  mutation CreateComment(
+    $input: CreateCommentInput!
+    $condition: ModelCommentConditionInput
+  ) {
+    createComment(input: $input, condition: $condition) {
       id
       type
       storyID
@@ -6720,8 +6516,6 @@ export const onCreateComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -6754,8 +6548,6 @@ export const onCreateComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -6786,8 +6578,6 @@ export const onCreateComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -6839,13 +6629,6 @@ export const onCreateComment = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       content
       user {
@@ -6924,8 +6707,6 @@ export const onCreateComment = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -6936,9 +6717,12 @@ export const onCreateComment = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment {
-    onUpdateComment {
+export const updateComment = /* GraphQL */ `
+  mutation UpdateComment(
+    $input: UpdateCommentInput!
+    $condition: ModelCommentConditionInput
+  ) {
+    updateComment(input: $input, condition: $condition) {
       id
       type
       storyID
@@ -6973,8 +6757,6 @@ export const onUpdateComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -7007,8 +6789,6 @@ export const onUpdateComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -7039,8 +6819,6 @@ export const onUpdateComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -7092,13 +6870,6 @@ export const onUpdateComment = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       content
       user {
@@ -7177,8 +6948,6 @@ export const onUpdateComment = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -7189,9 +6958,12 @@ export const onUpdateComment = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteComment = /* GraphQL */ `
-  subscription OnDeleteComment {
-    onDeleteComment {
+export const deleteComment = /* GraphQL */ `
+  mutation DeleteComment(
+    $input: DeleteCommentInput!
+    $condition: ModelCommentConditionInput
+  ) {
+    deleteComment(input: $input, condition: $condition) {
       id
       type
       storyID
@@ -7226,8 +6998,6 @@ export const onDeleteComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -7260,8 +7030,6 @@ export const onDeleteComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -7292,8 +7060,6 @@ export const onDeleteComment = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -7345,13 +7111,6 @@ export const onDeleteComment = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       content
       user {
@@ -7430,8 +7189,6 @@ export const onDeleteComment = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -7442,9 +7199,12 @@ export const onDeleteComment = /* GraphQL */ `
     }
   }
 `;
-export const onCreateTag = /* GraphQL */ `
-  subscription OnCreateTag {
-    onCreateTag {
+export const createTag = /* GraphQL */ `
+  mutation CreateTag(
+    $input: CreateTagInput!
+    $condition: ModelTagConditionInput
+  ) {
+    createTag(input: $input, condition: $condition) {
       id
       type
       tagName
@@ -7475,9 +7235,12 @@ export const onCreateTag = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateTag = /* GraphQL */ `
-  subscription OnUpdateTag {
-    onUpdateTag {
+export const updateTag = /* GraphQL */ `
+  mutation UpdateTag(
+    $input: UpdateTagInput!
+    $condition: ModelTagConditionInput
+  ) {
+    updateTag(input: $input, condition: $condition) {
       id
       type
       tagName
@@ -7508,9 +7271,12 @@ export const onUpdateTag = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteTag = /* GraphQL */ `
-  subscription OnDeleteTag {
-    onDeleteTag {
+export const deleteTag = /* GraphQL */ `
+  mutation DeleteTag(
+    $input: DeleteTagInput!
+    $condition: ModelTagConditionInput
+  ) {
+    deleteTag(input: $input, condition: $condition) {
       id
       type
       tagName
@@ -7541,9 +7307,12 @@ export const onDeleteTag = /* GraphQL */ `
     }
   }
 `;
-export const onCreateRating = /* GraphQL */ `
-  subscription OnCreateRating {
-    onCreateRating {
+export const createRating = /* GraphQL */ `
+  mutation CreateRating(
+    $input: CreateRatingInput!
+    $condition: ModelRatingConditionInput
+  ) {
+    createRating(input: $input, condition: $condition) {
       id
       type
       storyID
@@ -7578,8 +7347,6 @@ export const onCreateRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -7612,8 +7379,6 @@ export const onCreateRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -7644,8 +7409,6 @@ export const onCreateRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -7697,13 +7460,6 @@ export const onCreateRating = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       userID
       user {
@@ -7782,8 +7538,6 @@ export const onCreateRating = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -7808,9 +7562,12 @@ export const onCreateRating = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateRating = /* GraphQL */ `
-  subscription OnUpdateRating {
-    onUpdateRating {
+export const updateRating = /* GraphQL */ `
+  mutation UpdateRating(
+    $input: UpdateRatingInput!
+    $condition: ModelRatingConditionInput
+  ) {
+    updateRating(input: $input, condition: $condition) {
       id
       type
       storyID
@@ -7845,8 +7602,6 @@ export const onUpdateRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -7879,8 +7634,6 @@ export const onUpdateRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -7911,8 +7664,6 @@ export const onUpdateRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -7964,13 +7715,6 @@ export const onUpdateRating = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       userID
       user {
@@ -8049,8 +7793,6 @@ export const onUpdateRating = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -8075,9 +7817,12 @@ export const onUpdateRating = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteRating = /* GraphQL */ `
-  subscription OnDeleteRating {
-    onDeleteRating {
+export const deleteRating = /* GraphQL */ `
+  mutation DeleteRating(
+    $input: DeleteRatingInput!
+    $condition: ModelRatingConditionInput
+  ) {
+    deleteRating(input: $input, condition: $condition) {
       id
       type
       storyID
@@ -8112,8 +7857,6 @@ export const onDeleteRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -8146,8 +7889,6 @@ export const onDeleteRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -8178,8 +7919,6 @@ export const onDeleteRating = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -8231,13 +7970,6 @@ export const onDeleteRating = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       userID
       user {
@@ -8316,8 +8048,6 @@ export const onDeleteRating = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -8342,9 +8072,12 @@ export const onDeleteRating = /* GraphQL */ `
     }
   }
 `;
-export const onCreateMessage = /* GraphQL */ `
-  subscription OnCreateMessage {
-    onCreateMessage {
+export const createMessage = /* GraphQL */ `
+  mutation CreateMessage(
+    $input: CreateMessageInput!
+    $condition: ModelMessageConditionInput
+  ) {
+    createMessage(input: $input, condition: $condition) {
       id
       type
       title
@@ -8426,8 +8159,6 @@ export const onCreateMessage = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -8509,8 +8240,6 @@ export const onCreateMessage = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -8562,8 +8291,6 @@ export const onCreateMessage = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -8594,8 +8321,6 @@ export const onCreateMessage = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -8607,9 +8332,12 @@ export const onCreateMessage = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateMessage = /* GraphQL */ `
-  subscription OnUpdateMessage {
-    onUpdateMessage {
+export const updateMessage = /* GraphQL */ `
+  mutation UpdateMessage(
+    $input: UpdateMessageInput!
+    $condition: ModelMessageConditionInput
+  ) {
+    updateMessage(input: $input, condition: $condition) {
       id
       type
       title
@@ -8691,8 +8419,6 @@ export const onUpdateMessage = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -8774,8 +8500,6 @@ export const onUpdateMessage = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -8827,8 +8551,6 @@ export const onUpdateMessage = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -8859,8 +8581,6 @@ export const onUpdateMessage = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -8872,9 +8592,12 @@ export const onUpdateMessage = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteMessage = /* GraphQL */ `
-  subscription OnDeleteMessage {
-    onDeleteMessage {
+export const deleteMessage = /* GraphQL */ `
+  mutation DeleteMessage(
+    $input: DeleteMessageInput!
+    $condition: ModelMessageConditionInput
+  ) {
+    deleteMessage(input: $input, condition: $condition) {
       id
       type
       title
@@ -8956,8 +8679,6 @@ export const onDeleteMessage = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -9039,8 +8760,6 @@ export const onDeleteMessage = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -9092,8 +8811,6 @@ export const onDeleteMessage = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -9124,8 +8841,6 @@ export const onDeleteMessage = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -9137,9 +8852,12 @@ export const onDeleteMessage = /* GraphQL */ `
     }
   }
 `;
-export const onCreateReply = /* GraphQL */ `
-  subscription OnCreateReply {
-    onCreateReply {
+export const createReply = /* GraphQL */ `
+  mutation CreateReply(
+    $input: CreateReplyInput!
+    $condition: ModelReplyConditionInput
+  ) {
+    createReply(input: $input, condition: $condition) {
       id
       type
       content
@@ -9177,8 +8895,6 @@ export const onCreateReply = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -9209,8 +8925,6 @@ export const onCreateReply = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -9311,8 +9025,6 @@ export const onCreateReply = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -9321,9 +9033,12 @@ export const onCreateReply = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateReply = /* GraphQL */ `
-  subscription OnUpdateReply {
-    onUpdateReply {
+export const updateReply = /* GraphQL */ `
+  mutation UpdateReply(
+    $input: UpdateReplyInput!
+    $condition: ModelReplyConditionInput
+  ) {
+    updateReply(input: $input, condition: $condition) {
       id
       type
       content
@@ -9361,8 +9076,6 @@ export const onUpdateReply = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -9393,8 +9106,6 @@ export const onUpdateReply = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -9495,8 +9206,6 @@ export const onUpdateReply = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -9505,9 +9214,12 @@ export const onUpdateReply = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteReply = /* GraphQL */ `
-  subscription OnDeleteReply {
-    onDeleteReply {
+export const deleteReply = /* GraphQL */ `
+  mutation DeleteReply(
+    $input: DeleteReplyInput!
+    $condition: ModelReplyConditionInput
+  ) {
+    deleteReply(input: $input, condition: $condition) {
       id
       type
       content
@@ -9545,8 +9257,6 @@ export const onDeleteReply = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -9577,8 +9287,6 @@ export const onDeleteReply = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -9679,8 +9387,6 @@ export const onDeleteReply = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -9689,9 +9395,12 @@ export const onDeleteReply = /* GraphQL */ `
     }
   }
 `;
-export const onCreatePrompt = /* GraphQL */ `
-  subscription OnCreatePrompt {
-    onCreatePrompt {
+export const createPrompt = /* GraphQL */ `
+  mutation CreatePrompt(
+    $input: CreatePromptInput!
+    $condition: ModelPromptConditionInput
+  ) {
+    createPrompt(input: $input, condition: $condition) {
       id
       type
       stories {
@@ -9721,13 +9430,6 @@ export const onCreatePrompt = /* GraphQL */ `
           updatedAt
           numListens
           promptID
-          isPremium
-          isLocked
-          award1
-          award2
-          award3
-          featuring
-          promoText
         }
         nextToken
       }
@@ -9808,8 +9510,6 @@ export const onCreatePrompt = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -9823,9 +9523,12 @@ export const onCreatePrompt = /* GraphQL */ `
     }
   }
 `;
-export const onUpdatePrompt = /* GraphQL */ `
-  subscription OnUpdatePrompt {
-    onUpdatePrompt {
+export const updatePrompt = /* GraphQL */ `
+  mutation UpdatePrompt(
+    $input: UpdatePromptInput!
+    $condition: ModelPromptConditionInput
+  ) {
+    updatePrompt(input: $input, condition: $condition) {
       id
       type
       stories {
@@ -9855,13 +9558,6 @@ export const onUpdatePrompt = /* GraphQL */ `
           updatedAt
           numListens
           promptID
-          isPremium
-          isLocked
-          award1
-          award2
-          award3
-          featuring
-          promoText
         }
         nextToken
       }
@@ -9942,8 +9638,6 @@ export const onUpdatePrompt = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -9957,9 +9651,12 @@ export const onUpdatePrompt = /* GraphQL */ `
     }
   }
 `;
-export const onDeletePrompt = /* GraphQL */ `
-  subscription OnDeletePrompt {
-    onDeletePrompt {
+export const deletePrompt = /* GraphQL */ `
+  mutation DeletePrompt(
+    $input: DeletePromptInput!
+    $condition: ModelPromptConditionInput
+  ) {
+    deletePrompt(input: $input, condition: $condition) {
       id
       type
       stories {
@@ -9989,13 +9686,6 @@ export const onDeletePrompt = /* GraphQL */ `
           updatedAt
           numListens
           promptID
-          isPremium
-          isLocked
-          award1
-          award2
-          award3
-          featuring
-          promoText
         }
         nextToken
       }
@@ -10076,8 +9766,6 @@ export const onDeletePrompt = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -10091,9 +9779,12 @@ export const onDeletePrompt = /* GraphQL */ `
     }
   }
 `;
-export const onCreateSavedPrompt = /* GraphQL */ `
-  subscription OnCreateSavedPrompt {
-    onCreateSavedPrompt {
+export const createSavedPrompt = /* GraphQL */ `
+  mutation CreateSavedPrompt(
+    $input: CreateSavedPromptInput!
+    $condition: ModelSavedPromptConditionInput
+  ) {
+    createSavedPrompt(input: $input, condition: $condition) {
       id
       type
       userID
@@ -10173,8 +9864,6 @@ export const onCreateSavedPrompt = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -10211,8 +9900,6 @@ export const onCreateSavedPrompt = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -10229,9 +9916,12 @@ export const onCreateSavedPrompt = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateSavedPrompt = /* GraphQL */ `
-  subscription OnUpdateSavedPrompt {
-    onUpdateSavedPrompt {
+export const updateSavedPrompt = /* GraphQL */ `
+  mutation UpdateSavedPrompt(
+    $input: UpdateSavedPromptInput!
+    $condition: ModelSavedPromptConditionInput
+  ) {
+    updateSavedPrompt(input: $input, condition: $condition) {
       id
       type
       userID
@@ -10311,8 +10001,6 @@ export const onUpdateSavedPrompt = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -10349,8 +10037,6 @@ export const onUpdateSavedPrompt = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -10367,9 +10053,12 @@ export const onUpdateSavedPrompt = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteSavedPrompt = /* GraphQL */ `
-  subscription OnDeleteSavedPrompt {
-    onDeleteSavedPrompt {
+export const deleteSavedPrompt = /* GraphQL */ `
+  mutation DeleteSavedPrompt(
+    $input: DeleteSavedPromptInput!
+    $condition: ModelSavedPromptConditionInput
+  ) {
+    deleteSavedPrompt(input: $input, condition: $condition) {
       id
       type
       userID
@@ -10449,8 +10138,6 @@ export const onDeleteSavedPrompt = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -10487,8 +10174,6 @@ export const onDeleteSavedPrompt = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -10505,9 +10190,12 @@ export const onDeleteSavedPrompt = /* GraphQL */ `
     }
   }
 `;
-export const onCreateInProgressStory = /* GraphQL */ `
-  subscription OnCreateInProgressStory {
-    onCreateInProgressStory {
+export const createInProgressStory = /* GraphQL */ `
+  mutation CreateInProgressStory(
+    $input: CreateInProgressStoryInput!
+    $condition: ModelInProgressStoryConditionInput
+  ) {
+    createInProgressStory(input: $input, condition: $condition) {
       id
       type
       userID
@@ -10587,8 +10275,6 @@ export const onCreateInProgressStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -10624,8 +10310,6 @@ export const onCreateInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -10658,8 +10342,6 @@ export const onCreateInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -10690,8 +10372,6 @@ export const onCreateInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -10743,13 +10423,6 @@ export const onCreateInProgressStory = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       createdAt
       updatedAt
@@ -10757,9 +10430,12 @@ export const onCreateInProgressStory = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateInProgressStory = /* GraphQL */ `
-  subscription OnUpdateInProgressStory {
-    onUpdateInProgressStory {
+export const updateInProgressStory = /* GraphQL */ `
+  mutation UpdateInProgressStory(
+    $input: UpdateInProgressStoryInput!
+    $condition: ModelInProgressStoryConditionInput
+  ) {
+    updateInProgressStory(input: $input, condition: $condition) {
       id
       type
       userID
@@ -10839,8 +10515,6 @@ export const onUpdateInProgressStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -10876,8 +10550,6 @@ export const onUpdateInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -10910,8 +10582,6 @@ export const onUpdateInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -10942,8 +10612,6 @@ export const onUpdateInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -10995,13 +10663,6 @@ export const onUpdateInProgressStory = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       createdAt
       updatedAt
@@ -11009,9 +10670,12 @@ export const onUpdateInProgressStory = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteInProgressStory = /* GraphQL */ `
-  subscription OnDeleteInProgressStory {
-    onDeleteInProgressStory {
+export const deleteInProgressStory = /* GraphQL */ `
+  mutation DeleteInProgressStory(
+    $input: DeleteInProgressStoryInput!
+    $condition: ModelInProgressStoryConditionInput
+  ) {
+    deleteInProgressStory(input: $input, condition: $condition) {
       id
       type
       userID
@@ -11091,8 +10755,6 @@ export const onDeleteInProgressStory = /* GraphQL */ `
         inProgressStories {
           nextToken
         }
-        allowExplicit
-        allowErotica
         createdAt
         updatedAt
       }
@@ -11128,8 +10790,6 @@ export const onDeleteInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -11162,8 +10822,6 @@ export const onDeleteInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -11194,8 +10852,6 @@ export const onDeleteInProgressStory = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -11247,13 +10903,6 @@ export const onDeleteInProgressStory = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       createdAt
       updatedAt
@@ -11261,9 +10910,12 @@ export const onDeleteInProgressStory = /* GraphQL */ `
     }
   }
 `;
-export const onCreateStoryTag = /* GraphQL */ `
-  subscription OnCreateStoryTag {
-    onCreateStoryTag {
+export const createStoryTag = /* GraphQL */ `
+  mutation CreateStoryTag(
+    $input: CreateStoryTagInput!
+    $condition: ModelStoryTagConditionInput
+  ) {
+    createStoryTag(input: $input, condition: $condition) {
       id
       storyID
       tagID
@@ -11298,8 +10950,6 @@ export const onCreateStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -11332,8 +10982,6 @@ export const onCreateStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -11364,8 +11012,6 @@ export const onCreateStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -11417,13 +11063,6 @@ export const onCreateStoryTag = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       tag {
         id
@@ -11445,9 +11084,12 @@ export const onCreateStoryTag = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateStoryTag = /* GraphQL */ `
-  subscription OnUpdateStoryTag {
-    onUpdateStoryTag {
+export const updateStoryTag = /* GraphQL */ `
+  mutation UpdateStoryTag(
+    $input: UpdateStoryTagInput!
+    $condition: ModelStoryTagConditionInput
+  ) {
+    updateStoryTag(input: $input, condition: $condition) {
       id
       storyID
       tagID
@@ -11482,8 +11124,6 @@ export const onUpdateStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -11516,8 +11156,6 @@ export const onUpdateStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -11548,8 +11186,6 @@ export const onUpdateStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -11601,13 +11237,6 @@ export const onUpdateStoryTag = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       tag {
         id
@@ -11629,9 +11258,12 @@ export const onUpdateStoryTag = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteStoryTag = /* GraphQL */ `
-  subscription OnDeleteStoryTag {
-    onDeleteStoryTag {
+export const deleteStoryTag = /* GraphQL */ `
+  mutation DeleteStoryTag(
+    $input: DeleteStoryTagInput!
+    $condition: ModelStoryTagConditionInput
+  ) {
+    deleteStoryTag(input: $input, condition: $condition) {
       id
       storyID
       tagID
@@ -11666,8 +11298,6 @@ export const onDeleteStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -11700,8 +11330,6 @@ export const onDeleteStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -11732,8 +11360,6 @@ export const onDeleteStoryTag = /* GraphQL */ `
           narratorActiveAt
           artistActiveAt
           plan
-          allowExplicit
-          allowErotica
           createdAt
           updatedAt
         }
@@ -11785,13 +11411,6 @@ export const onDeleteStoryTag = /* GraphQL */ `
           upvote
           approved
         }
-        isPremium
-        isLocked
-        award1
-        award2
-        award3
-        featuring
-        promoText
       }
       tag {
         id
@@ -11813,9 +11432,12 @@ export const onDeleteStoryTag = /* GraphQL */ `
     }
   }
 `;
-export const onCreateGenreTag = /* GraphQL */ `
-  subscription OnCreateGenreTag {
-    onCreateGenreTag {
+export const createGenreTag = /* GraphQL */ `
+  mutation CreateGenreTag(
+    $input: CreateGenreTagInput!
+    $condition: ModelGenreTagConditionInput
+  ) {
+    createGenreTag(input: $input, condition: $condition) {
       id
       genreID
       tagID
@@ -11852,9 +11474,12 @@ export const onCreateGenreTag = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateGenreTag = /* GraphQL */ `
-  subscription OnUpdateGenreTag {
-    onUpdateGenreTag {
+export const updateGenreTag = /* GraphQL */ `
+  mutation UpdateGenreTag(
+    $input: UpdateGenreTagInput!
+    $condition: ModelGenreTagConditionInput
+  ) {
+    updateGenreTag(input: $input, condition: $condition) {
       id
       genreID
       tagID
@@ -11891,9 +11516,12 @@ export const onUpdateGenreTag = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteGenreTag = /* GraphQL */ `
-  subscription OnDeleteGenreTag {
-    onDeleteGenreTag {
+export const deleteGenreTag = /* GraphQL */ `
+  mutation DeleteGenreTag(
+    $input: DeleteGenreTagInput!
+    $condition: ModelGenreTagConditionInput
+  ) {
+    deleteGenreTag(input: $input, condition: $condition) {
       id
       genreID
       tagID
