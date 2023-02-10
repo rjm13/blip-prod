@@ -54,7 +54,9 @@ const ConfirmEmail = ({navigation, route} : {navigation: any, route : any}) => {
                             type: 'User',
                             name: userInfo.attributes.name,
                             birthdate: userInfo.attributes.birthdate,
-                            plan: 'basic'
+                            plan: 'basic',
+                            allowErotica: false,
+                            allowExplicit: true
                         }
 
                         const createdUser = await API.graphql(

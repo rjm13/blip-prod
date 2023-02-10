@@ -147,6 +147,8 @@ const Redirect = ({route, navigation} : any) => {
         
                     if (userData.data.getUser) {
                         setUserID(userData.data.getUser);
+                        setNSFWOn(userData.data.getUser.allowExplicit);
+                        setADon(userData.data.getUser.allowErotica);
                         navigation.reset({
                             //index: 0,
                             routes: [{ name: 'Root' }],

@@ -4,6 +4,8 @@ import { View, StyleSheet, Text, Dimensions, Switch, ScrollView, TouchableWithou
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 //import { Switch } from 'react-native-paper';
 //import ToggleSwitch from 'toggle-switch-react-native'
+import { Auth, graphqlOperation, API } from 'aws-amplify';
+import { updateUser } from '../src/graphql/mutations';
 
 import {AppContext} from '../AppContext';
 
@@ -22,9 +24,36 @@ const Settings = ({navigation} : any) => {
 //explicit content switch
     const [isSwitchOn, setIsSwitchOn] = useState(nsfwOn);
 
+
+    const NSFWsetting = async () => {
+        const userInfo = await Auth.currentAuthenticatedUser();
+
+        const updatedUser = { id: userInfo.attributes.sub, allowExplicit: !nsfwOn }
+
+        let result = await API.graphql(graphqlOperation(
+            updateUser, { input: updatedUser }
+        ))
+        console.log(result)
+    };
+
+    const ADsetting = async () => {
+        const userInfo = await Auth.currentAuthenticatedUser();
+
+        const updatedUser = { id: userInfo.attributes.sub, allowErotica: !ADon }
+
+        let result = await API.graphql(graphqlOperation(
+            updateUser, { input: updatedUser }
+        ))
+        console.log(result)
+    };
+
+
+
     const onToggleSwitch = () => {
         if (premium === true) {
-            setIsSwitchOn(!isSwitchOn); setNSFWOn(!nsfwOn);
+            setIsSwitchOn(!isSwitchOn); 
+            setNSFWOn(!nsfwOn);
+            NSFWsetting();
         } else if (premium === false) {
             return;
         }
@@ -35,7 +64,9 @@ const Settings = ({navigation} : any) => {
 
     const onAfterDarkSwitch = () => {
         if (premium === true) {
-            setIsAfterDarkOn(!isAfterDarkOn); setADon(!ADon);
+            setIsAfterDarkOn(!isAfterDarkOn); 
+            setADon(!ADon);
+            ADsetting();
         } else if (premium === false) {
             return;
         }
